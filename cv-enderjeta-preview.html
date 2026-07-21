@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enderjeta Sahitaj — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #17150F;
+    --paper: #FBF8F0;
+    --accent: #24463E;      /* vert forêt profond, très discret */
+    --muted: #6E6A5F;
+    --hair: #17150F14;
+    --hair-strong: #17150F2E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #1c1a15; padding: 32px 0; }
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* A4 : 210x297mm à 96dpi ≈ 794×1123px */
+  .page {
+    width: 794px;
+    height: 1123px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 56px 60px 48px;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    gap: 44px;
+    position: relative;
+  }
+
+  /* ============ LEFT ============ */
+  .left { display: flex; flex-direction: column; gap: 26px; }
+
+  .contact {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    line-height: 2;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .contact .label {
+    color: var(--muted);
+    display: inline-block;
+    width: 34px;
+    text-transform: uppercase;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
+  .contact a { color: inherit; text-decoration: none; }
+
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--hair-strong);
+  }
+  .section-label .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .section-label .name {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--ink);
+  }
+
+  /* FORMATION */
+  .formation .item { padding: 8px 0; }
+  .formation .item + .item { border-top: 1px solid var(--hair); }
+  .formation .item:first-of-type { padding-top: 0; }
+  .formation .year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    margin-bottom: 3px;
+    letter-spacing: 0.03em;
+  }
+  .formation .title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .formation .school {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* COMPÉTENCES */
+  .skills .cluster { margin-bottom: 9px; }
+  .skills .cluster:last-child { margin-bottom: 0; }
+  .skills h4 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 400;
+    font-size: 11px;
+    margin-bottom: 2px;
+    color: var(--ink);
+  }
+  .skills .items {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .skills .items b { color: var(--ink); font-weight: 400; }
+
+  /* LANGUES */
+  .languages .lang {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+  }
+  .languages .lang + .lang { border-top: 1px solid var(--hair); }
+  .languages .lang:first-of-type { padding-top: 0; }
+  .languages .lang .lname {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 400;
+    font-size: 11.5px;
+  }
+  .languages .lang .level {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+  .languages .lang .level b {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ============ RIGHT ============ */
+  .right { display: flex; flex-direction: column; }
+
+  .name h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 62px;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    font-variation-settings: "opsz" 144;
+    color: var(--ink);
+  }
+  .name h1 .last {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .name .role {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--muted);
+    margin-top: 14px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--hair-strong);
+  }
+
+  .pitch {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 36";
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    padding: 18px 0 20px;
+    border-bottom: 1px solid var(--hair-strong);
+    color: var(--ink);
+    max-width: 46em;
+  }
+  .pitch em {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* EXPERIENCES */
+  .experiences { padding-top: 20px; flex: 1; }
+
+  .experiences .job { padding: 11px 0; }
+  .experiences .job + .job { border-top: 1px solid var(--hair); }
+  .experiences .job:first-of-type { padding-top: 0; }
+
+  .experiences .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 3px;
+  }
+  .experiences .job-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+  .experiences .job-title .company {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .experiences .job-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+  .experiences .job-context {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  .experiences ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .experiences ul li {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 1px;
+    color: var(--ink);
+  }
+  .experiences ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  .side-jobs {
+    margin-top: 14px;
+    padding-top: 11px;
+    border-top: 1px solid var(--hair);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 9.5px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .side-jobs .prefix {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    color: var(--ink);
+    font-size: 10.5px;
+    display: inline-block;
+    margin-right: 8px;
+    font-style: italic;
+  }
+
+  /* footer discret */
+  .foot {
+    position: absolute;
+    bottom: 22px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 10px;
+    border-top: 1px solid var(--hair);
+  }
+
+  /* Preview note */
+  .previewnote {
+    max-width: 794px;
+    margin: 24px auto 0;
+    color: #b5aa93;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .previewnote strong { color: #fff; }
+
+  /* Print → 1 page A4 propre */
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { background: white; padding: 0; margin: 0; }
+    .page { box-shadow: none; margin: 0; }
+    .previewnote { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ========= LEFT COLUMN ========= -->
+  <aside class="left">
+
+    <div class="contact">
+      <div><span class="label">tel</span> 07 69 82 57 12</div>
+      <div><span class="label">mail</span> <a href="mailto:enderjeta.sahitaj@gmail.com">enderjeta.sahitaj@gmail.com</a></div>
+      <div><span class="label">web</span> <a href="#">linkedin.com/in/enderjeta-sahitaj</a></div>
+      <div><span class="label">loc</span> Ostwald, Bas-Rhin</div>
+    </div>
+
+    <div class="formation">
+      <div class="section-label"><span class="num">01</span><span class="name">Formation</span></div>
+      <div class="item">
+        <div class="year">2024 — 2026</div>
+        <div class="title">Master Communication &amp; Marketing</div>
+        <div class="school">ECS Mediaschool · Strasbourg</div>
+      </div>
+      <div class="item">
+        <div class="year">2022 — 2024</div>
+        <div class="title">Bachelor Communication &amp; Marketing digital</div>
+        <div class="school">ECS Mediaschool · Strasbourg</div>
+      </div>
+      <div class="item">
+        <div class="year">2015 — 2017</div>
+        <div class="title">DUT Information &amp; Communication</div>
+        <div class="school">IUT Charlemagne · Nancy</div>
+      </div>
+    </div>
+
+    <div class="skills">
+      <div class="section-label"><span class="num">02</span><span class="name">Compétences</span></div>
+
+      <div class="cluster">
+        <h4>Communication &amp; Contenu</h4>
+        <div class="items">Rédaction web · SEO · Community management · Ligne éditoriale</div>
+      </div>
+      <div class="cluster">
+        <h4>Marketing digital</h4>
+        <div class="items">Stratégie · Acquisition · Branding · Emailing</div>
+      </div>
+      <div class="cluster">
+        <h4>Analyse &amp; Performance</h4>
+        <div class="items">GA4 · Search Console · PostHog · Reporting</div>
+      </div>
+      <div class="cluster">
+        <h4>Outils &amp; Création</h4>
+        <div class="items">Canva · Figma · Adobe · Odoo · WordPress</div>
+      </div>
+      <div class="cluster">
+        <h4>Gestion de projet</h4>
+        <div class="items">Coordination · Suivi multi-marques · Priorisation</div>
+      </div>
+    </div>
+
+    <div class="languages">
+      <div class="section-label"><span class="num">03</span><span class="name">Langues</span></div>
+      <div class="lang">
+        <div class="lname">Albanais</div>
+        <div class="level"><b>natif</b></div>
+      </div>
+      <div class="lang">
+        <div class="lname">Français</div>
+        <div class="level"><b>natif</b></div>
+      </div>
+      <div class="lang">
+        <div class="lname">Anglais</div>
+        <div class="level"><b>C1</b> courant</div>
+      </div>
+      <div class="lang">
+        <div class="lname">Allemand</div>
+        <div class="level"><b>A2</b> notions</div>
+      </div>
+    </div>
+
+  </aside>
+
+
+  <!-- ========= RIGHT COLUMN ========= -->
+  <main class="right">
+
+    <div class="name">
+      <h1>
+        Enderjeta
+        <span class="last">Sahitaj.</span>
+      </h1>
+      <div class="role">Communication &amp; Marketing digital</div>
+    </div>
+
+    <p class="pitch">
+      J'ai toujours fait de la <em>communication et du marketing digital</em>, mais dans des univers très différents : culture, artisanat, tech, reconditionnement IT, e-commerce. Je pilote aujourd'hui la com et le marketing de <em>quatre entreprises en parallèle</em>. Profil couteau suisse assumé, je préfère toucher à tout et comprendre chaque brique du métier plutôt que rester enfermée dans une case. Je cherche une équipe qui me laisse cette liberté.
+    </p>
+
+    <section class="experiences">
+      <div class="section-label" style="margin-bottom: 14px;"><span class="num">04</span><span class="name">Expériences professionnelles</span></div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Alternante Communication &amp; Marketing <span class="company">— @9GROUP (ITGREEN, PC@9, GREENLEO)</span></div>
+          <div class="job-date">OCT. 2025 — AUJ.</div>
+        </div>
+        <div class="job-context">Groupe de trois marques · reconditionnement IT B2B, e-commerce PC, location étudiante</div>
+        <ul>
+          <li>Pilotage de la stratégie digitale des trois marques (SEO, contenus, LinkedIn)</li>
+          <li>Refonte de site web orientée conversion (UX + SEO), tracking GA4 et PostHog</li>
+          <li>Contenus d'acquisition : articles blog, pages produits, campagnes emailing Odoo</li>
+          <li>Coordination projets marketing multi-marques et reporting hebdomadaire</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Alternante Communication &amp; Marketing <span class="company">— Erhart &amp; Fils</span></div>
+          <div class="job-date">SEPT. 2024 — AOÛT 2025</div>
+        </div>
+        <div class="job-context">Artisanat / négoce · Bas-Rhin</div>
+        <ul>
+          <li>Déploiement des actions de communication digitale et print</li>
+          <li>Création de supports commerciaux (visuels, contenus, documents)</li>
+          <li>Coordination projets marketing et contribution aux actions RH</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Stagiaire Communication <span class="company">— Le Préo Scène</span></div>
+          <div class="job-date">2023</div>
+        </div>
+        <div class="job-context">Salle de spectacle · Oberhausbergen</div>
+        <ul>
+          <li>Création de contenus visuels et digitaux (graphisme, vidéo)</li>
+          <li>Rédaction web SEO et animation des réseaux sociaux</li>
+        </ul>
+      </div>
+
+      <div class="side-jobs">
+        <span class="prefix">Jobs étudiants — 2021 → 2024</span>
+        Mango Rivetoile · Domino's Koenigshoffen · Restaurant Parc Expo Nancy · Chez L'Jeannot Parcey · Stage journalisme Nancy
+      </div>
+    </section>
+
+  </main>
+
+  <div class="foot">
+    <span>Enderjeta Sahitaj</span>
+    <span>CV — 2026</span>
+  </div>
+
+</div>
+
+<div class="previewnote">
+  <strong>CV 1 page A4</strong> — Fraunces + Inter Tight + JetBrains Mono · palette #FBF8F0 / #17150F / #24463E (vert forêt discret)
+</div>
+
+</body>
+</html>

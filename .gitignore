@@ -1,0 +1,20 @@
+# Sources brutes et archives — pas à publier
+assets/portfolio-visuel/
+assets/realisations/_old/
+assets/realisations/_preview/
+flyer-anniv/
+downloads/
+
+# CV — décommente si tu ne veux PAS publier le PDF
+# cv-enderjeta.pdf
+# cv-enderjeta-preview.html
+
+# Système
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Node (au cas où)
+node_modules/
