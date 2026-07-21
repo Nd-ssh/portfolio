@@ -1726,8 +1726,8 @@ body { padding-top: 87px; }
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
-  padding: 0 0.03em;
-  margin: 0 -0.03em;
+  padding: 0.1em 0.15em 0.2em 0.05em;
+  margin: -0.1em -0.15em -0.2em -0.05em;
 }
 .chapter__title .word > i {
   display: inline-block;
