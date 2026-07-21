@@ -23,7 +23,7 @@
       <text x="0" y="32" font-family="Fraunces" font-weight="900" font-size="38" fill="currentColor">ES</text>
     </svg>
   </a>
-  <nav class="nav__links">
+  <nav class="nav__links" id="nav-links">
     <a href="#today" data-section="today" data-en="Today">Aujourd'hui</a>
     <a href="#creer" data-section="creer" data-en="Create">Créer</a>
     <a href="#curieuse" data-section="curieuse" data-en="Learn">Apprendre</a>
@@ -42,6 +42,10 @@
       <span data-en="Get in touch">Me contacter</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
     </a>
+    <button type="button" class="burger" aria-label="Ouvrir le menu" data-aria-en="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -1143,6 +1147,26 @@
   let savedLang = 'fr';
   try { savedLang = localStorage.getItem('portfolio-lang') || 'fr'; } catch(e){}
   if (savedLang === 'en') setLang('en');
+
+  // ===== Burger menu mobile =====
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav__links');
+  if (burger && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    burger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  }
 
   const preloadReveals = () => {
     document.querySelectorAll('.reveal').forEach(el => {
