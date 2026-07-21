@@ -1150,21 +1150,21 @@
 
   // ===== Burger menu mobile =====
   const burger = document.querySelector('.burger');
-  const navLinks = document.querySelector('.nav__links');
-  if (burger && navLinks) {
+  const navMenu = document.querySelector('.nav__links');
+  if (burger && navMenu) {
     const closeMenu = () => {
-      navLinks.classList.remove('is-open');
+      navMenu.classList.remove('is-open');
       burger.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     };
     burger.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
+      const open = navMenu.classList.toggle('is-open');
       burger.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
   }
 
