@@ -2577,6 +2577,89 @@ body { padding-top: 87px; }
   opacity: 0.9;
 }
 
+/* ============ FORMATS DE COLLABORATION ============ */
+.formats {
+  margin: 0 0 88px;
+  padding-top: 56px;
+  border-top: 1px solid var(--ink-line);
+}
+.formats__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 40px;
+  max-width: 640px;
+}
+.formats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+.format-card {
+  padding: 32px 32px 40px 0;
+  border-right: 1px solid var(--ink-line);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 14px;
+  padding-left: 24px;
+}
+.format-card:first-child { padding-left: 0; }
+.format-card:last-child { border-right: none; padding-right: 0; }
+
+.format-card__num {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  font-weight: 600;
+}
+.format-card h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.format-card p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.format-card__meta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: 12px;
+  border-top: 1px solid var(--ink-line);
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .formats__grid {
+    grid-template-columns: 1fr;
+  }
+  .format-card {
+    padding: 28px 0;
+    border-right: none;
+    border-bottom: 1px solid var(--ink-line);
+    padding-left: 0;
+  }
+  .format-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
 /* ============ FRISE CHRONOLOGIQUE HORIZONTALE ============ */
 .frise {
   list-style: none;
