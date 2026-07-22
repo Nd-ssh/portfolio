@@ -2431,8 +2431,12 @@ body { padding-top: 87px; }
   border: none !important;
 }
 .chapter--comprendre .chapter__lead p:first-child::first-letter {
-  font-size: 1em;
-  color: inherit;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1.4em;
+  line-height: 1;
 }
 
 /* CH05 Écrire — bg paper-2 pour respiration */
@@ -2871,4 +2875,45 @@ body { padding-top: 87px; }
     grid-column: 2 / 3;
     grid-row: 2;
   }
+}
+
+/* ============ CV DOWNLOAD CTA ============ */
+.cv-cta {
+  display: flex;
+  justify-content: center;
+  padding: 80px 24px 100px;
+  background: var(--paper);
+}
+.cv-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 44px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: transform 0.35s var(--ease-smooth),
+              background 0.35s var(--ease-smooth),
+              box-shadow 0.35s var(--ease-smooth);
+  box-shadow: 0 8px 24px rgba(36, 70, 62, 0.18);
+}
+.cv-cta__btn:hover {
+  transform: translateY(-3px);
+  background: var(--ink);
+  box-shadow: 0 14px 32px rgba(23, 21, 15, 0.28);
+}
+.cv-cta__btn svg {
+  transition: transform 0.35s var(--ease-smooth);
+}
+.cv-cta__btn:hover svg {
+  transform: translateY(3px);
+}
+@media (max-width: 720px) {
+  .cv-cta { padding: 56px 20px 72px; }
+  .cv-cta__btn { font-size: 17px; padding: 18px 28px; }
 }
