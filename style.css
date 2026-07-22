@@ -3103,24 +3103,19 @@ body { padding-top: 87px; }
 .sparkle {
   position: fixed;
   top: 0; left: 0;
-  transform: translate3d(var(--sx), var(--sy), 0) rotate(var(--rot, 0deg));
+  width: var(--size, 4px);
+  height: var(--size, 4px);
+  border-radius: 50%;
+  background: var(--accent-2);
+  transform: translate3d(var(--sx), var(--sy), 0);
   opacity: 0;
-  animation: sparkle-twinkle 1400ms ease-out forwards;
+  animation: sparkle-fade 700ms ease-out forwards;
   will-change: transform, opacity;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: var(--size, 14px);
-  line-height: 1;
-  color: var(--accent);
-  letter-spacing: -0.005em;
-  white-space: nowrap;
-  transform-origin: left center;
   pointer-events: none;
+  box-shadow: 0 0 3px rgba(127, 191, 163, 0.5);
 }
-@keyframes sparkle-twinkle {
-  0%   { opacity: 0; transform: translate3d(var(--sx), var(--sy), 0) rotate(var(--rot)) scale(0.6); }
-  20%  { opacity: 1; transform: translate3d(var(--sx), var(--sy), 0) rotate(var(--rot)) scale(1); }
-  70%  { opacity: 0.85; transform: translate3d(calc(var(--sx) + var(--drift) * 0.5), calc(var(--sy) - 14px), 0) rotate(calc(var(--spin) * 0.6)) scale(1); }
-  100% { opacity: 0; transform: translate3d(calc(var(--sx) + var(--drift)), calc(var(--sy) - 36px), 0) rotate(var(--spin)) scale(0.95); }
+@keyframes sparkle-fade {
+  0%   { opacity: 0; transform: translate3d(var(--sx), var(--sy), 0) scale(0.4); }
+  25%  { opacity: 0.9; transform: translate3d(var(--sx), var(--sy), 0) scale(1); }
+  100% { opacity: 0; transform: translate3d(calc(var(--sx) + var(--drift)), calc(var(--sy) - 16px), 0) scale(0.3); }
 }
