@@ -83,32 +83,56 @@ body {
   will-change: transform;
 }
 .cursor {
-  width: 36px; height: 36px;
-  margin-left: -18px; margin-top: -18px;
-  border: 1px solid var(--ink);
+  width: 44px; height: 44px;
+  margin-left: -22px; margin-top: -22px;
+  border: 1.5px solid var(--accent-2);
   border-radius: 50%;
-  transition: width 0.28s var(--ease-smooth),
-              height 0.28s var(--ease-smooth),
-              margin 0.28s var(--ease-smooth),
-              background 0.2s ease,
-              border-color 0.2s ease;
+  transition: width 0.4s var(--ease-elastic),
+              height 0.4s var(--ease-elastic),
+              margin 0.4s var(--ease-elastic),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              opacity 0.3s ease;
   mix-blend-mode: difference;
-  border-color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--paper);
+  overflow: hidden;
+}
+.cursor::before {
+  content: "↗";
+  opacity: 0;
+  transform: scale(0.4) rotate(-45deg);
+  transition: opacity 0.35s var(--ease-smooth),
+              transform 0.45s var(--ease-elastic);
+  display: inline-block;
+  line-height: 1;
 }
 .cursor.is-hover {
-  width: 64px; height: 64px;
-  margin-left: -32px; margin-top: -32px;
+  width: 88px; height: 88px;
+  margin-left: -44px; margin-top: -44px;
   background: var(--accent);
   border-color: var(--accent);
 }
+.cursor.is-hover::before {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
 .cursor-dot {
-  width: 6px; height: 6px;
-  margin-left: -3px; margin-top: -3px;
-  background: var(--ink);
+  width: 8px; height: 8px;
+  margin-left: -4px; margin-top: -4px;
+  background: var(--accent-2);
   border-radius: 50%;
   mix-blend-mode: difference;
-  background: var(--paper);
+  transition: transform 0.2s var(--ease-smooth);
 }
+.cursor.is-hover ~ .cursor-dot,
+body:has(.cursor.is-hover) .cursor-dot { transform: scale(0); }
 
 /* ============ BARRE DE PROGRESSION SCROLL ============ */
 .scroll-progress {
@@ -448,11 +472,11 @@ body { padding-top: 87px; }
 .hero__stats strong {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 40px;
+  font-size: 64px;
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--accent);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 24;
 }
 .hero__stats span {
   font-family: var(--font-body);
@@ -1265,12 +1289,12 @@ body { padding-top: 87px; }
    NARRATIVE CHAPTERS (v14)
    =================================================== */
 .chapter {
-  padding: 140px var(--pad-x);
+  padding: 96px var(--pad-x);
   border-bottom: 1px solid var(--ink-line);
   max-width: 1400px;
   margin: 0 auto;
 }
-.chapter + .chapter { padding-top: 120px; }
+.chapter + .chapter { padding-top: 80px; }
 
 .chapter__marker {
   display: inline-flex;
@@ -1833,7 +1857,7 @@ body { padding-top: 87px; }
   grid-template-columns: 1fr 1fr;
   gap: 40px 80px;
   max-width: none;
-  margin-bottom: 96px;
+  margin-bottom: 64px;
   align-items: start;
 }
 .chapter__lead p:first-child {
