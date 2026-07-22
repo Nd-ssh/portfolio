@@ -1319,7 +1319,7 @@ body { padding-top: 87px; }
 /* ---- Brand cards (CH01) ---- */
 .brands {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .brand {
@@ -1852,7 +1852,7 @@ body { padding-top: 87px; }
 
 /* --- Brands (CH01) : cartes qui respirent --- */
 .brands {
-  grid-template-columns: 1.05fr 1fr 1.05fr;
+  grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
 }
 .brand {
