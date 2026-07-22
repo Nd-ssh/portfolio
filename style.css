@@ -83,88 +83,29 @@ body {
   will-change: transform;
 }
 .cursor {
-  width: 60px; height: 60px;
-  margin-left: -30px; margin-top: -30px;
-  display: grid;
-  place-items: center;
-  color: var(--paper);
-  transition: width 0.45s var(--ease-elastic),
-              height 0.45s var(--ease-elastic),
-              margin 0.45s var(--ease-elastic),
-              color 0.3s ease;
+  width: 28px; height: 28px;
+  margin-left: -14px; margin-top: -14px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  transition: width 0.3s var(--ease-smooth),
+              height 0.3s var(--ease-smooth),
+              margin 0.3s var(--ease-smooth),
+              background 0.25s ease,
+              border-color 0.25s ease;
   mix-blend-mode: difference;
 }
-.cursor__inner {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 1;
-  color: inherit;
-  animation: cursor-spin 6s linear infinite;
-  transition: font-size 0.45s var(--ease-elastic),
-              opacity 0.35s ease;
-  display: inline-block;
-  will-change: transform;
-  position: relative;
-  z-index: 2;
-}
-.cursor__inner::before { content: "✱"; }
-.cursor__label {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: -0.01em;
-  color: var(--paper);
-  opacity: 0;
-  transform: translateY(8px) rotate(-4deg);
-  transition: opacity 0.3s var(--ease-smooth),
-              transform 0.5s var(--ease-elastic);
-  pointer-events: none;
-  z-index: 3;
-}
-@keyframes cursor-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
 .cursor.is-hover {
-  width: 92px; height: 92px;
-  margin-left: -46px; margin-top: -46px;
-}
-.cursor.is-hover .cursor__inner {
-  font-size: 0;
-  opacity: 0;
-}
-.cursor.is-hover .cursor__label {
-  opacity: 1;
-  transform: translateY(0) rotate(0);
-}
-.cursor::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: transparent;
-  transition: background 0.35s var(--ease-smooth),
-              transform 0.45s var(--ease-elastic);
-  transform: scale(0.6);
-  z-index: 1;
-}
-.cursor.is-hover::after {
+  width: 44px; height: 44px;
+  margin-left: -22px; margin-top: -22px;
   background: var(--accent);
-  transform: scale(1);
+  border-color: var(--accent);
 }
 .cursor-dot {
-  width: 6px; height: 6px;
-  margin-left: -3px; margin-top: -3px;
-  background: var(--accent-2);
+  width: 5px; height: 5px;
+  margin-left: -2.5px; margin-top: -2.5px;
+  background: var(--accent);
   border-radius: 50%;
-  transition: transform 0.2s var(--ease-smooth), opacity 0.25s ease;
+  transition: opacity 0.2s ease;
 }
 .cursor.is-hover ~ .cursor-dot { opacity: 0; }
 
