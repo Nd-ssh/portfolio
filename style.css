@@ -3002,3 +3002,44 @@ body { padding-top: 87px; }
   .video-credits__arrow { display: none; }
   .video-credits__title { font-size: 15px; }
 }
+
+/* ============ EMAILINGS ITGREEN (proofs--emails) ============ */
+.proofs--emails {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.proof--email {
+  aspect-ratio: 3 / 8;
+  background: #f4f4f4;
+}
+.proof--email img {
+  object-fit: cover;
+  object-position: top;
+}
+.proof--email figcaption {
+  opacity: 1;
+  transform: translateY(0);
+  background: linear-gradient(to top, rgba(26,29,28,0.94), rgba(26,29,28,0));
+}
+@media (max-width: 900px) {
+  .proofs--emails { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .proofs--emails { grid-template-columns: 1fr; }
+  .proof--email { aspect-ratio: 3 / 6; }
+}
+
+/* Lightbox : mode scroll pour les images très hautes (emailings) */
+.lightbox__figure.is-tall {
+  max-height: 92vh;
+  overflow-y: auto;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+.lightbox__img.is-tall {
+  max-height: none;
+  width: min(92vw, 720px);
+  height: auto;
+  object-fit: contain;
+}

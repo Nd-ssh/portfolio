@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=28">
+<link rel="stylesheet" href="style.css?v=29">
 </head>
 <body>
 
@@ -365,15 +365,6 @@
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-collectivites.png" alt="Emailing ITGREEN : Lettre aux collectivités J-52 loi Climat" data-alt-en="ITGREEN emailing: Local government letter J-52 Climate Law">
-        <figcaption data-en="<em>ITGREEN</em> · emailing local government · J-52"><em>ITGREEN</em> · emailing collectivités · J-52</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-selection-pro.png" alt="Emailing ITGREEN : sélection pro mensuelle" data-alt-en="ITGREEN emailing: monthly pro selection">
-        <figcaption data-en="<em>ITGREEN</em> · emailing monthly pro selection"><em>ITGREEN</em> · emailing sélection pro mensuelle</figcaption>
-      </figure>
-
-      <figure class="proof">
         <img loading="lazy" src="assets/realisations/greenleo-ig-01-manifesto.png" alt="Post Instagram GreenLeo : manifesto" data-alt-en="GreenLeo Instagram post : manifesto">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · manifesto"><em>GreenLeo</em> · Instagram · manifesto</figcaption>
       </figure>
@@ -468,6 +459,21 @@
       <figure class="proof">
         <img loading="lazy" src="assets/realisations/pca9-story-2.png" alt="Story PC@9 : 2" data-alt-en="PC@9 story : 2">
         <figcaption data-en="<em>PC@9</em> · story 2"><em>PC@9</em> · story 2</figcaption>
+      </figure>
+    </div>
+
+    <div class="proofs proofs--emails" aria-label="Emailings ITGREEN" data-aria-en="ITGREEN emailings">
+      <figure class="proof proof--email">
+        <img loading="lazy" src="assets/realisations/itgreen-mailing-collectivites.png" alt="Emailing ITGREEN : Lettre aux collectivités J-52 loi Climat" data-alt-en="ITGREEN emailing: Local government letter, J-52 Climate Law">
+        <figcaption data-en="<em>ITGREEN</em> · emailing local government · J-52 Climate Law"><em>ITGREEN</em> · emailing collectivités · J-52 loi Climat</figcaption>
+      </figure>
+      <figure class="proof proof--email">
+        <img loading="lazy" src="assets/realisations/itgreen-mailing-partenaires.png" alt="Emailing ITGREEN : Programme Partenaire Revendeur" data-alt-en="ITGREEN emailing: Reseller Partner Programme">
+        <figcaption data-en="<em>ITGREEN</em> · emailing reseller partner programme"><em>ITGREEN</em> · emailing programme partenaire revendeur</figcaption>
+      </figure>
+      <figure class="proof proof--email">
+        <img loading="lazy" src="assets/realisations/itgreen-mailing-selection-pro.png" alt="Emailing ITGREEN : sélection pro mensuelle avril 2026" data-alt-en="ITGREEN emailing: monthly pro selection April 2026">
+        <figcaption data-en="<em>ITGREEN</em> · emailing monthly pro selection"><em>ITGREEN</em> · emailing sélection pro mensuelle</figcaption>
       </figure>
     </div>
   </div>
@@ -1247,6 +1253,14 @@
     };
     const isEn = () => document.body.dataset.lang === 'en';
 
+    const lbFig = lb.querySelector('.lightbox__figure');
+    const applyTall = (img) => {
+      const w = img.naturalWidth || 1;
+      const h = img.naturalHeight || 1;
+      const isTall = (w / h) < 0.6;
+      lbImg.classList.toggle('is-tall', isTall);
+      lbFig.classList.toggle('is-tall', isTall);
+    };
     const openLb = (i) => {
       lbIdx = (i + figs.length) % figs.length;
       const fig = figs[lbIdx];
@@ -1256,6 +1270,8 @@
       lbImg.alt = img.alt || '';
       lbCap.innerHTML = cap ? cap.innerHTML : '';
       lbCap.style.display = cap ? '' : 'none';
+      if (lbImg.complete && lbImg.naturalHeight) applyTall(lbImg);
+      else lbImg.addEventListener('load', () => applyTall(lbImg), { once: true });
       const brand = detectBrand(img.src);
       if (brand) {
         lbLink.href = brand.url;
