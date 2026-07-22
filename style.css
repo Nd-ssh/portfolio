@@ -83,65 +83,90 @@ body {
   will-change: transform;
 }
 .cursor {
-  width: 56px; height: 56px;
-  margin-left: -28px; margin-top: -28px;
+  width: 60px; height: 60px;
+  margin-left: -30px; margin-top: -30px;
   display: grid;
   place-items: center;
+  color: var(--paper);
   transition: width 0.45s var(--ease-elastic),
               height 0.45s var(--ease-elastic),
-              margin 0.45s var(--ease-elastic);
+              margin 0.45s var(--ease-elastic),
+              color 0.3s ease;
   mix-blend-mode: difference;
 }
 .cursor__inner {
-  width: 100%;
-  height: 100%;
-  background: var(--accent-2);
-  border-radius: 42% 58% 63% 37% / 47% 53% 47% 53%;
-  animation: cursor-blob 7s ease-in-out infinite;
-  transition: background 0.35s ease, opacity 0.35s ease;
-}
-.cursor__label {
-  position: absolute;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: 15px;
-  color: var(--ink);
+  font-size: 48px;
+  line-height: 1;
+  color: inherit;
+  animation: cursor-spin 6s linear infinite;
+  transition: font-size 0.45s var(--ease-elastic),
+              opacity 0.35s ease;
+  display: inline-block;
+  will-change: transform;
+  position: relative;
+  z-index: 2;
+}
+.cursor__inner::before { content: "✱"; }
+.cursor__label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--paper);
   opacity: 0;
-  transform: scale(0.4) rotate(-8deg);
+  transform: translateY(8px) rotate(-4deg);
   transition: opacity 0.3s var(--ease-smooth),
               transform 0.5s var(--ease-elastic);
-  letter-spacing: -0.02em;
-  mix-blend-mode: normal;
   pointer-events: none;
+  z-index: 3;
 }
-@keyframes cursor-blob {
-  0%   { border-radius: 42% 58% 63% 37% / 47% 53% 47% 53%; transform: rotate(0deg) scale(1); }
-  25%  { border-radius: 63% 37% 42% 58% / 53% 47% 53% 47%; transform: rotate(90deg)  scale(1.05); }
-  50%  { border-radius: 37% 63% 58% 42% / 47% 53% 47% 53%; transform: rotate(180deg) scale(0.95); }
-  75%  { border-radius: 58% 42% 37% 63% / 53% 47% 53% 47%; transform: rotate(270deg) scale(1.05); }
-  100% { border-radius: 42% 58% 63% 37% / 47% 53% 47% 53%; transform: rotate(360deg) scale(1); }
+@keyframes cursor-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 .cursor.is-hover {
-  width: 96px; height: 96px;
-  margin-left: -48px; margin-top: -48px;
+  width: 92px; height: 92px;
+  margin-left: -46px; margin-top: -46px;
 }
 .cursor.is-hover .cursor__inner {
-  background: var(--accent);
-  animation-duration: 3.5s;
+  font-size: 0;
+  opacity: 0;
 }
 .cursor.is-hover .cursor__label {
   opacity: 1;
-  transform: scale(1) rotate(0);
+  transform: translateY(0) rotate(0);
+}
+.cursor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.35s var(--ease-smooth),
+              transform 0.45s var(--ease-elastic);
+  transform: scale(0.6);
+  z-index: 1;
+}
+.cursor.is-hover::after {
+  background: var(--accent);
+  transform: scale(1);
 }
 .cursor-dot {
-  width: 8px; height: 8px;
-  margin-left: -4px; margin-top: -4px;
+  width: 6px; height: 6px;
+  margin-left: -3px; margin-top: -3px;
   background: var(--accent-2);
   border-radius: 50%;
-  mix-blend-mode: difference;
-  transition: transform 0.2s var(--ease-smooth), opacity 0.2s ease;
+  transition: transform 0.2s var(--ease-smooth), opacity 0.25s ease;
 }
+.cursor.is-hover ~ .cursor-dot { opacity: 0; }
 
 /* ============ BARRE DE PROGRESSION SCROLL ============ */
 .scroll-progress {
