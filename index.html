@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=38">
+<link rel="stylesheet" href="style.css?v=39">
 </head>
 <body>
 
@@ -1112,14 +1112,18 @@
     const spawnSparkle = (x, y) => {
       const s = document.createElement('span');
       s.className = 'sparkle';
-      const jx = (Math.random() - 0.5) * 24;
-      const jy = (Math.random() - 0.5) * 24;
-      const drift = (Math.random() - 0.5) * 30;
-      const size = 2 + Math.random() * 3;
+      const jx = (Math.random() - 0.5) * 28;
+      const jy = (Math.random() - 0.5) * 28;
+      const drift = (Math.random() - 0.5) * 40;
+      const size = 5 + Math.random() * 7;
+      const rot = Math.random() * 360;
+      const spin = (Math.random() - 0.5) * 240;
       s.style.setProperty('--sx', (x + jx) + 'px');
       s.style.setProperty('--sy', (y + jy) + 'px');
       s.style.setProperty('--drift', drift + 'px');
       s.style.setProperty('--size', size + 'px');
+      s.style.setProperty('--rot', rot + 'deg');
+      s.style.setProperty('--spin', (rot + spin) + 'deg');
       sparkleLayer.appendChild(s);
       s.addEventListener('animationend', () => s.remove(), { once: true });
     };
