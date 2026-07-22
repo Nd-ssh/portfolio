@@ -148,16 +148,21 @@ body { padding-top: 87px; }
 @media (max-width: 640px) { body { padding-top: 72px; } }
 .nav__logo {
   color: var(--ink); text-decoration: none;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 32px;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
   transition: color 0.25s;
 }
 .nav__logo:hover { color: var(--accent); }
-.nav__logo svg { display: none; }
-.nav__logo::before { content: "ES"; }
+.nav__logo-mark {
+  display: block;
+  width: 44px;
+  height: 34px;
+  background-color: currentColor;
+  -webkit-mask: url("assets/ender-logo.png") center / contain no-repeat;
+          mask: url("assets/ender-logo.png") center / contain no-repeat;
+  transition: transform 0.35s var(--ease-smooth);
+}
+.nav__logo:hover .nav__logo-mark { transform: translateY(-1px); }
 .nav__links {
   display: flex; gap: 36px;
   font-size: 14px; letter-spacing: -0.005em;
@@ -269,7 +274,7 @@ body { padding-top: 87px; }
     right: auto;
     width: 32px;
   }
-  .nav__logo { font-size: 22px; }
+  .nav__logo-mark { width: 34px; height: 26px; }
 }
 
 
@@ -1221,17 +1226,19 @@ body { padding-top: 87px; }
   align-items: center;
 }
 .foot__mono {
-  line-height: 0.9;
   color: var(--accent);
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 96px;
-  letter-spacing: -0.05em;
   transition: color 0.3s;
+  display: inline-block;
 }
 .foot__mono:hover { color: var(--ink); }
-.foot__mono svg { display: none; }
-.foot__mono::before { content: "ES"; }
+.foot__mono-mark {
+  display: block;
+  width: 110px;
+  height: 86px;
+  background-color: currentColor;
+  -webkit-mask: url("assets/ender-logo.png") center / contain no-repeat;
+          mask: url("assets/ender-logo.png") center / contain no-repeat;
+}
 .foot__cols {
   display: flex; flex-wrap: wrap; justify-content: space-between;
   gap: 24px 48px;
@@ -1247,7 +1254,7 @@ body { padding-top: 87px; }
 
 @media (max-width: 760px) {
   .foot { grid-template-columns: 1fr; text-align: left; }
-  .foot__mono { font-size: 64px; }
+  .foot__mono-mark { width: 84px; height: 66px; }
 }
 
 /* =====================================================
@@ -2817,6 +2824,8 @@ body { padding-top: 87px; }
   line-height: 1.25;
   margin-bottom: 6px;
   max-width: 160px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 .frise__cat {
   font-family: var(--font-body);
