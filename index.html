@@ -973,7 +973,7 @@
       </div>
     </div>
 
-    <form class="contact-form" action="https://formspree.io/f/mwvgnzvg" method="POST" novalidate>
+    <form class="contact-form" action="https://formspree.io/f/mwvgnzvg" method="POST">
       <div class="contact-form__head">
         <span class="contact-form__eyebrow" data-en="Or write me a note">Ou écrivez-moi un mot</span>
         <h3 class="contact-form__title" data-en='We can also <em class="italic">start here</em>.'>On peut aussi <em class="italic">commencer ici</em>.</h3>
@@ -987,7 +987,11 @@
           <span data-en="Your email">Votre email</span>
           <input type="email" name="email" required autocomplete="email" placeholder="vous@entreprise.com" data-placeholder-en="you@company.com">
         </label>
-        <label class="contact-form__field contact-form__field--full">
+        <label class="contact-form__field">
+          <span data-en="Your phone">Votre téléphone</span>
+          <input type="tel" name="phone" required autocomplete="tel" pattern="[0-9+.\s()\-]{6,}" placeholder="06 12 34 56 78" data-placeholder-en="+33 6 12 34 56 78">
+        </label>
+        <label class="contact-form__field">
           <span data-en="Context">Le contexte</span>
           <select name="subject" required>
             <option value="" data-en="Pick a subject">Choisir un sujet</option>
