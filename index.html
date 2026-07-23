@@ -24,31 +24,49 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=47">
+<link rel="preconnect" href="https://eu.i.posthog.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
+<link rel="stylesheet" href="style.css?v=48">
 
-<!-- Analytics : PostHog + GA4. Renseigner les 2 clés ci-dessous puis déployer. -->
+<!-- Analytics différés : PostHog + GA4 chargés après idle pour ne pas bloquer le premier rendu. -->
 <script>
   (function(){
     var POSTHOG_KEY = 'phc_kvtcKX2kpHwfpJZHC5r5jKibYQEbezaGsQ9dPWwXKyL5';
     var POSTHOG_HOST = 'https://eu.i.posthog.com';
-    if (!POSTHOG_KEY || POSTHOG_KEY.indexOf('YOUR_') === 0) return;
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    window.posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, capture_pageview: true, autocapture: true });
-  })();
-</script>
-<script>
-  (function(){
     var GA_ID = 'G-84595LE73Q';
-    if (!GA_ID || GA_ID.indexOf('YOUR_') === 0) return;
-    var s = document.createElement('script');
-    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_ID, { anonymize_ip: true });
+    var loaded = false;
+    function loadPostHog(){
+      if (!POSTHOG_KEY || POSTHOG_KEY.indexOf('YOUR_') === 0) return;
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      window.posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, capture_pageview: true, autocapture: true });
+    }
+    function loadGA4(){
+      if (!GA_ID || GA_ID.indexOf('YOUR_') === 0) return;
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+    }
+    function loadAnalytics(){
+      if (loaded) return; loaded = true;
+      loadPostHog();
+      loadGA4();
+    }
+    // On charge dès que le navigateur est idle, ou après 2,5s max, ou dès la 1ère interaction.
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadAnalytics, { timeout: 2500 });
+    } else {
+      setTimeout(loadAnalytics, 2500);
+    }
+    ['scroll','click','keydown','touchstart'].forEach(function(evt){
+      window.addEventListener(evt, loadAnalytics, { once: true, passive: true });
+    });
   })();
 </script>
 </head>
@@ -237,31 +255,31 @@
     </div>
     <div class="proofs proofs--gallery">
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-brandboard.png" alt="Brand board ABK Rénov'" data-alt-en="ABK Rénov' brand board">
+        <img loading="lazy" src="assets/realisations/abk-brandboard.webp" alt="Brand board ABK Rénov'" data-alt-en="ABK Rénov' brand board">
         <figcaption data-en="<em>ABK Rénov'</em> · brand board"><em>ABK Rénov'</em> · brand board</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-vue-ensemble.png" alt="Vue d'ensemble identité ABK Rénov'" data-alt-en="ABK Rénov' identity overview">
+        <img loading="lazy" src="assets/realisations/abk-vue-ensemble.webp" alt="Vue d'ensemble identité ABK Rénov'" data-alt-en="ABK Rénov' identity overview">
         <figcaption data-en="<em>ABK Rénov'</em> · overview"><em>ABK Rénov'</em> · vue d'ensemble</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-logo.png" alt="Logo ABK Rénov'" data-alt-en="ABK Rénov' logo">
+        <img loading="lazy" src="assets/realisations/abk-logo.webp" alt="Logo ABK Rénov'" data-alt-en="ABK Rénov' logo">
         <figcaption data-en="<em>ABK Rénov'</em> · logo"><em>ABK Rénov'</em> · logo</figcaption>
       </figure>
       <figure class="proof proof--browser" data-url="abkrenov.fr">
-        <img loading="lazy" src="assets/realisations/abk-site.png" alt="Site web ABK Rénov'" data-alt-en="ABK Rénov' website">
+        <img loading="lazy" src="assets/realisations/abk-site.webp" alt="Site web ABK Rénov'" data-alt-en="ABK Rénov' website">
         <figcaption data-en="<em>ABK Rénov'</em> · website"><em>ABK Rénov'</em> · site web</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-contact.png" alt="Page contact ABK Rénov'" data-alt-en="ABK Rénov' contact page">
+        <img loading="lazy" src="assets/realisations/abk-contact.webp" alt="Page contact ABK Rénov'" data-alt-en="ABK Rénov' contact page">
         <figcaption data-en="<em>ABK Rénov'</em> · contact page"><em>ABK Rénov'</em> · page contact</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-carte-recto.png" alt="Carte de visite ABK Rénov' : recto" data-alt-en="ABK Rénov' business card : front">
+        <img loading="lazy" src="assets/realisations/abk-carte-recto.webp" alt="Carte de visite ABK Rénov' : recto" data-alt-en="ABK Rénov' business card : front">
         <figcaption data-en="<em>ABK Rénov'</em> · business card · front"><em>ABK Rénov'</em> · carte de visite · recto</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-carte-verso.png" alt="Carte de visite ABK Rénov' : verso" data-alt-en="ABK Rénov' business card : back">
+        <img loading="lazy" src="assets/realisations/abk-carte-verso.webp" alt="Carte de visite ABK Rénov' : verso" data-alt-en="ABK Rénov' business card : back">
         <figcaption data-en="<em>ABK Rénov'</em> · business card · back"><em>ABK Rénov'</em> · carte de visite · verso</figcaption>
       </figure>
     </div>
@@ -278,69 +296,69 @@
     </div>
     <div class="proofs proofs--gallery">
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-bache-totem-rendu.png" alt="Rendu final bâche + totem ITGREEN sur l'entrepôt" data-alt-en="ITGREEN warehouse banner and totem, final result">
+        <img loading="lazy" src="assets/realisations/itgreen-bache-totem-rendu.webp" alt="Rendu final bâche + totem ITGREEN sur l'entrepôt" data-alt-en="ITGREEN warehouse banner and totem, final result">
         <figcaption data-en="<em>ITGREEN</em> · large-format signage"><em>ITGREEN</em> · signalétique entrepôt</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-bache.png" alt="Bâche ITGREEN" data-alt-en="ITGREEN outdoor banner">
+        <img loading="lazy" src="assets/realisations/itgreen-bache.webp" alt="Bâche ITGREEN" data-alt-en="ITGREEN outdoor banner">
         <figcaption data-en="<em>ITGREEN</em> · outdoor banner"><em>ITGREEN</em> · bâche</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-totem.png" alt="Totem ITGREEN" data-alt-en="ITGREEN totem">
+        <img loading="lazy" src="assets/realisations/itgreen-totem.webp" alt="Totem ITGREEN" data-alt-en="ITGREEN totem">
         <figcaption data-en="<em>ITGREEN</em> · totem"><em>ITGREEN</em> · totem</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-camion.png" alt="Flocage camion ITGREEN" data-alt-en="ITGREEN van livery">
+        <img loading="lazy" src="assets/realisations/itgreen-camion.webp" alt="Flocage camion ITGREEN" data-alt-en="ITGREEN van livery">
         <figcaption data-en="<em>ITGREEN</em> · van livery"><em>ITGREEN</em> · flocage camion</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-sticker.png" alt="Sticker ITGREEN" data-alt-en="ITGREEN sticker">
+        <img loading="lazy" src="assets/realisations/itgreen-sticker.webp" alt="Sticker ITGREEN" data-alt-en="ITGREEN sticker">
         <figcaption data-en="<em>ITGREEN</em> · sticker"><em>ITGREEN</em> · sticker</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-affiche-recycler.png" alt="Affiche PC@9" data-alt-en="PC@9 poster">
+        <img loading="lazy" src="assets/realisations/pca9-affiche-recycler.webp" alt="Affiche PC@9" data-alt-en="PC@9 poster">
         <figcaption data-en="<em>PC@9</em> · in-store poster"><em>PC@9</em> · affiche boutique</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-flyer.png" alt="Flyer PC@9" data-alt-en="PC@9 flyer">
+        <img loading="lazy" src="assets/realisations/pca9-flyer.webp" alt="Flyer PC@9" data-alt-en="PC@9 flyer">
         <figcaption data-en="<em>PC@9</em> · flyer"><em>PC@9</em> · flyer</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-2.png" alt="Sticker PC@9 nº 2" data-alt-en="PC@9 sticker no. 2">
+        <img loading="lazy" src="assets/realisations/pca9-sticker-2.webp" alt="Sticker PC@9 nº 2" data-alt-en="PC@9 sticker no. 2">
         <figcaption data-en="<em>PC@9</em> · sticker 2"><em>PC@9</em> · sticker 2</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-3.png" alt="Sticker PC@9 nº 3" data-alt-en="PC@9 sticker no. 3">
+        <img loading="lazy" src="assets/realisations/pca9-sticker-3.webp" alt="Sticker PC@9 nº 3" data-alt-en="PC@9 sticker no. 3">
         <figcaption data-en="<em>PC@9</em> · sticker 3"><em>PC@9</em> · sticker 3</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-4.png" alt="Sticker PC@9 nº 4" data-alt-en="PC@9 sticker no. 4">
+        <img loading="lazy" src="assets/realisations/pca9-sticker-4.webp" alt="Sticker PC@9 nº 4" data-alt-en="PC@9 sticker no. 4">
         <figcaption data-en="<em>PC@9</em> · sticker 4"><em>PC@9</em> · sticker 4</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-5.png" alt="Sticker PC@9 nº 5" data-alt-en="PC@9 sticker no. 5">
+        <img loading="lazy" src="assets/realisations/pca9-sticker-5.webp" alt="Sticker PC@9 nº 5" data-alt-en="PC@9 sticker no. 5">
         <figcaption data-en="<em>PC@9</em> · sticker 5"><em>PC@9</em> · sticker 5</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-6.png" alt="Sticker PC@9 nº 6" data-alt-en="PC@9 sticker no. 6">
+        <img loading="lazy" src="assets/realisations/pca9-sticker-6.webp" alt="Sticker PC@9 nº 6" data-alt-en="PC@9 sticker no. 6">
         <figcaption data-en="<em>PC@9</em> · sticker 6"><em>PC@9</em> · sticker 6</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-1-recto.png" alt="Flyer GreenLeo nº 1 recto" data-alt-en="GreenLeo flyer no. 1, front">
+        <img loading="lazy" src="assets/realisations/greenleo-flyer-1-recto.webp" alt="Flyer GreenLeo nº 1 recto" data-alt-en="GreenLeo flyer no. 1, front">
         <figcaption data-en="<em>GreenLeo flyer 1</em> · front"><em>Flyer GreenLeo 1</em> · recto</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-1-verso.png" alt="Flyer GreenLeo nº 1 verso" data-alt-en="GreenLeo flyer no. 1, back">
+        <img loading="lazy" src="assets/realisations/greenleo-flyer-1-verso.webp" alt="Flyer GreenLeo nº 1 verso" data-alt-en="GreenLeo flyer no. 1, back">
         <figcaption data-en="<em>GreenLeo flyer 1</em> · back"><em>Flyer GreenLeo 1</em> · verso</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-2-recto.png" alt="Flyer GreenLeo nº 2 recto" data-alt-en="GreenLeo flyer no. 2, front">
+        <img loading="lazy" src="assets/realisations/greenleo-flyer-2-recto.webp" alt="Flyer GreenLeo nº 2 recto" data-alt-en="GreenLeo flyer no. 2, front">
         <figcaption data-en="<em>GreenLeo flyer 2</em> · front"><em>Flyer GreenLeo 2</em> · recto</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-2-verso.png" alt="Flyer GreenLeo nº 2 verso" data-alt-en="GreenLeo flyer no. 2, back">
+        <img loading="lazy" src="assets/realisations/greenleo-flyer-2-verso.webp" alt="Flyer GreenLeo nº 2 verso" data-alt-en="GreenLeo flyer no. 2, back">
         <figcaption data-en="<em>GreenLeo flyer 2</em> · back"><em>Flyer GreenLeo 2</em> · verso</figcaption>
       </figure>
 
@@ -367,149 +385,149 @@
 
     <div class="proofs proofs--gallery">
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-01-codes.png" alt="Post LinkedIn ITGREEN : Codes de traitement des déchets" data-alt-en="ITGREEN LinkedIn post : Waste treatment codes">
+        <img loading="lazy" src="assets/realisations/itgreen-li-01-codes.webp" alt="Post LinkedIn ITGREEN : Codes de traitement des déchets" data-alt-en="ITGREEN LinkedIn post : Waste treatment codes">
         <figcaption data-en="<em>ITGREEN</em> · LinkedIn 01 · Waste codes"><em>ITGREEN</em> · LinkedIn 01 · Codes déchets</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-02-trackdechets.png" alt="Post LinkedIn ITGREEN : Trackdéchets" data-alt-en="ITGREEN LinkedIn post : Trackdéchets requirement">
+        <img loading="lazy" src="assets/realisations/itgreen-li-02-trackdechets.webp" alt="Post LinkedIn ITGREEN : Trackdéchets" data-alt-en="ITGREEN LinkedIn post : Trackdéchets requirement">
         <figcaption data-en="<em>ITGREEN</em> · LinkedIn 02 · Trackdéchets"><em>ITGREEN</em> · LinkedIn 02 · Trackdéchets</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-03-renouvellement.png" alt="Post LinkedIn ITGREEN : Renouvellement de parc" data-alt-en="ITGREEN LinkedIn post : Fleet renewal">
+        <img loading="lazy" src="assets/realisations/itgreen-li-03-renouvellement.webp" alt="Post LinkedIn ITGREEN : Renouvellement de parc" data-alt-en="ITGREEN LinkedIn post : Fleet renewal">
         <figcaption data-en="<em>ITGREEN</em> · LinkedIn 03 · Fleet renewal"><em>ITGREEN</em> · LinkedIn 03 · Renouvellement</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-04-itad.png" alt="Post LinkedIn ITGREEN : Association, éco-organisme ou ITAD" data-alt-en="ITGREEN LinkedIn post : Association, eco-organisation or ITAD">
+        <img loading="lazy" src="assets/realisations/itgreen-li-04-itad.webp" alt="Post LinkedIn ITGREEN : Association, éco-organisme ou ITAD" data-alt-en="ITGREEN LinkedIn post : Association, eco-organisation or ITAD">
         <figcaption data-en="<em>ITGREEN</em> · LinkedIn 04 · ITAD choice"><em>ITGREEN</em> · LinkedIn 04 · Choix ITAD</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-1.png" alt="Carrousel LinkedIn ITGREEN : slide 1" data-alt-en="ITGREEN LinkedIn carousel : slide 1">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-1.webp" alt="Carrousel LinkedIn ITGREEN : slide 1" data-alt-en="ITGREEN LinkedIn carousel : slide 1">
         <figcaption data-en="<em>Carousel</em> · slide 1"><em>Carrousel</em> · slide 1</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-2.png" alt="Carrousel LinkedIn ITGREEN : slide 2" data-alt-en="ITGREEN LinkedIn carousel : slide 2">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-2.webp" alt="Carrousel LinkedIn ITGREEN : slide 2" data-alt-en="ITGREEN LinkedIn carousel : slide 2">
         <figcaption data-en="<em>Carousel</em> · slide 2"><em>Carrousel</em> · slide 2</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-3.png" alt="Carrousel LinkedIn ITGREEN : slide 3" data-alt-en="ITGREEN LinkedIn carousel : slide 3">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-3.webp" alt="Carrousel LinkedIn ITGREEN : slide 3" data-alt-en="ITGREEN LinkedIn carousel : slide 3">
         <figcaption data-en="<em>Carousel</em> · slide 3"><em>Carrousel</em> · slide 3</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-4.png" alt="Carrousel LinkedIn ITGREEN : slide 4" data-alt-en="ITGREEN LinkedIn carousel : slide 4">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-4.webp" alt="Carrousel LinkedIn ITGREEN : slide 4" data-alt-en="ITGREEN LinkedIn carousel : slide 4">
         <figcaption data-en="<em>Carousel</em> · slide 4"><em>Carrousel</em> · slide 4</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-5.png" alt="Carrousel LinkedIn ITGREEN : slide 5" data-alt-en="ITGREEN LinkedIn carousel : slide 5">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-5.webp" alt="Carrousel LinkedIn ITGREEN : slide 5" data-alt-en="ITGREEN LinkedIn carousel : slide 5">
         <figcaption data-en="<em>Carousel</em> · slide 5"><em>Carrousel</em> · slide 5</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-6.png" alt="Carrousel LinkedIn ITGREEN : slide 6" data-alt-en="ITGREEN LinkedIn carousel : slide 6">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-6.webp" alt="Carrousel LinkedIn ITGREEN : slide 6" data-alt-en="ITGREEN LinkedIn carousel : slide 6">
         <figcaption data-en="<em>Carousel</em> · slide 6"><em>Carrousel</em> · slide 6</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-7.png" alt="Carrousel LinkedIn ITGREEN : slide 7" data-alt-en="ITGREEN LinkedIn carousel : slide 7">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-7.webp" alt="Carrousel LinkedIn ITGREEN : slide 7" data-alt-en="ITGREEN LinkedIn carousel : slide 7">
         <figcaption data-en="<em>Carousel</em> · slide 7"><em>Carrousel</em> · slide 7</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-8.png" alt="Carrousel LinkedIn ITGREEN : slide 8" data-alt-en="ITGREEN LinkedIn carousel : slide 8">
+        <img loading="lazy" src="assets/realisations/itgreen-carousel-8.webp" alt="Carrousel LinkedIn ITGREEN : slide 8" data-alt-en="ITGREEN LinkedIn carousel : slide 8">
         <figcaption data-en="<em>Carousel</em> · slide 8"><em>Carrousel</em> · slide 8</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-01-manifesto.png" alt="Post Instagram GreenLeo : manifesto" data-alt-en="GreenLeo Instagram post : manifesto">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-01-manifesto.webp" alt="Post Instagram GreenLeo : manifesto" data-alt-en="GreenLeo Instagram post : manifesto">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · manifesto"><em>GreenLeo</em> · Instagram · manifesto</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-02-fact.png" alt="Post Instagram GreenLeo : fact" data-alt-en="GreenLeo Instagram post : fact">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-02-fact.webp" alt="Post Instagram GreenLeo : fact" data-alt-en="GreenLeo Instagram post : fact">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · fact"><em>GreenLeo</em> · Instagram · chiffre</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-03-price.png" alt="Post Instagram GreenLeo : prix" data-alt-en="GreenLeo Instagram post : price">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-03-price.webp" alt="Post Instagram GreenLeo : prix" data-alt-en="GreenLeo Instagram post : price">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · price"><em>GreenLeo</em> · Instagram · prix</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-04-signature.png" alt="Post Instagram GreenLeo : signature" data-alt-en="GreenLeo Instagram post : signature">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-04-signature.webp" alt="Post Instagram GreenLeo : signature" data-alt-en="GreenLeo Instagram post : signature">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · signature"><em>GreenLeo</em> · Instagram · signature</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-05-testimonial.png" alt="Post Instagram GreenLeo : témoignage" data-alt-en="GreenLeo Instagram post : testimonial">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-05-testimonial.webp" alt="Post Instagram GreenLeo : témoignage" data-alt-en="GreenLeo Instagram post : testimonial">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · testimonial"><em>GreenLeo</em> · Instagram · témoignage</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-06-tips.png" alt="Post Instagram GreenLeo : tips" data-alt-en="GreenLeo Instagram post : tips">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-06-tips.webp" alt="Post Instagram GreenLeo : tips" data-alt-en="GreenLeo Instagram post : tips">
         <figcaption data-en="<em>GreenLeo</em> · Instagram · tips"><em>GreenLeo</em> · Instagram · tips</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-fb-02-fact.png" alt="Post Facebook GreenLeo : fact" data-alt-en="GreenLeo Facebook post : fact">
+        <img loading="lazy" src="assets/realisations/greenleo-fb-02-fact.webp" alt="Post Facebook GreenLeo : fact" data-alt-en="GreenLeo Facebook post : fact">
         <figcaption data-en="<em>GreenLeo</em> · Facebook · fact"><em>GreenLeo</em> · Facebook · chiffre</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-fb-03-launch.png" alt="Post Facebook GreenLeo : lancement" data-alt-en="GreenLeo Facebook post : launch">
+        <img loading="lazy" src="assets/realisations/greenleo-fb-03-launch.webp" alt="Post Facebook GreenLeo : lancement" data-alt-en="GreenLeo Facebook post : launch">
         <figcaption data-en="<em>GreenLeo</em> · Facebook · launch"><em>GreenLeo</em> · Facebook · lancement</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-fb-04-launch.png" alt="Post Facebook GreenLeo : lancement 2" data-alt-en="GreenLeo Facebook post : launch 2">
+        <img loading="lazy" src="assets/realisations/greenleo-fb-04-launch.webp" alt="Post Facebook GreenLeo : lancement 2" data-alt-en="GreenLeo Facebook post : launch 2">
         <figcaption data-en="<em>GreenLeo</em> · Facebook · launch 2"><em>GreenLeo</em> · Facebook · lancement 2</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-01-b2b.png" alt="Post LinkedIn GreenLeo : B2B" data-alt-en="GreenLeo LinkedIn post : B2B">
+        <img loading="lazy" src="assets/realisations/greenleo-li-01-b2b.webp" alt="Post LinkedIn GreenLeo : B2B" data-alt-en="GreenLeo LinkedIn post : B2B">
         <figcaption data-en="<em>GreenLeo</em> · LinkedIn · B2B"><em>GreenLeo</em> · LinkedIn · B2B</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-02-b2b.png" alt="Post LinkedIn GreenLeo : B2B 2" data-alt-en="GreenLeo LinkedIn post : B2B 2">
+        <img loading="lazy" src="assets/realisations/greenleo-li-02-b2b.webp" alt="Post LinkedIn GreenLeo : B2B 2" data-alt-en="GreenLeo LinkedIn post : B2B 2">
         <figcaption data-en="<em>GreenLeo</em> · LinkedIn · B2B 2"><em>GreenLeo</em> · LinkedIn · B2B 2</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-02-carousel.png" alt="Carrousel LinkedIn GreenLeo : 1" data-alt-en="GreenLeo LinkedIn carousel : 1">
+        <img loading="lazy" src="assets/realisations/greenleo-li-02-carousel.webp" alt="Carrousel LinkedIn GreenLeo : 1" data-alt-en="GreenLeo LinkedIn carousel : 1">
         <figcaption data-en="<em>GreenLeo</em> · LinkedIn · carousel"><em>GreenLeo</em> · LinkedIn · carrousel</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-03-carousel.png" alt="Carrousel LinkedIn GreenLeo : 2" data-alt-en="GreenLeo LinkedIn carousel : 2">
+        <img loading="lazy" src="assets/realisations/greenleo-li-03-carousel.webp" alt="Carrousel LinkedIn GreenLeo : 2" data-alt-en="GreenLeo LinkedIn carousel : 2">
         <figcaption data-en="<em>GreenLeo</em> · LinkedIn · carousel 2"><em>GreenLeo</em> · LinkedIn · carrousel 2</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-01-teaser.png" alt="Story Instagram GreenLeo : teaser" data-alt-en="GreenLeo Instagram story : teaser">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-story-01-teaser.webp" alt="Story Instagram GreenLeo : teaser" data-alt-en="GreenLeo Instagram story : teaser">
         <figcaption data-en="<em>GreenLeo</em> · story · teaser"><em>GreenLeo</em> · story · teaser</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-howitworks.png" alt="Story Instagram GreenLeo : comment ça marche" data-alt-en="GreenLeo Instagram story : how it works">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-story-howitworks.webp" alt="Story Instagram GreenLeo : comment ça marche" data-alt-en="GreenLeo Instagram story : how it works">
         <figcaption data-en="<em>GreenLeo</em> · story · how it works"><em>GreenLeo</em> · story · comment ça marche</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-03-cta.png" alt="Story Instagram GreenLeo : CTA" data-alt-en="GreenLeo Instagram story : CTA">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-story-03-cta.webp" alt="Story Instagram GreenLeo : CTA" data-alt-en="GreenLeo Instagram story : CTA">
         <figcaption data-en="<em>GreenLeo</em> · story · CTA"><em>GreenLeo</em> · story · CTA</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-04-question.png" alt="Story Instagram GreenLeo : question" data-alt-en="GreenLeo Instagram story : question">
+        <img loading="lazy" src="assets/realisations/greenleo-ig-story-04-question.webp" alt="Story Instagram GreenLeo : question" data-alt-en="GreenLeo Instagram story : question">
         <figcaption data-en="<em>GreenLeo</em> · story · question"><em>GreenLeo</em> · story · question</figcaption>
       </figure>
 
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-1.png" alt="Post PC@9 : visuel 1" data-alt-en="PC@9 post : visual 1">
+        <img loading="lazy" src="assets/realisations/pca9-post-1.webp" alt="Post PC@9 : visuel 1" data-alt-en="PC@9 post : visual 1">
         <figcaption data-en="<em>PC@9</em> · post 1"><em>PC@9</em> · post 1</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-2.png" alt="Post PC@9 : visuel 2" data-alt-en="PC@9 post : visual 2">
+        <img loading="lazy" src="assets/realisations/pca9-post-2.webp" alt="Post PC@9 : visuel 2" data-alt-en="PC@9 post : visual 2">
         <figcaption data-en="<em>PC@9</em> · post 2"><em>PC@9</em> · post 2</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-3.png" alt="Post PC@9 : visuel 3" data-alt-en="PC@9 post : visual 3">
+        <img loading="lazy" src="assets/realisations/pca9-post-3.webp" alt="Post PC@9 : visuel 3" data-alt-en="PC@9 post : visual 3">
         <figcaption data-en="<em>PC@9</em> · post 3"><em>PC@9</em> · post 3</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-4.png" alt="Post PC@9 : visuel 4" data-alt-en="PC@9 post : visual 4">
+        <img loading="lazy" src="assets/realisations/pca9-post-4.webp" alt="Post PC@9 : visuel 4" data-alt-en="PC@9 post : visual 4">
         <figcaption data-en="<em>PC@9</em> · post 4"><em>PC@9</em> · post 4</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-story-1.png" alt="Story PC@9 : 1" data-alt-en="PC@9 story : 1">
+        <img loading="lazy" src="assets/realisations/pca9-story-1.webp" alt="Story PC@9 : 1" data-alt-en="PC@9 story : 1">
         <figcaption data-en="<em>PC@9</em> · story 1"><em>PC@9</em> · story 1</figcaption>
       </figure>
       <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-story-2.png" alt="Story PC@9 : 2" data-alt-en="PC@9 story : 2">
+        <img loading="lazy" src="assets/realisations/pca9-story-2.webp" alt="Story PC@9 : 2" data-alt-en="PC@9 story : 2">
         <figcaption data-en="<em>PC@9</em> · story 2"><em>PC@9</em> · story 2</figcaption>
       </figure>
     </div>
@@ -527,15 +545,15 @@
     </div>
     <div class="proofs proofs--emails" aria-label="Emailings ITGREEN" data-aria-en="ITGREEN emailings">
       <figure class="proof proof--email">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-collectivites.png" alt="Emailing ITGREEN : Lettre aux collectivités J-52 loi Climat" data-alt-en="ITGREEN emailing: Local government letter, J-52 Climate Law">
+        <img loading="lazy" src="assets/realisations/itgreen-mailing-collectivites.webp" alt="Emailing ITGREEN : Lettre aux collectivités J-52 loi Climat" data-alt-en="ITGREEN emailing: Local government letter, J-52 Climate Law">
         <figcaption data-en="<em>ITGREEN</em> · emailing local government · J-52 Climate Law"><em>ITGREEN</em> · emailing collectivités · J-52 loi Climat</figcaption>
       </figure>
       <figure class="proof proof--email">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-partenaires.png" alt="Emailing ITGREEN : Programme Partenaire Revendeur" data-alt-en="ITGREEN emailing: Reseller Partner Programme">
+        <img loading="lazy" src="assets/realisations/itgreen-mailing-partenaires.webp" alt="Emailing ITGREEN : Programme Partenaire Revendeur" data-alt-en="ITGREEN emailing: Reseller Partner Programme">
         <figcaption data-en="<em>ITGREEN</em> · emailing reseller partner programme"><em>ITGREEN</em> · emailing programme partenaire revendeur</figcaption>
       </figure>
       <figure class="proof proof--email">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-selection-pro.png" alt="Emailing ITGREEN : sélection pro mensuelle avril 2026" data-alt-en="ITGREEN emailing: monthly pro selection April 2026">
+        <img loading="lazy" src="assets/realisations/itgreen-mailing-selection-pro.webp" alt="Emailing ITGREEN : sélection pro mensuelle avril 2026" data-alt-en="ITGREEN emailing: monthly pro selection April 2026">
         <figcaption data-en="<em>ITGREEN</em> · emailing monthly pro selection"><em>ITGREEN</em> · emailing sélection pro mensuelle</figcaption>
       </figure>
     </div>
