@@ -8,7 +8,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=42">
+<link rel="stylesheet" href="style.css?v=43">
+
+<!-- Analytics : PostHog + GA4. Renseigner les 2 clés ci-dessous puis déployer. -->
+<script>
+  (function(){
+    var POSTHOG_KEY = 'phc_kvtcKX2kpHwfpJZHC5r5jKibYQEbezaGsQ9dPWwXKyL5';
+    var POSTHOG_HOST = 'https://eu.i.posthog.com';
+    if (!POSTHOG_KEY || POSTHOG_KEY.indexOf('YOUR_') === 0) return;
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    window.posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, capture_pageview: true, autocapture: true });
+  })();
+</script>
+<script>
+  (function(){
+    var GA_ID = 'G-84595LE73Q';
+    if (!GA_ID || GA_ID.indexOf('YOUR_') === 0) return;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+  })();
+</script>
 </head>
 <body>
 
@@ -542,7 +567,7 @@
       <div class="result__num">01</div>
       <div class="result__body">
         <h3 data-en="SEO overhaul of itgreen.eu">Refonte SEO d'itgreen.eu</h3>
-        <p class="result__pitch" data-en="Full optimisation of the itgreen.eu website. 13 Schema.org tags written and validated, two FAQPage schemas live, information architecture reviewed, titles and meta rewritten. I also went through the whole site and switched the em-dashes back to standard French punctuation.">Optimisation complète du site itgreen.eu. 13 balises Schema.org écrites et validées, deux FAQPage en ligne, arborescence revue, titres et méta réécrits. J'ai aussi repris tout le site pour remplacer les tirets cadratins par une ponctuation française classique.</p>
+        <p class="result__pitch" data-en="Full optimisation of the itgreen.eu website. 13 Schema.org tags written and validated, two FAQPage schemas live, information architecture reviewed, titles and meta rewritten. I also went through the whole site and switched the em-dashes back to standard French punctuation. Since the overhaul, weekly page views have grown 4.5×.">Optimisation complète du site itgreen.eu. 13 balises Schema.org écrites et validées, deux FAQPage en ligne, arborescence revue, titres et méta réécrits. J'ai aussi repris tout le site pour remplacer les tirets cadratins par une ponctuation française classique. Depuis la refonte, les pages vues par semaine ont été multipliées par 4,5.</p>
         <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, Schema.org.">Outils : Search Console, GA4, PostHog, Schema.org.</p>
         <p class="result__learn" data-en="What I learned: on this project, the schemas only started to pay off once the copy on the pages was rewritten in parallel.">Ce que j'en ai retenu : sur ce projet, les schemas n'ont commencé à porter leurs fruits qu'une fois le texte des pages réécrit en parallèle.</p>
       </div>
@@ -552,7 +577,7 @@
       <div class="result__num">02</div>
       <div class="result__body">
         <h3 data-en="Client portal in Laravel v2">Portail client Laravel v2</h3>
-        <p class="result__pitch" data-en="Migration of the ITGREEN client portal to Laravel. 12 pages built in parallel with the existing portal: dashboard, inventory (718 tracked devices), aftersales, projects, estimates, certificates, communication, resources, team, integrations, account. The old portal stayed online while the client validated the preview.">Migration du portail client ITGREEN sous Laravel. 12 pages construites en parallèle du portail existant : tableau de bord, inventaire (718 équipements suivis), SAV, projets, estimations, certificats, communication, ressources, équipe, intégrations, compte. L'ancien portail est resté en ligne le temps que le client valide l'aperçu.</p>
+        <p class="result__pitch" data-en="Migration of the ITGREEN client portal to Laravel. 12 pages built in parallel with the existing portal: dashboard, inventory (718 tracked devices), aftersales, projects, estimates, certificates, communication, resources, team, integrations, account. The old portal stayed online while the client validated the preview. Final switch with no downtime: 3 client accounts validated on the preview, 0 database regression.">Migration du portail client ITGREEN sous Laravel. 12 pages construites en parallèle du portail existant : tableau de bord, inventaire (718 équipements suivis), SAV, projets, estimations, certificats, communication, ressources, équipe, intégrations, compte. L'ancien portail est resté en ligne le temps que le client valide l'aperçu. Bascule finale sans coupure : 3 comptes clients validés sur l'aperçu, 0 régression sur la base de données.</p>
         <p class="result__tools" data-en="Tools: Figma, Laravel.">Outils : Figma, Laravel.</p>
         <p class="result__learn" data-en="What I learned: a precise Figma file at the start saved us several rounds of back-and-forth with the dev.">Ce que j'en ai retenu : un Figma précis en amont nous a évité plusieurs allers-retours avec le dev.</p>
       </div>
@@ -613,7 +638,7 @@
       <div class="result__num">02</div>
       <div class="result__body">
         <h3 data-en="itgreen.eu bounce rate investigation">Investigation rebond itgreen.eu</h3>
-        <p class="result__pitch" data-en="The site's bounce rate suddenly jumped over a few months. Rather than redoing the home page in a panic, I dug into the data. A big chunk of the &quot;bounces&quot; came from bots scanning links in emails, not from real visitors. The pages that really needed work were elsewhere, mostly on the mobile experience.">Le taux de rebond du site a bondi d'un coup sur quelques mois. Plutôt que de refaire la page d'accueil en panique, j'ai regardé les données en détail. Une bonne partie des « rebonds » venait de robots qui scannent les liens dans les e-mails, pas de vrais visiteurs. Les pages qui avaient réellement besoin d'un traitement étaient ailleurs, surtout côté mobile.</p>
+        <p class="result__pitch" data-en="The site's bounce rate jumped to 82% one week, while it had been steady around 21% before the overhaul. Rather than redoing the home page in a panic, I dug into the data. A big chunk of the &quot;bounces&quot; came from bots scanning links in emails, not from real visitors. Once those sessions were filtered out, the real bounce rate settled around 67%. The pages that really needed work were elsewhere, mostly on the mobile experience.">Le taux de rebond du site est monté jusqu'à 82 % sur une semaine, alors qu'il tournait autour de 21 % avant la refonte. Plutôt que de refaire la page d'accueil en panique, j'ai regardé les données en détail. Une bonne partie des « rebonds » venait de robots qui scannent les liens dans les e-mails, pas de vrais visiteurs. Une fois ces sessions filtrées, le rebond réel se stabilise autour de 67 %. Les pages qui avaient réellement besoin d'un traitement étaient ailleurs, surtout côté mobile.</p>
         <p class="result__learn" data-en="What I learned: an alarming number often just needs to be read more carefully before anyone starts redoing pages.">Ce que j'en ai retenu : un chiffre alarmant demande souvent juste d'être relu plus attentivement avant qu'on refasse des pages.</p>
       </div>
     </article>
@@ -673,7 +698,7 @@
       <div class="result__num">03</div>
       <div class="result__body">
         <h3 data-en="Sector-specific Odoo emailings">Emailings sectoriels Odoo</h3>
-        <p class="result__pitch" data-en="Emailings sent through Odoo, one per audience (local government, resellers, monthly pro selection) on a shared base in the ITGREEN brand style. Technically: hard-coded HTML tables and colours so that it renders properly in Outlook, which is still very strict about email HTML.">Emailings envoyés via Odoo, un par cible (collectivités, revendeurs, sélection pro mensuelle) sur une base commune à la charte ITGREEN. Techniquement : tables HTML en dur et couleurs codées pour que ça s'affiche correctement dans Outlook, qui reste très strict sur le HTML des mails.</p>
+        <p class="result__pitch" data-en="Emailings sent through Odoo, one per audience (local government, resellers, monthly pro selection) on a shared base in the ITGREEN brand style. Latest local government campaign: 2,261 recipients, 100% delivered, 10.6% open rate. Technically: hard-coded HTML tables and colours so that it renders properly in Outlook, which is still very strict about email HTML.">Emailings envoyés via Odoo, un par cible (collectivités, revendeurs, sélection pro mensuelle) sur une base commune à la charte ITGREEN. Dernière campagne collectivités : 2 261 destinataires, 100 % délivrés, 10,6 % d'ouverture. Techniquement : tables HTML en dur et couleurs codées pour que ça s'affiche correctement dans Outlook, qui reste très strict sur le HTML des mails.</p>
         <p class="result__tools" data-en="Tools: Odoo 17, HTML email.">Outils : Odoo 17, HTML email.</p>
       </div>
     </article>
@@ -947,6 +972,43 @@
         </article>
       </div>
     </div>
+
+    <form class="contact-form" action="https://formspree.io/f/mwvgnzvg" method="POST" novalidate>
+      <div class="contact-form__head">
+        <span class="contact-form__eyebrow" data-en="Or write me a note">Ou écrivez-moi un mot</span>
+        <h3 class="contact-form__title" data-en='We can also <em class="italic">start here</em>.'>On peut aussi <em class="italic">commencer ici</em>.</h3>
+      </div>
+      <div class="contact-form__grid">
+        <label class="contact-form__field">
+          <span data-en="Your name">Votre nom</span>
+          <input type="text" name="name" required autocomplete="name" placeholder="Prénom et nom" data-placeholder-en="First and last name">
+        </label>
+        <label class="contact-form__field">
+          <span data-en="Your email">Votre email</span>
+          <input type="email" name="email" required autocomplete="email" placeholder="vous@entreprise.com" data-placeholder-en="you@company.com">
+        </label>
+        <label class="contact-form__field contact-form__field--full">
+          <span data-en="Context">Le contexte</span>
+          <select name="subject" required>
+            <option value="" data-en="Pick a subject">Choisir un sujet</option>
+            <option value="cdi" data-en="Full-time role (from mid-October 2026)">CDI (à partir de mi-octobre 2026)</option>
+            <option value="mission" data-en="Project mission (4 to 8 weeks)">Mission projet (4 à 8 semaines)</option>
+            <option value="audit" data-en="Audit and recommendations">Audit et recommandations</option>
+            <option value="autre" data-en="Something else">Autre</option>
+          </select>
+        </label>
+        <label class="contact-form__field contact-form__field--full">
+          <span data-en="Your message">Votre message</span>
+          <textarea name="message" rows="5" required placeholder="Dites-moi le contexte, le calendrier et ce que vous cherchez." data-placeholder-en="Tell me about the context, timeline and what you're looking for."></textarea>
+        </label>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="contact-form__honeypot">
+        <button type="submit" class="contact-form__submit">
+          <span data-en="Send message">Envoyer le message</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="contact-form__status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
 
     <div class="contact__grid">
       <a class="contact__card" href="mailto:enderjeta.sahitaj@gmail.com">
@@ -1254,6 +1316,15 @@
       if (value !== null) img.setAttribute('alt', value);
     });
 
+    // Placeholders de champs
+    document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+      if (!el.hasAttribute('data-placeholder-fr')) {
+        el.setAttribute('data-placeholder-fr', el.getAttribute('placeholder') || '');
+      }
+      const value = (lang === 'en') ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-fr');
+      if (value !== null) el.setAttribute('placeholder', value);
+    });
+
     try { localStorage.setItem('portfolio-lang', lang); } catch(e){}
   };
   langBtns.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
@@ -1385,6 +1456,39 @@
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => spy.observe(s));
+
+  // ===== Contact form (Formspree AJAX) =====
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    const statusEl = contactForm.querySelector('.contact-form__status');
+    const submitBtn = contactForm.querySelector('.contact-form__submit');
+    const msg = {
+      sending:  { fr: 'Envoi en cours…', en: 'Sending…' },
+      success:  { fr: 'Message reçu. Je reviens vers vous très vite.', en: 'Message received. I will get back to you shortly.' },
+      error:    { fr: 'Envoi impossible. Écrivez-moi directement à enderjeta.sahitaj@gmail.com.', en: 'Could not send. Please write directly to enderjeta.sahitaj@gmail.com.' },
+      invalid:  { fr: 'Merci de compléter les champs requis.', en: 'Please fill in the required fields.' }
+    };
+    const currentLang = () => document.body.dataset.lang === 'en' ? 'en' : 'fr';
+    const setStatus = (key, kind) => {
+      statusEl.textContent = msg[key][currentLang()];
+      statusEl.dataset.kind = kind || key;
+    };
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!contactForm.checkValidity()) { setStatus('invalid', 'error'); return; }
+      const action = contactForm.getAttribute('action') || '';
+      if (action.includes('YOUR_FORMSPREE_ID')) { setStatus('error', 'error'); return; }
+      submitBtn.disabled = true;
+      setStatus('sending', 'sending');
+      try {
+        const data = new FormData(contactForm);
+        const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
+        if (res.ok) { contactForm.reset(); setStatus('success', 'success'); }
+        else { setStatus('error', 'error'); }
+      } catch(err) { setStatus('error', 'error'); }
+      finally { submitBtn.disabled = false; }
+    });
+  }
 })();
 </script>
 
