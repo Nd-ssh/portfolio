@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-en="Enderjeta Sahitaj, communication and marketing">Enderjeta Sahitaj, communication et marketing</title>
 <meta name="description" data-en="Enderjeta Sahitaj, communication and marketing apprentice at ITGREEN. Previous experience at ERHART & FILS, Le Préo Scène, Adestan & Kaetera, Figures Publiques." content="Enderjeta Sahitaj, chargée de communication et marketing en alternance chez ITGREEN. Expériences chez ERHART & FILS, Le Préo Scène, Adestan & Kaetera, Figures Publiques.">
+<link rel="canonical" href="https://enderjeta-portfolio.vercel.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://enderjeta-portfolio.vercel.app/">
+<meta property="og:title" content="Enderjeta Sahitaj, communication et marketing">
+<meta property="og:description" content="Portfolio d'Enderjeta Sahitaj — chargée de communication et marketing. 4 marques gérées en parallèle : ITGREEN, PC@9, GreenLeo, ABK Rénov'.">
+<meta property="og:image" content="https://enderjeta-portfolio.vercel.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Enderjeta Sahitaj">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Enderjeta Sahitaj, communication et marketing">
+<meta name="twitter:description" content="Portfolio d'Enderjeta Sahitaj — chargée de communication et marketing. 4 marques gérées en parallèle : ITGREEN, PC@9, GreenLeo, ABK Rénov'.">
+<meta name="twitter:image" content="https://enderjeta-portfolio.vercel.app/assets/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -1065,7 +1082,7 @@
 </footer>
 
 <!-- ============ LIGHTBOX ============ -->
-<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Aperçu image" data-aria-en="Image preview">
+<div class="lightbox" id="lightbox" aria-hidden="true" inert role="dialog" aria-label="Aperçu image" data-aria-en="Image preview">
   <button class="lightbox__close" type="button" aria-label="Fermer (Échap)" data-aria-en="Close (Esc)">✕</button>
   <button class="lightbox__prev" type="button" aria-label="Précédent (←)" data-aria-en="Previous (←)">‹</button>
   <button class="lightbox__next" type="button" aria-label="Suivant (→)" data-aria-en="Next (→)">›</button>
@@ -1424,11 +1441,13 @@
       lastFocus = document.activeElement;
       lb.classList.add('is-open');
       lb.setAttribute('aria-hidden', 'false');
+      lb.removeAttribute('inert');
       document.documentElement.style.overflow = 'hidden';
     };
     const closeLb = () => {
       lb.classList.remove('is-open');
       lb.setAttribute('aria-hidden', 'true');
+      lb.setAttribute('inert', '');
       document.documentElement.style.overflow = '';
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     };
