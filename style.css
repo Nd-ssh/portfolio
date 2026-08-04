@@ -2199,6 +2199,7 @@ body { padding-top: 87px; }
 }
 .results--split::before, .results--writing::before,
 .results--split::after, .results--writing::after { display: none; }
+.results--split .result::before, .results--writing .result::before { display: none; }
 
 /* --- Timeline : ligne verticale qui se dessine + hover parallaxe --- */
 .timeline {
