@@ -3192,6 +3192,39 @@ body { padding-top: 87px; }
   .video-credits__title { font-size: 15px; }
 }
 
+/* Liste des articles du blog (variante de .video-credits) */
+.video-credits--articles a,
+.video-credits__soon {
+  grid-template-columns: 74px 1fr auto;
+}
+.video-credits__soon {
+  display: grid;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  color: var(--ink-mute);
+}
+.video-credits__date {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.video-credits__soon .video-credits__date { color: var(--ink-mute); }
+.video-credits__tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .video-credits--articles a,
+  .video-credits__soon { grid-template-columns: 1fr; gap: 4px; }
+  .video-credits__tag { justify-self: start; }
+}
+
 /* ============ EMAILINGS ITGREEN (proofs--emails) ============ */
 .proofs--emails {
   grid-template-columns: repeat(3, 1fr);
