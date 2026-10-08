@@ -4467,3 +4467,46 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 /* Grille Instagram resserrée au centre, stories centrées */
 .bk-insta > .bk-row { max-width: 760px; margin-left: auto; margin-right: auto; }
 .bk-phones { justify-content: center; }
+
+/* ---------- Bouton CV dans le header (langue du site) ---------- */
+.nav__cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: background 0.25s, border-color 0.25s, transform 0.3s var(--ease-smooth);
+}
+.nav__cv:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+.nav__cv svg { transition: transform 0.25s var(--ease-smooth); }
+.nav__cv:hover svg { transform: translateY(2px); }
+.nav__links-cv { display: none !important; }
+@media (max-width: 900px) {
+  .nav__cv { display: none; }
+  .nav__links .nav__links-cv {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 16px 22px !important;
+    align-self: flex-start;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .nav__links .nav__links-cv::after { display: none; }
+}
+.nav__cta, .nav__cv { white-space: nowrap; }
+@media (min-width: 901px) and (max-width: 1080px) {
+  .nav__cta { display: none; }
+}

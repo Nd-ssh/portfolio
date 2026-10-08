@@ -28,7 +28,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait.jpg">
-<link rel="stylesheet" href="style.css?v=52">
+<link rel="stylesheet" href="style.css?v=53">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle. Pas de bandeau nécessaire. -->
 <script>
@@ -87,6 +87,7 @@
     <a href="#piloter" data-section="piloter" data-en="Manage">Piloter</a>
     <a href="#univers" data-section="univers" data-en="Path">Parcours</a>
     <a href="#contact" data-section="contact" data-en="Contact">Contact</a>
+    <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="nav__links-cv" download><span data-en="Download my CV">Télécharger mon CV</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></a>
   </nav>
   <div class="nav__right">
     <div class="lang-toggle" role="group" aria-label="Choix de la langue" data-aria-en="Language choice">
@@ -94,6 +95,9 @@
       <span aria-hidden="true">/</span>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
     </div>
+    <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="nav__cv" download aria-label="Télécharger mon CV en français" data-aria-en="Download my CV in English">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span>CV</span>
+    </a>
     <a href="#contact" class="nav__cta" data-magnetic>
       <span data-en="Get in touch">Me contacter</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
