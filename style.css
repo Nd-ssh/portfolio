@@ -3954,3 +3954,516 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   .maker { min-width: 0; }
   .maker__logo img { max-width: 100%; }
 }
+
+/* ---------- Frise du parcours : points centrés sur la ligne ---------- */
+@media (min-width: 901px) {
+  .frise::before, .frise::after { top: 60px; }
+  .frise__year { height: 36px; min-height: 0; margin-bottom: 12px; white-space: nowrap; }
+  .frise__dot { margin: 6px 0 18px; box-sizing: border-box; }
+  .frise__step { align-content: start; }
+}
+/* Ligne d'infos du haut de page : sur téléphone, une info par ligne, sans point orphelin */
+@media (max-width: 640px) {
+  .hero__meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .hero__meta > * + *::before { display: none; }
+}
+
+/* =====================================================
+   CARTE À GRATTER SUR LE PORTRAIT
+   On gratte la photo (souris ou doigt) : Bejka, puis les passions.
+   ===================================================== */
+.scratch__under,
+.scratch__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.scratch__under {
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.scratch__canvas {
+  z-index: 2;
+  touch-action: pan-y;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='13' fill='%23E9EDE6' stroke='%232C3936' stroke-width='2'/%3E%3Ccircle cx='17' cy='17' r='8.5' fill='none' stroke='%234A6B60' stroke-width='1.5' stroke-dasharray='2 2.4'/%3E%3C/svg%3E") 17 17, crosshair;
+  transition: opacity 0.45s var(--ease-smooth);
+}
+.scratch__canvas.is-done { opacity: 0; }
+.hero__portrait.is-scratch .hero__frame { visibility: hidden; }
+.hero__portrait.is-scratch .pause__shield { display: none; }
+.hero__portrait.is-scratch::after { z-index: 3; }
+.hero__portrait.is-scratch .pause__caption {
+  z-index: 4;
+  transition: opacity 0.3s ease;
+}
+.hero__portrait .pause__caption.is-swap { opacity: 0; }
+
+.scratch__hint {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(233, 237, 230, 0.9);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 18px rgba(31, 47, 43, 0.18);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-smooth), background 0.3s, opacity 0.3s;
+}
+.scratch__hint:hover { transform: translateY(-2px); background: #fff; }
+.scratch__hint:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.scratch__coin {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  animation: scratchWiggle 2.4s ease-in-out infinite;
+}
+@keyframes scratchWiggle {
+  0%, 70%, 100% { transform: rotate(0) translateX(0); }
+  76% { transform: rotate(-18deg) translateX(-2px); }
+  84% { transform: rotate(14deg) translateX(2px); }
+  92% { transform: rotate(-8deg) translateX(-1px); }
+}
+.scratch__count {
+  font-weight: 500;
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scratch__coin { animation: none; }
+}
+@media (max-width: 900px) {
+  .scratch__hint { top: 22px; left: 22px; font-size: 11px; padding: 7px 12px 7px 9px; }
+}
+
+/* =====================================================
+   FENÊTRES DES MARQUES, V4
+   En-tête aux couleurs de la marque, sections numérotées,
+   une mise en page par type de support. Visuels jamais recadrés.
+   ===================================================== */
+.sheet__inner { padding-top: 32px; }
+.bk {
+  --b: var(--ink);
+  --b-2: var(--ink);
+  --b-acc: var(--accent);
+  --b-soft: var(--paper-2);
+  --bk-gap: 20px;
+  --bk-h: 400px;
+}
+
+/* ---------- En-tête ---------- */
+.bk-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+  padding: clamp(32px, 5vw, 64px);
+  margin-bottom: 72px;
+  background:
+    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--b-acc) 22%, transparent) 0%, transparent 55%),
+    linear-gradient(135deg, var(--b) 0%, var(--b-2) 100%);
+  color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bk-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('assets/texture-banniere.jpg') center / cover;
+  mix-blend-mode: soft-light;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.bk-hero > * { position: relative; z-index: 1; }
+.bk-hero__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 10px 16px;
+  margin-bottom: 28px;
+  background: #fff;
+  border-radius: 4px;
+}
+.bk-hero__logo img { height: 100%; width: auto; max-width: 160px; object-fit: contain; }
+.bk .sheet__desc { margin-top: 0; color: var(--b-acc); }
+.bk .sheet__title { margin-top: 10px; color: #fff; font-size: clamp(44px, 7vw, 96px); }
+.bk .sheet__intro { color: rgba(255, 255, 255, 0.86); max-width: 620px; }
+.bk .sheet__site { color: #fff; border-color: var(--b-acc); margin-top: 22px; }
+.bk .sheet__site:hover { color: var(--b-acc); }
+.bk-hero__facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.bk-hero__facts li { display: flex; background: color-mix(in srgb, var(--b-2) 70%, transparent); }
+.bk-hero__facts li:only-child { grid-column: 1 / -1; }
+.bk-hero__facts li:nth-child(odd):last-child { grid-column: 1 / -1; }
+.bk-hero__facts a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 22px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.bk-hero__facts a:hover { background: rgba(255, 255, 255, 0.07); }
+.bk-hero__facts strong {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--b-acc);
+}
+.bk-hero__facts span { font-size: 13px; line-height: 1.35; color: rgba(255, 255, 255, 0.8); }
+
+/* ---------- Sections ---------- */
+.bk-sec { margin-top: 88px; scroll-margin-top: 96px; }
+.bk-sec:first-of-type { margin-top: 0; }
+.bk-sec__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 20px;
+  align-items: baseline;
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--ink-line);
+}
+.bk-sec__num {
+  grid-row: span 2;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 0.9;
+  color: var(--b);
+  -webkit-text-stroke: 0;
+}
+.bk-sec__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(24px, 2.6vw, 34px);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.bk-sec__sub { margin-top: 8px; max-width: 720px; font-size: 15.5px; line-height: 1.55; color: var(--ink-soft); }
+
+/* ---------- Visuel : base commune ---------- */
+.sheet .bk .work { margin: 0; break-inside: auto; cursor: zoom-in; }
+.sheet .bk .work img {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.sheet .bk .work:hover img { transform: none; box-shadow: none; }
+.bk-mat {
+  position: relative;
+  overflow: hidden;
+  background: var(--b-soft);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(31, 47, 43, 0.06), 0 10px 30px -18px rgba(31, 47, 43, 0.35);
+  transition: transform 0.45s var(--ease-smooth), box-shadow 0.45s var(--ease-smooth);
+}
+.bk .work:hover .bk-mat {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 0 rgba(31, 47, 43, 0.05), 0 22px 40px -18px rgba(31, 47, 43, 0.45);
+}
+.bk .bk-mat img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.sheet .bk .work figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.bk .work figcaption::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--b-acc);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--b) 35%, transparent);
+  vertical-align: 0.05em;
+}
+
+/* ---------- Rangée justifiée : même hauteur, largeur selon le format ---------- */
+.bk-row { display: flex; gap: var(--bk-gap); align-items: flex-start; }
+.bk-row + .bk-row { margin-top: 36px; }
+.bk-row > .bk-tile { flex: var(--r) 1 0; min-width: 0; }
+.bk-row > .bk-tile .bk-mat { aspect-ratio: var(--r); }
+.bk-row--narrow { max-width: 820px; }
+.bk-row--half { max-width: calc(50% - var(--bk-gap) / 2); }
+
+/* ---------- Grille Instagram : posée dans un téléphone géant, façon profil ---------- */
+.bk-insta {
+  padding: clamp(16px, 3vw, 36px);
+  background: var(--b);
+  border-radius: 6px;
+}
+.bk-insta .bk-row { gap: 6px; }
+.bk-insta .bk-row + .bk-row { margin-top: 6px; }
+.bk-insta .bk-mat { border-radius: 0; box-shadow: none; }
+.bk-insta .work figcaption { display: none; }
+.bk-insta .work:hover .bk-mat { transform: scale(1.02); box-shadow: none; }
+
+/* ---------- Carrousel ---------- */
+.bk-strip {
+  position: relative;
+  padding: 32px 0 24px;
+  background: var(--b);
+  border-radius: 6px;
+}
+.bk-strip__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 32px;
+  padding: 0 32px 18px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--b-acc) transparent;
+}
+.bk-strip__track:focus-visible { outline: 2px solid var(--b-acc); outline-offset: -2px; }
+.bk-strip__slide { flex: 0 0 clamp(220px, 26vw, 320px); scroll-snap-align: start; }
+.bk-strip__slide .bk-mat { aspect-ratio: 4 / 5; box-shadow: none; }
+.sheet .bk .bk-strip__slide figcaption { color: rgba(255, 255, 255, 0.72); }
+.bk-strip__nav { display: flex; gap: 8px; justify-content: flex-end; padding: 0 32px; }
+.bk-strip__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.bk-strip__btn:hover { background: var(--b-acc); border-color: var(--b-acc); color: var(--b-2); }
+
+/* ---------- Stories dans un téléphone ---------- */
+.bk-phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-start;
+  padding: 40px clamp(20px, 4vw, 48px);
+  background: var(--b-soft);
+  border-radius: 6px;
+}
+.bk-phone { width: clamp(150px, 17vw, 220px); }
+.bk-phone__body {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  padding: 8px;
+  background: #111;
+  border-radius: 28px;
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.6), inset 0 0 0 1.5px #333;
+  transition: transform 0.45s var(--ease-smooth);
+}
+.bk-phone:hover .bk-phone__body { transform: translateY(-6px) rotate(-1.5deg); }
+.sheet .bk .bk-phone__body img { width: 100%; height: 100%; object-fit: cover; border-radius: 21px; }
+.bk-phone__notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  z-index: 1;
+  width: 34%;
+  height: 14px;
+  transform: translateX(-50%);
+  background: #111;
+  border-radius: 10px;
+}
+.bk-phone figcaption { text-align: center; }
+
+/* ---------- Emailings et planches hautes : défilent au survol ---------- */
+.bk-mails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+.bk-mail__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--b);
+  border-radius: 6px 6px 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+}
+.bk-mail__bar i,
+.bk-browser__bar i { width: 9px; height: 9px; flex: none; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.bk-mail__bar i:first-child { background: var(--b-acc); }
+.bk-mail__bar span { margin-left: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bk-mail__view {
+  --view: 520px;
+  position: relative;
+  height: var(--view);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--ink-line);
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+}
+.sheet .bk .bk-mail__view img {
+  width: 100%;
+  height: auto;
+  transform: translateY(0);
+  transition: transform 7s cubic-bezier(0.45, 0, 0.55, 1);
+}
+.sheet .bk .bk-mail:hover .bk-mail__view img { transform: translateY(calc(-100% + var(--view))); }
+.bk-mail__view::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 64px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.bk-mail:hover .bk-mail__view::after { opacity: 0; }
+.bk-mails--one { grid-template-columns: 1fr; }
+.bk-mails--one .bk-mail__view { --view: 560px; }
+
+/* ---------- Identité ABK : brand board à gauche, logo et vue d'ensemble à droite ---------- */
+.bk-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 28px;
+  align-items: start;
+}
+.bk-split__side .bk-row + .bk-row { margin-top: 28px; }
+.bk-split .bk-row .bk-tile:only-child { max-width: 100%; }
+
+
+/* ---------- Site dans un navigateur ---------- */
+.bk-browser__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  background: #e3e6e1;
+  border-radius: 6px 6px 0 0;
+}
+.bk-browser__bar i { background: #c3c9c1; }
+.bk-browser__bar span {
+  margin-left: 10px;
+  padding: 3px 12px;
+  background: #fff;
+  border-radius: 999px;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+.bk-browser .bk-mat { border-radius: 0 0 6px 6px; background: #fff; }
+
+/* ---------- Stickers sur planche ---------- */
+.bk-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 36px;
+  justify-content: center;
+  padding: 48px 32px 36px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.18) 1px, transparent 0) 0 0 / 18px 18px,
+    var(--b);
+  border-radius: 6px;
+}
+.bk-sticker { width: clamp(120px, 14vw, 170px); text-align: center; }
+.sheet .bk .bk-sticker img {
+  width: 100%;
+  height: auto;
+  transform: rotate(var(--rot));
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
+  transition: transform 0.45s var(--ease-elastic);
+}
+.sheet .bk .bk-sticker:hover img { transform: rotate(0deg) scale(1.08); box-shadow: none; }
+.sheet .bk .bk-sticker figcaption { color: rgba(255, 255, 255, 0.75); }
+.bk-sticker figcaption::before { display: none !important; }
+
+/* ---------- Tablette et téléphone ---------- */
+@media (max-width: 900px) {
+  .bk-hero { grid-template-columns: 1fr; gap: 32px; }
+  .bk-split { grid-template-columns: 1fr; }
+
+  .bk-row--half { max-width: none; }
+}
+@media (max-width: 640px) {
+  .bk { --bk-gap: 12px; }
+  .bk-hero { margin-bottom: 48px; padding: 28px 22px; }
+  .bk-hero__facts strong { font-size: 34px; }
+  .bk-hero__facts a { padding: 16px; }
+  .bk-sec { margin-top: 64px; }
+  .bk-sec__num { font-size: 40px; }
+  .bk-row--many, .bk-row--browsers { flex-wrap: wrap; }
+  .bk-row--many > .bk-tile { flex: 1 1 calc(50% - var(--bk-gap)); }
+  .bk-row--browsers > .bk-tile { flex-basis: 100%; }
+  .bk-row + .bk-row { margin-top: 24px; }
+  .sheet .bk .work figcaption { font-size: 11.5px; }
+  .bk-insta .bk-row { flex-wrap: nowrap; }
+  .bk-insta .bk-row > .bk-tile { flex: 1 1 0; }
+  .bk-strip { padding-top: 20px; }
+  .bk-strip__track { padding: 0 20px 14px; scroll-padding: 0 20px; }
+  .bk-strip__slide { flex-basis: 72%; }
+  .bk-strip__nav { padding: 0 20px; }
+  .bk-phones { gap: 16px; padding: 24px 16px; justify-content: center; }
+  .bk-phone { width: calc(50% - 8px); }
+  .bk-mail__view { --view: 420px; }
+  .bk-stickers { gap: 18px; padding: 32px 16px 24px; }
+  .bk-sticker { width: calc(33.333% - 12px); }
+  .bk-split__side .bk-row:first-child { max-width: none; }
+}
+@media (hover: none) {
+  /* Sans survol : les longs visuels se lisent en faisant défiler la fenêtre */
+  .bk-mail__view { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .sheet .bk .bk-mail:hover .bk-mail__view img { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet .bk .bk-mail__view img { transition: none; }
+  .bk-mail__view { overflow-y: auto; }
+}
+
+/* ---------- Duo : supports print à gauche, stories à droite ---------- */
+.bk-duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+.bk-duo .bk-phones { flex-wrap: nowrap; justify-content: center; align-items: center; gap: 20px; padding: 32px 24px; }
+.bk-duo .bk-phone { width: auto; flex: 1 1 0; max-width: 220px; }
+@media (max-width: 900px) {
+  .bk-duo { grid-template-columns: 1fr; }
+}
+
+/* Grille Instagram resserrée au centre, stories centrées */
+.bk-insta > .bk-row { max-width: 760px; margin-left: auto; margin-right: auto; }
+.bk-phones { justify-content: center; }
