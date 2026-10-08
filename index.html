@@ -25,13 +25,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://eu.i.posthog.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait.jpg">
-<link rel="stylesheet" href="style.css?v=50">
+<link rel="stylesheet" href="style.css?v=51">
 
-<!-- Analytics différés : PostHog + GA4 chargés après idle pour ne pas bloquer le premier rendu. -->
+<!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle. Pas de bandeau nécessaire. -->
 <script>
   (function(){
     var POSTHOG_KEY = 'phc_kvtcKX2kpHwfpJZHC5r5jKibYQEbezaGsQ9dPWwXKyL5';
@@ -41,7 +40,7 @@
     function loadPostHog(){
       if (!POSTHOG_KEY || POSTHOG_KEY.indexOf('YOUR_') === 0) return;
       !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-      window.posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, capture_pageview: true, autocapture: true });
+      window.posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, persistence: 'memory', disable_session_recording: true, capture_pageview: true, capture_pageleave: true, autocapture: true });
     }
     function loadGA4(){
       if (!GA_ID || GA_ID.indexOf('YOUR_') === 0) return;
@@ -57,7 +56,6 @@
     function loadAnalytics(){
       if (loaded) return; loaded = true;
       loadPostHog();
-      loadGA4();
     }
     // On charge dès que le navigateur est idle, ou après 2,5s max, ou dès la 1ère interaction.
     if ('requestIdleCallback' in window) {
@@ -130,8 +128,11 @@
           <span data-en="See my work">Voir mes réalisations</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </a>
-        <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="btn btn--ghost" download>
-          <span data-en="Download my CV">Télécharger mon CV</span>
+        <a href="cv-enderjeta-fr.pdf" class="btn btn--ghost" download>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span data-en="CV in French">CV français</span>
+        </a>
+        <a href="cv-enderjeta-en.pdf" class="btn btn--ghost" download>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span data-en="CV in English">CV anglais</span>
         </a>
       </div>
     </div>
@@ -333,7 +334,44 @@
         <h3 data-en="ITGREEN blog SEO articles">Articles blog SEO ITGREEN</h3>
         <p class="result__pitch" data-en="Nine long-form articles on itgreen.eu since March 2026: end of leasing, GDPR, data erasure, Windows 10, memory shortage… Each one was written both for SEO (keywords, H2/H3 structure) and for the reader (plain language, clear calls to action). The last two are scheduled for October.">Neuf articles longs sur itgreen.eu depuis mars 2026 : fin de leasing, RGPD, effacement des données, Windows 10, pénurie de mémoire… Chacun a été pensé pour le SEO (mots-clés, structure H2/H3) et pour le lecteur (langage simple, appels à l&#39;action clairs). Les deux derniers sont programmés pour octobre.</p>
         <p class="result__tools" data-en="Tools: web writing, Schema.org, PostHog.">Outils : rédaction web, Schema.org, PostHog.</p>
-        <div class="video-credits video-credits--articles">
+        
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">02</div>
+      <div class="result__body">
+        <img class="result__thumb" src="assets/realisations/itgreen-li-01-codes.webp" alt="" loading="lazy">
+        <h3 data-en="ITGREEN LinkedIn editorial line">Ligne éditoriale LinkedIn ITGREEN</h3>
+        <p class="result__pitch" data-en="10 posts scheduled over two months, order thought through from cover 01 to 10, one post on Tuesday and Thursday at 08:00, with a pause in August. Each post links to a blog article in its first comment. The LinkedIn API didn't allow me to automate that comment, so I post them by hand at publication time.">10 posts programmés sur deux mois, ordre pensé de la couverture 01 à 10, un post mardi et jeudi à 08h00, avec une pause en août. Chaque post renvoie vers un article du blog dans son premier commentaire. L'API LinkedIn ne me laissait pas automatiser ce commentaire, donc je les poste à la main au moment de la publication.</p>
+        <p class="result__tools" data-en="Tools: Meta Business Suite, LinkedIn.">Outils : Meta Business Suite, LinkedIn.</p>
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">03</div>
+      <div class="result__body">
+        <img class="result__thumb result__thumb--top" src="assets/realisations/itgreen-mailing-collectivites.webp" alt="" loading="lazy">
+        <h3 data-en="Sector-specific Odoo emailings">Emailings sectoriels Odoo</h3>
+        <p class="result__pitch" data-en="Emailings sent through Odoo, one per audience (local government, resellers, monthly pro selection) on a shared base in the ITGREEN brand style. Latest local government campaign: 2,261 recipients, 100% delivered, 10.6% open rate. Technically: hard-coded HTML tables and colours so that it renders properly in Outlook, which is still very strict about email HTML.">Emailings envoyés via Odoo, un par cible (collectivités, revendeurs, sélection pro mensuelle) sur une base commune à la charte ITGREEN. Dernière campagne collectivités : 2 261 destinataires, 100 % délivrés, 10,6 % d'ouverture. Techniquement : tables HTML en dur et couleurs codées pour que ça s'affiche correctement dans Outlook, qui reste très strict sur le HTML des mails.</p>
+        <p class="result__tools" data-en="Tools: Odoo 17, HTML email.">Outils : Odoo 17, HTML email.</p>
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">04</div>
+      <div class="result__body">
+        <img class="result__thumb" src="https://i.ytimg.com/vi/7EsXV9Iep60/hqdefault.jpg" alt="" loading="lazy">
+        <h3 data-en="Journalism internship, Figures Publiques">Stage journalisme Figures Publiques</h3>
+        <p class="result__pitch" data-en="2021, in an independent online political outlet. Political interviews, writing published articles, street interview videos.">Été 2021, dans un média politique indépendant en ligne. Interviews politiques, rédaction d'articles publiés, réalisation de micros-trottoirs vidéo.</p>
+        <p class="result__learn" data-en="What I learned: the discipline of fact-checking before publishing is still with me every time I write for the brands today.">Ce que j'en ai retenu : la discipline de vérifier avant de publier est restée avec moi à chaque fois que j'écris pour les marques aujourd'hui.</p>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="writing-lists">
+    <div class="video-credits video-credits--articles video-credits--wide">
           <span class="video-credits__label" data-en="My articles · itgreen.eu">Mes articles · itgreen.eu</span>
           <ul>
             <li>
@@ -401,37 +439,7 @@
             </li>
           </ul>
         </div>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">02</div>
-      <div class="result__body">
-        <img class="result__thumb" src="assets/realisations/itgreen-li-01-codes.webp" alt="" loading="lazy">
-        <h3 data-en="ITGREEN LinkedIn editorial line">Ligne éditoriale LinkedIn ITGREEN</h3>
-        <p class="result__pitch" data-en="10 posts scheduled over two months, order thought through from cover 01 to 10, one post on Tuesday and Thursday at 08:00, with a pause in August. Each post links to a blog article in its first comment. The LinkedIn API didn't allow me to automate that comment, so I post them by hand at publication time.">10 posts programmés sur deux mois, ordre pensé de la couverture 01 à 10, un post mardi et jeudi à 08h00, avec une pause en août. Chaque post renvoie vers un article du blog dans son premier commentaire. L'API LinkedIn ne me laissait pas automatiser ce commentaire, donc je les poste à la main au moment de la publication.</p>
-        <p class="result__tools" data-en="Tools: Meta Business Suite, LinkedIn.">Outils : Meta Business Suite, LinkedIn.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">03</div>
-      <div class="result__body">
-        <img class="result__thumb result__thumb--top" src="assets/realisations/itgreen-mailing-collectivites.webp" alt="" loading="lazy">
-        <h3 data-en="Sector-specific Odoo emailings">Emailings sectoriels Odoo</h3>
-        <p class="result__pitch" data-en="Emailings sent through Odoo, one per audience (local government, resellers, monthly pro selection) on a shared base in the ITGREEN brand style. Latest local government campaign: 2,261 recipients, 100% delivered, 10.6% open rate. Technically: hard-coded HTML tables and colours so that it renders properly in Outlook, which is still very strict about email HTML.">Emailings envoyés via Odoo, un par cible (collectivités, revendeurs, sélection pro mensuelle) sur une base commune à la charte ITGREEN. Dernière campagne collectivités : 2 261 destinataires, 100 % délivrés, 10,6 % d'ouverture. Techniquement : tables HTML en dur et couleurs codées pour que ça s'affiche correctement dans Outlook, qui reste très strict sur le HTML des mails.</p>
-        <p class="result__tools" data-en="Tools: Odoo 17, HTML email.">Outils : Odoo 17, HTML email.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">04</div>
-      <div class="result__body">
-        <img class="result__thumb" src="https://i.ytimg.com/vi/7EsXV9Iep60/hqdefault.jpg" alt="" loading="lazy">
-        <h3 data-en="Journalism internship, Figures Publiques">Stage journalisme Figures Publiques</h3>
-        <p class="result__pitch" data-en="2021, in an independent online political outlet. Political interviews, writing published articles, street interview videos.">Été 2021, dans un média politique indépendant en ligne. Interviews politiques, rédaction d'articles publiés, réalisation de micros-trottoirs vidéo.</p>
-        <p class="result__learn" data-en="What I learned: the discipline of fact-checking before publishing is still with me every time I write for the brands today.">Ce que j'en ai retenu : la discipline de vérifier avant de publier est restée avec moi à chaque fois que j'écris pour les marques aujourd'hui.</p>
-        <div class="video-credits">
+    <div class="video-credits video-credits--videos video-credits--wide">
           <span class="video-credits__label" data-en="Videos I contributed to · YouTube">Vidéos auxquelles j'ai contribué · YouTube</span>
           <ul>
             <li>
@@ -464,9 +472,8 @@
             </li>
           </ul>
         </div>
-      </div>
-    </article>
   </div>
+
 </section>
 
 <!-- ============ CH 04 · PILOTER ============ -->
@@ -496,7 +503,7 @@
       <div class="result__num">01</div>
       <div class="result__body">
         <h3 data-en="SEO overhaul of itgreen.eu">Refonte SEO d'itgreen.eu</h3>
-        <p class="result__pitch" data-en="Full optimisation of the itgreen.eu website. 13 Schema.org tags written and validated, two FAQPage schemas live, information architecture reviewed, titles and meta rewritten. I also went through the whole site and switched the em-dashes back to standard French punctuation. Since the overhaul, weekly page views have grown 4.5×.">Optimisation complète du site itgreen.eu. 13 balises Schema.org écrites et validées, deux FAQPage en ligne, arborescence revue, titres et méta réécrits. J'ai aussi repris tout le site pour remplacer les tirets cadratins par une ponctuation française classique. Depuis la refonte, les pages vues par semaine ont été multipliées par 4,5.</p>
+        <p class="result__pitch" data-en="Full optimisation of the itgreen.eu website. 13 Schema.org tags written and validated, two FAQPage schemas live, information architecture reviewed, titles and meta rewritten. Since the overhaul, weekly page views have grown 4.5×.">Optimisation complète du site itgreen.eu. 13 balises Schema.org écrites et validées, deux FAQPage en ligne, arborescence revue, titres et méta réécrits. Depuis la refonte, les pages vues par semaine ont été multipliées par 4,5.</p>
         <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, Schema.org.">Outils : Search Console, GA4, PostHog, Schema.org.</p>
         <p class="result__learn" data-en="What I learned: on this project, the schemas only started to pay off once the copy on the pages was rewritten in parallel.">Ce que j'en ai retenu : sur ce projet, les schemas n'ont commencé à porter leurs fruits qu'une fois le texte des pages réécrit en parallèle.</p>
       </div>
@@ -604,7 +611,7 @@
           <span class="logo-chip"><img src="assets/logos/pca9.png" alt="Logo PC@9" loading="lazy"></span>
           <span class="logo-chip"><img src="assets/logos/greenleo.png" alt="Logo GreenLeo" loading="lazy"></span>
         </div>
-        <h3><span class="timeline__co">ITGREEN, PC@9, GreenLeo</span><em data-en="Marketing and Digital Projects Manager">Responsable marketing et projets digitaux</em></h3>
+        <h3><span class="timeline__co"><a href="https://itgreen.eu" target="_blank" rel="noopener">ITGREEN<span class="timeline__ext" aria-hidden="true">↗</span></a>, <a href="https://www.pcaneuf.fr" target="_blank" rel="noopener">PC@9<span class="timeline__ext" aria-hidden="true">↗</span></a>, <a href="https://greenleo.fr" target="_blank" rel="noopener">GreenLeo<span class="timeline__ext" aria-hidden="true">↗</span></a></span><em data-en="Marketing and Digital Projects Manager">Responsable marketing et projets digitaux</em></h3>
         <p data-en="Permanent contract since 6 October 2026, after a Communication and Marketing apprenticeship from October 2025 to October 2026. ITGREEN is a B2B IT refurbishment company (independent). I also work on the two brands of the A9Group: PC@9 (retail refurbishment store) and GreenLeo (rental of refurbished PCs launched in 2026). All of the digital communication and part of the print work.">En CDI depuis le 6 octobre 2026, après une alternance Communication et Marketing d'octobre 2025 à octobre 2026. ITGREEN : reconditionnement informatique B2B, entreprise indépendante. J'interviens aussi sur les deux marques du groupe A9Group : PC@9 (boutique de reconditionnement grand public) et GreenLeo (location de PC reconditionnés lancée en 2026). Toute la com digitale et une partie du print.</p>
         <div class="timeline__tags">
           <span data-en="Multi-brand">Multi-marques</span><span>SEO</span><span>Data</span><span>Print</span><span>Web</span>
@@ -618,7 +625,7 @@
         <div class="timeline__logos">
           <span class="logo-chip"><img src="assets/logos/erhart.png" alt="Logo Erhart & Fils" loading="lazy"></span>
         </div>
-        <h3><span class="timeline__co">ERHART &amp; FILS</span><em data-en="Communication and Marketing apprenticeship">Alternance Communication et Marketing</em></h3>
+        <h3><span class="timeline__co"><a href="https://erhartetfils.fr" target="_blank" rel="noopener">ERHART &amp; FILS<span class="timeline__ext" aria-hidden="true">↗</span></a></span><em data-en="Communication and Marketing apprenticeship">Alternance Communication et Marketing</em></h3>
         <p data-en="Family-run Alsatian carpentry business. I rebuilt their social media presence, took photos and videos on construction sites, ran local campaigns and maintained their Google Business profile.">Menuiserie familiale alsacienne. J'ai refait leur présence sur les réseaux sociaux, fait des photos et vidéos sur les chantiers, monté des campagnes locales, et entretenu leur fiche Google Business.</p>
         <div class="timeline__tags">
           <span data-en="Craft">Artisanat</span><span>Photo</span><span data-en="Social">Réseaux</span><span>Local</span>
@@ -632,7 +639,7 @@
         <div class="timeline__logos">
           <span class="logo-chip"><img src="assets/logos/lepreo.png" alt="Logo Le PréO" loading="lazy"></span>
         </div>
-        <h3><span class="timeline__co">LE PRÉO SCÈNE</span><em data-en="Communication and public relations internship">Stage Communication et relations publiques</em></h3>
+        <h3><span class="timeline__co"><a href="https://www.le-preo.fr" target="_blank" rel="noopener">LE PRÉO SCÈNE<span class="timeline__ext" aria-hidden="true">↗</span></a></span><em data-en="Communication and public relations internship">Stage Communication et relations publiques</em></h3>
         <p data-en="Certified performance venue in Oberhausbergen. SEO web writing, visual and video content, social media for cultural events.">Scène conventionnée d'Oberhausbergen. Rédaction de contenus web SEO, création de supports visuels et vidéo, animation des réseaux sociaux pour des événements culturels.</p>
         <div class="timeline__tags">
           <span>Culture</span><span>SEO</span><span data-en="Video">Vidéo</span><span data-en="Social">Réseaux</span>
@@ -839,9 +846,13 @@
 
 <!-- ============ CV DOWNLOAD CTA ============ -->
 <section class="cv-cta" aria-label="Télécharger le CV" data-aria-en="Download the CV">
-  <a class="cv-cta__btn" href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" download>
-    <span data-en="Download my CV (PDF)">Télécharger mon CV (PDF)</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v14M6 12l6 6 6-6M4 22h16"/></svg>
+  <a class="cv-cta__btn" href="cv-enderjeta-fr.pdf" download>
+    <span data-en="My CV in French (PDF)">Mon CV en français (PDF)</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
+  </a>
+  <a class="cv-cta__btn cv-cta__btn--alt" href="cv-enderjeta-en.pdf" download>
+    <span data-en="My CV in English (PDF)">Mon CV en anglais (PDF)</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
   </a>
 </section>
 
@@ -1046,7 +1057,7 @@
         <h3 class="sheet__title" id="sheet-title-pca9">PC@9</h3>
         <p class="sheet__desc" data-en="Retail refurbishment, store in Alsace">Reconditionnement grand public, boutique en Alsace</p>
         <p class="sheet__intro" data-en="In-store poster and flyer, a series of stickers, posts and stories for the store campaigns.">Affiche et flyer pour la boutique, série de stickers, posts et stories des campagnes en magasin.</p>
-        <a class="sheet__site" href="https://pcaneuf.fr" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> pcaneuf.fr <span aria-hidden="true">↗</span></a>
+        <a class="sheet__site" href="https://www.pcaneuf.fr" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> pcaneuf.fr <span aria-hidden="true">↗</span></a>
       </header>
       <section class="sheet__group">
         <h4 class="sheet__group-title" data-en="Print">Print</h4>
@@ -1585,7 +1596,7 @@
 
     const BRANDS = {
       itgreen:  { url: 'https://itgreen.eu',    label: 'itgreen.eu' },
-      pca9:     { url: 'https://pcaneuf.fr',    label: 'pcaneuf.fr' },
+      pca9:     { url: 'https://www.pcaneuf.fr',    label: 'pcaneuf.fr' },
       greenleo: { url: 'https://greenleo.fr',   label: 'greenleo.fr' },
       abk:      { url: 'https://abkrenov.fr',   label: 'abkrenov.fr' }
     };

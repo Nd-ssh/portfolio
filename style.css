@@ -3807,3 +3807,150 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   .chapter__head .chapter__marker { margin-bottom: 0; }
   .chapter__head .chapter__title { flex-basis: 100%; margin-top: 20px; }
 }
+
+/* =====================================================
+   V3 OCTOBRE 2026
+   Couleurs de la bannière LinkedIn (sauge brumeuse, menthe, ardoise),
+   sections en pleine largeur, chapitre Écrire rééquilibré,
+   liens des entreprises dans le parcours, CV FR + EN.
+   ===================================================== */
+:root {
+  --ink: #2C3936;
+  --ink-soft: rgba(44,57,54,0.80);
+  --ink-mute: rgba(44,57,54,0.58);
+  --ink-line: rgba(44,57,54,0.13);
+  --ink-hairline: rgba(44,57,54,0.22);
+  --paper: #E9EDE6;
+  --paper-2: #DCE3D8;
+  --paper-3: #C6D0C1;
+  --accent: #4A6B60;
+  --accent-2: #94BEAE;
+  --accent-soft: rgba(74,107,96,0.14);
+  --accent-hover: #34524A;
+  --wrap: 1320px;
+  --gutter: max(var(--pad-x), calc((100% - var(--wrap)) / 2));
+}
+
+/* ---------- Pleine largeur : les fonds vont d'un bord à l'autre, le contenu reste centré ---------- */
+.chapter,
+.contact,
+.foot {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+.hero { padding-left: var(--gutter); padding-right: var(--gutter); }
+.hero__grid { max-width: none; }
+.sheet__inner { max-width: calc(var(--wrap) + 2 * var(--pad-x)); }
+
+/* ---------- Texture de la bannière LinkedIn ---------- */
+.hero {
+  background:
+    linear-gradient(180deg, rgba(233,237,230,0.70) 0%, rgba(233,237,230,0.86) 55%, var(--paper) 100%),
+    url('assets/texture-banniere.jpg') center top / cover no-repeat;
+}
+.cv-cta {
+  gap: 16px;
+  flex-wrap: wrap;
+  background:
+    linear-gradient(0deg, rgba(233,237,230,0.55), rgba(233,237,230,0.55)),
+    url('assets/texture-banniere.jpg') center / cover no-repeat;
+}
+.cv-cta__btn--alt {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  box-shadow: none;
+}
+.cv-cta__btn--alt:hover { background: var(--ink); color: var(--paper); }
+.hero__actions .btn svg { flex: none; }
+
+/* ---------- Chapitre Écrire : cartes égales + listes en grille ---------- */
+.results--writing { align-items: stretch; }
+.writing-lists {
+  display: grid;
+  gap: 56px;
+  margin-top: 64px;
+}
+.video-credits--wide {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.video-credits--wide ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.video-credits--videos ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.video-credits--wide li + li { border-top: 0; }
+.video-credits--wide li { display: flex; }
+.video-credits--wide li > a,
+.video-credits--wide li > .video-credits__soon {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "meta mark" "title title";
+  align-content: start;
+  gap: 10px 12px;
+  padding: 18px 20px 20px;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid var(--ink-line);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-smooth), border-color 0.3s, background 0.3s;
+}
+.video-credits--wide li > a:hover,
+.video-credits--wide li > .video-credits__soon:hover {
+  padding-left: 20px;
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.6);
+}
+.video-credits--wide .video-credits__date,
+.video-credits--wide .video-credits__play { grid-area: meta; }
+.video-credits--wide .video-credits__title { grid-area: title; font-size: 16px; }
+.video-credits--wide .video-credits__arrow,
+.video-credits--wide .video-credits__tag { grid-area: mark; justify-self: end; }
+@media (max-width: 1000px) {
+  .video-credits--wide ul,
+  .video-credits--videos ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .video-credits--wide ul,
+  .video-credits--videos ul { grid-template-columns: 1fr; }
+  .video-credits--wide .video-credits__arrow { display: block; }
+  .writing-lists { gap: 40px; margin-top: 48px; }
+}
+
+/* ---------- Parcours : liens vers les sites des entreprises ---------- */
+.timeline__co a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-hairline);
+  transition: color 0.25s, border-color 0.25s;
+}
+.timeline__co a:hover { color: var(--accent); border-color: var(--accent); }
+.timeline__ext {
+  display: inline-block;
+  margin-left: 3px;
+  font-size: 0.8em;
+  color: var(--ink-mute);
+  transition: transform 0.25s var(--ease-smooth);
+}
+.timeline__co a:hover .timeline__ext { transform: translate(2px, -2px); color: var(--accent); }
+
+/* ---------- Ajustements responsive ---------- */
+@media (max-width: 900px) {
+  .results--writing { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero__actions .btn { flex: 1 1 auto; justify-content: center; }
+  .cv-cta__btn { width: 100%; justify-content: center; }
+}
+@media (max-width: 640px) {
+  .makers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .maker { min-width: 0; }
+  .maker__logo img { max-width: 100%; }
+}
