@@ -4002,53 +4002,112 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 }
 .hero__portrait .pause__caption.is-swap { opacity: 0; }
 
-.scratch__hint {
+/* Points de progression, en bas à droite de la photo */
+.scratch__dots {
   position: absolute;
-  top: 28px;
-  left: 28px;
+  right: 28px;
+  bottom: 24px;
   z-index: 4;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 10px;
+  display: flex;
+  gap: 6px;
+}
+.scratch__dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s, transform 0.3s var(--ease-smooth);
+}
+.scratch__dots i.is-on { background: #fff; transform: scale(1.25); }
+
+/* Bouton invisible pour le clavier, visible quand il est sélectionné */
+.scratch__skip {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 5;
+  padding: 8px 14px;
   border: 0;
   border-radius: 999px;
-  background: rgba(233, 237, 230, 0.9);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 12px;
+  font: 600 12px var(--font-body);
+  opacity: 0;
+  pointer-events: none;
+}
+.scratch__skip:focus-visible { opacity: 1; pointer-events: auto; outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* « grattez-moi ! » écrit à la main, avec sa flèche */
+.hero__photo { grid-area: portrait; position: relative; }
+.hero__photo .hero__portrait { grid-area: auto; }
+.scratch-note {
+  position: absolute;
+  z-index: 3;
+  right: 62%;
+  bottom: calc(100% - 34px);
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.scratch-note.is-ready { opacity: 1; transition-delay: 1.2s; }
+.scratch-note.is-gone { opacity: 0; transition-delay: 0s; }
+.scratch-note__txt {
+  font-family: 'Caveat', 'Segoe Print', cursive;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  box-shadow: 0 6px 18px rgba(31, 47, 43, 0.18);
-  cursor: pointer;
-  transition: transform 0.3s var(--ease-smooth), background 0.3s, opacity 0.3s;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--accent);
+  white-space: nowrap;
+  transform: rotate(-7deg) translateY(-34px);
+  margin-right: -6px;
 }
-.scratch__hint:hover { transform: translateY(-2px); background: #fff; }
-.scratch__hint:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.scratch__coin {
-  width: 18px;
-  height: 18px;
+.scratch-note__arrow {
+  width: 92px;
+  height: 74px;
   flex: none;
-  animation: scratchWiggle 2.4s ease-in-out infinite;
+  overflow: visible;
+  color: var(--accent);
 }
-@keyframes scratchWiggle {
-  0%, 70%, 100% { transform: rotate(0) translateX(0); }
-  76% { transform: rotate(-18deg) translateX(-2px); }
-  84% { transform: rotate(14deg) translateX(2px); }
-  92% { transform: rotate(-8deg) translateX(-1px); }
+.scratch-note__arrow path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
 }
-.scratch__count {
-  font-weight: 500;
-  color: var(--ink-mute);
-  font-variant-numeric: tabular-nums;
+.scratch-note.is-ready .scratch-note__arrow path {
+  animation: noteDraw 0.9s ease-out 1.5s forwards;
+}
+.scratch-note.is-ready .scratch-note__arrow path + path { animation-delay: 2.3s; animation-duration: 0.3s; }
+.scratch-note.is-ready .scratch-note__arrow { animation: noteNudge 2.6s ease-in-out 3s infinite; }
+@keyframes noteDraw { to { stroke-dashoffset: 0; } }
+@keyframes noteNudge {
+  0%, 60%, 100% { transform: translate(0, 0); }
+  75% { transform: translate(4px, 4px); }
+  88% { transform: translate(1px, 1px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scratch__coin { animation: none; }
+  .scratch-note__arrow path { stroke-dashoffset: 0; animation: none !important; }
+  .scratch-note.is-ready .scratch-note__arrow { animation: none; }
 }
+/* Téléphone : la photo est à gauche, la note se place à sa droite */
 @media (max-width: 900px) {
-  .scratch__hint { top: 22px; left: 22px; font-size: 11px; padding: 7px 12px 7px 9px; }
+  .scratch-note {
+    right: auto;
+    bottom: auto;
+    top: 26%;
+    left: calc(min(240px, 62vw) + 4px);
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .scratch-note__txt { font-size: 22px; transform: rotate(-8deg); margin: 2px 0 0 6px; }
+  .scratch-note__arrow { width: 58px; height: 48px; transform: rotate(78deg); }
+  .scratch-note.is-ready .scratch-note__arrow { animation: none; }
 }
 
 /* =====================================================
