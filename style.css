@@ -4569,3 +4569,8 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 @media (min-width: 901px) and (max-width: 1080px) {
   .nav__cta { display: none; }
 }
+
+/* Ponctuation rangée dans le mot en italique : elle garde le style du titre */
+.chapter__title .word__punct { font-style: normal; font-weight: 900; color: var(--ink); }
+/* Titre qui tient toujours sur une ligne */
+.chapter__head .chapter__title--line { white-space: nowrap; font-size: min(clamp(40px, 6.4vw, 92px), 7.6vw); }
