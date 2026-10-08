@@ -28,7 +28,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=48">
+<link rel="preload" as="image" href="assets/realisations/enderjeta-portrait.jpg">
+<link rel="stylesheet" href="style.css?v=49">
 
 <!-- Analytics différés : PostHog + GA4 chargés après idle pour ne pas bloquer le premier rendu. -->
 <script>
@@ -84,9 +85,8 @@
   <nav class="nav__links" id="nav-links">
     <a href="#today" data-section="today" data-en="Today">Aujourd'hui</a>
     <a href="#creer" data-section="creer" data-en="Create">Créer</a>
-    <a href="#curieuse" data-section="curieuse" data-en="Learn">Apprendre</a>
-    <a href="#comprendre" data-section="comprendre" data-en="Analyse">Analyser</a>
     <a href="#ecrire" data-section="ecrire" data-en="Write">Écrire</a>
+    <a href="#piloter" data-section="piloter" data-en="Manage">Piloter</a>
     <a href="#univers" data-section="univers" data-en="Path">Parcours</a>
     <a href="#contact" data-section="contact" data-en="Contact">Contact</a>
   </nav>
@@ -109,39 +109,56 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="hero__grid">
+  <div class="hero__grid hero__grid--portrait">
     <div class="hero__meta">
       <span data-en="Strasbourg, France">Strasbourg, France</span>
-      <span data-en="Open to a full-time role from mid-October 2026">Disponible en CDI dès mi-octobre 2026</span>
+      <span data-en="Open to a permanent or fixed-term role from January 2027">Disponible en CDI ou CDD dès janvier 2027</span>
     </div>
 
-    <h1 class="hero__title">
-      Enderjeta<br>
-      <span class="hero__title-italic">SAHITAJ.</span>
-    </h1>
+    <div class="hero__main">
+      <h1 class="hero__title">
+        Enderjeta<br>
+        <span class="hero__title-italic">SAHITAJ.</span>
+      </h1>
 
-    <div class="hero__monogram" aria-hidden="true">
-      <span class="hero__monogram-mark"></span>
+      <p class="hero__tagline" data-en='<em class="italic">Communication</em> and <em class="italic">marketing</em> officer, trained in both digital and print. I work on multi-channel projects, from concept to launch: websites, content, SEO, emailing, print, data.'>Chargée de <em class="italic">communication</em> et <em class="italic">marketing</em>, formée aux métiers du digital et du print. J'interviens sur des projets multi-canaux, de la conception à la mise en ligne : sites, contenus, SEO, emailing, supports imprimés, data.</p>
+
+      <blockquote class="hero__quote" data-en="Community management, design, writing, shoots, com strategy: I&#39;ve always worked across several of these at once. That mix is where I&#39;m the most useful.">Community management, design, rédaction, shooting, stratégie de com : j'ai toujours travaillé sur plusieurs de ces terrains en même temps. C'est dans ce mélange que je suis la plus utile.</blockquote>
+
+      <div class="hero__actions">
+        <a href="#creer" class="btn btn--primary" data-magnetic>
+          <span data-en="See my work">Voir mes réalisations</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="btn btn--ghost" download>
+          <span data-en="Download my CV">Télécharger mon CV</span>
+        </a>
+      </div>
     </div>
 
-   <p class="hero__tagline" data-en='Communication and marketing lead, trained in both digital and print. I work on
-  multi-channel projects, from concept to launch: websites, content, SEO, emailing, print, data.'> Chargée de <em class="italic">communication</em> et <em class="italic">marketing</em>, formée aux métiers du
-  digital et du print. J'interviens sur des projets multi-canaux, de la conception à la mise en ligne : sites, contenus, SEO, emailing, supports imprimés, data.
-      </p>
+    <div class="hero__portrait" oncontextmenu="return false;" ondragstart="return false;">
+      <div class="hero__frame" role="img" aria-label="Portrait d'Enderjeta Sahitaj" data-aria-en="Portrait of Enderjeta Sahitaj"></div>
+      <div class="pause__shield" aria-hidden="true"></div>
+      <span class="pause__caption">Enderjeta · Strasbourg 2026</span>
+    </div>
 
     <div class="hero__foot">
-      <a href="#today" class="btn btn--primary" data-magnetic>
-        <span data-en="See my work">Découvrir mon travail</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </a>
       <div class="hero__stats">
         <div>
-          <strong>4</strong>
-          <span data-en="brands managed<br>in parallel">marques suivies<br>en parallèle</span>
+          <strong>×4,5</strong>
+          <span data-en="weekly page views<br>after the SEO overhaul">pages vues par semaine<br>après la refonte SEO</span>
+        </div>
+        <div>
+          <strong>2 261</strong>
+          <span data-en="recipients for<br>one Odoo emailing">destinataires d'un<br>seul emailing Odoo</span>
+        </div>
+        <div>
+          <strong>9</strong>
+          <span data-en="SEO articles written<br>for itgreen.eu">articles SEO écrits<br>pour itgreen.eu</span>
         </div>
         <div>
           <strong>4</strong>
-          <span data-en="languages<br>spoken">langues<br>parlées</span>
+          <span data-en="brands managed<br>in parallel">marques suivies<br>en parallèle</span>
         </div>
       </div>
     </div>
@@ -150,27 +167,28 @@
 
 <!-- ============ CH 01 · AUJOURD'HUI ============ -->
 <section class="chapter chapter--intro reveal" id="today">
-  <div class="chapter__marker">
-    <span data-en="Chapter 01">Chapitre 01</span>
-    <span data-en="Today">Aujourd'hui</span>
+  <div class="chapter__head">
+    <span class="chapter__num" aria-hidden="true">01</span>
+    <div class="chapter__head-text">
+      <div class="chapter__marker"><span data-en="Today">Aujourd'hui</span></div>
+      <h2 class="chapter__title" data-en='Four brands.<br><span class="italic">One person</span> on comms.'>
+        Quatre marques.<br>
+        <span class="italic">Une seule</span> personne à la com.
+      </h2>
+    </div>
   </div>
-
-  <h2 class="chapter__title" data-en='I run com and marketing for <span class="italic">four brands</span><br>at the same time.'>
-    Je pilote la com de <span class="italic">quatre marques</span><br>
-    en parallèle.
-  </h2>
 
   <div class="chapter__lead">
     <p data-en="I have been working at ITGREEN as an apprentice since October 2025, alongside my Master's in Communication and Marketing at ECS Mediaschool Strasbourg. ITGREEN is an independent company in B2B IT refurbishment. Very quickly, I was also given the two brands of the A9Group: PC@9 (retail refurbishment through their store) and GreenLeo (long-term rental of refurbished PCs, launched in 2026). Alongside that, I handle the brand and website of ABK Rénov', an Alsace-based renovation company.">
       En alternance chez ITGREEN depuis octobre 2025, en parallèle du master Communication et Marketing à ECS Mediaschool Strasbourg. ITGREEN est une entreprise indépendante sur le reconditionnement informatique B2B. Très vite, on m'a confié en plus les deux marques du groupe A9Group : PC@9 (reconditionnement grand public en boutique) et GreenLeo (location longue durée de PC reconditionnés, lancée en 2026). En parallèle, je m'occupe de l'identité et du site d'ABK Rénov', entreprise de rénovation alsacienne.
     </p>
-    <p class="chapter__lead-small" data-en="Four brands, one person on the com side. Websites, emailings, SEO, articles, client portal, print materials, LinkedIn campaigns, data. In the morning I might work on a B2B mailing for ITGREEN, in the afternoon redesign in-store visuals for PC@9. It's this shift in rhythm that I enjoy.">
-      Quatre marques, une seule personne côté com. Sites, mailings, SEO, articles, portail client, supports print, campagnes LinkedIn, data. Le matin je peux bosser sur un mailing B2B pour ITGREEN, l'après-midi refaire des visuels boutique pour PC@9. C'est ce changement de rythme qui me plaît.
+    <p class="chapter__lead-small" data-en="Websites, emailings, SEO, articles, client portal, print materials, LinkedIn campaigns, data. In the morning a B2B mailing for ITGREEN, in the afternoon new in-store visuals for PC@9: it&#39;s this shift in rhythm that I enjoy.">
+      Sites, mailings, SEO, articles, espace client, supports print, campagnes LinkedIn, data. Le matin un mailing B2B pour ITGREEN, l'après-midi de nouveaux visuels boutique pour PC@9 : c'est ce changement de rythme qui me plaît.
     </p>
   </div>
 
   <div class="brands">
-    <a class="brand" href="#creer">
+    <a class="brand" href="#creer" data-brand="itgreen">
       <div class="brand__head">
         <span class="brand__name">ITGREEN</span>
         <span class="brand__desc" data-en="B2B IT refurbishment">Reconditionnement informatique B2B</span>
@@ -178,12 +196,12 @@
       <ul>
         <li data-en="SEO overhaul of the website: structure, content, structured data">Refonte SEO du site : structure, contenus, données structurées</li>
         <li data-en="Sector-specific emailings via Odoo, 2,261 recipients">Emailings sectoriels Odoo, 2 261 destinataires</li>
-        <li data-en="Migration of the B2B client portal to Laravel">Migration du portail client B2B vers Laravel</li>
+        <li data-en="B2B client area redesign: benchmark, user journey, mockups">Refonte de l'espace client B2B : benchmark, parcours, maquettes</li>
         <li data-en="Internal interface to run group marketing (LinkedIn planning and validation)">Interface interne pour piloter le marketing du groupe (planning et validation LinkedIn)</li>
         <li data-en="Automated weekly data report (Search Console, GA4, PostHog)">Rapport data hebdomadaire automatisé (Search Console, GA4, PostHog)</li>
       </ul>
     </a>
-    <a class="brand" href="#creer">
+    <a class="brand" href="#creer" data-brand="pca9">
       <div class="brand__head">
         <span class="brand__name">PC@9</span>
         <span class="brand__desc" data-en="Retail refurbishment, physical store in Alsace">Reconditionnement grand public, boutique Alsace</span>
@@ -196,7 +214,7 @@
         <li data-en="Header CTA and category banner deployed on the Odoo site">CTA header et bandeau catégories déployés sur le site Odoo</li>
       </ul>
     </a>
-    <a class="brand" href="#creer">
+    <a class="brand" href="#creer" data-brand="greenleo">
       <div class="brand__head">
         <span class="brand__name">GreenLeo</span>
         <span class="brand__desc" data-en="Long-term rental of refurbished PCs at low cost">Location longue durée de PC reconditionnés à faible coût</span>
@@ -209,7 +227,7 @@
         <li data-en="Standalone QR codes, GA4 tracking">QR codes autonomes, tracking GA4</li>
       </ul>
     </a>
-    <a class="brand" href="#creer">
+    <a class="brand" href="#creer" data-brand="abk">
       <div class="brand__head">
         <span class="brand__name">ABK Rénov'</span>
         <span class="brand__desc" data-en="Alsace-based renovation company">Entreprise de rénovation alsacienne</span>
@@ -222,18 +240,20 @@
       </ul>
     </a>
   </div>
+  <p class="brands__hint" data-en="Click a brand to see everything I made for it.">Cliquez sur une marque pour voir tout ce que j'ai fait pour elle.</p>
 </section>
 
 <!-- ============ CH 02 · CRÉER ============ -->
 <section class="chapter chapter--creer reveal" id="creer">
-  <div class="chapter__marker">
-    <span data-en="Chapter 02">Chapitre 02</span>
-    <span data-en="Create">Créer</span>
+  <div class="chapter__head">
+    <span class="chapter__num" aria-hidden="true">02</span>
+    <div class="chapter__head-text">
+      <div class="chapter__marker"><span data-en="Create">Créer</span></div>
+      <h2 class="chapter__title" data-en='<span class="italic">I love</span> making things.'>
+        <span class="italic">J'aime</span> créer.
+      </h2>
+    </div>
   </div>
-
-  <h2 class="chapter__title" data-en='<span class="italic">I love</span> making things.'>
-    <span class="italic">J'aime</span> créer.
-  </h2>
 
   <div class="chapter__lead">
     <p data-en="Creating is my favourite part. Visual identities, print materials, social campaigns, web mockups: that's where I'm most useful to the brands I work with. I have a good eye for typography, colour and layout, and I deliver finished work on time.">
@@ -244,462 +264,57 @@
     </p>
   </div>
 
-  <!-- Sous-chapitre : identité de marque -->
-  <div class="subchapter">
-    <div class="subchapter__head">
-      <span class="subchapter__num">2.1</span>
-      <div>
-        <h3 data-en="Brand identity">Identité de marque</h3>
-        <p data-en="For ABK Rénov', I built the full brand identity: brand board, logo, business card, contact page and website. Everything was designed to give the company clear codes before any collateral is produced. GreenLeo's identity (logo, palette, typography) shows up further down, on its flyers and social posts.">Pour ABK Rénov', j'ai construit l'identité complète : brand board, logo, carte de visite, page contact, site web. Une direction visuelle qui pose les codes de la marque avant même le premier support. L'identité GreenLeo (logo, palette, typos) se lit plus bas, sur les flyers et les posts.</p>
-      </div>
-    </div>
-    <div class="proofs proofs--gallery">
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-brandboard.webp" alt="Brand board ABK Rénov'" data-alt-en="ABK Rénov' brand board">
-        <figcaption data-en="<em>ABK Rénov'</em> · brand board"><em>ABK Rénov'</em> · brand board</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-vue-ensemble.webp" alt="Vue d'ensemble identité ABK Rénov'" data-alt-en="ABK Rénov' identity overview">
-        <figcaption data-en="<em>ABK Rénov'</em> · overview"><em>ABK Rénov'</em> · vue d'ensemble</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-logo.webp" alt="Logo ABK Rénov'" data-alt-en="ABK Rénov' logo">
-        <figcaption data-en="<em>ABK Rénov'</em> · logo"><em>ABK Rénov'</em> · logo</figcaption>
-      </figure>
-      <figure class="proof proof--browser" data-url="abkrenov.fr">
-        <img loading="lazy" src="assets/realisations/abk-site.webp" alt="Site web ABK Rénov'" data-alt-en="ABK Rénov' website">
-        <figcaption data-en="<em>ABK Rénov'</em> · website"><em>ABK Rénov'</em> · site web</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-contact.webp" alt="Page contact ABK Rénov'" data-alt-en="ABK Rénov' contact page">
-        <figcaption data-en="<em>ABK Rénov'</em> · contact page"><em>ABK Rénov'</em> · page contact</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-carte-recto.webp" alt="Carte de visite ABK Rénov' : recto" data-alt-en="ABK Rénov' business card : front">
-        <figcaption data-en="<em>ABK Rénov'</em> · business card · front"><em>ABK Rénov'</em> · carte de visite · recto</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/abk-carte-verso.webp" alt="Carte de visite ABK Rénov' : verso" data-alt-en="ABK Rénov' business card : back">
-        <figcaption data-en="<em>ABK Rénov'</em> · business card · back"><em>ABK Rénov'</em> · carte de visite · verso</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- Sous-chapitre : supports print -->
-  <div class="subchapter">
-    <div class="subchapter__head">
-      <span class="subchapter__num">2.2</span>
-      <div>
-        <h3 data-en="Print materials">Supports print</h3>
-        <p data-en="For ITGREEN, large-format signage on the warehouse: banner, totem, van livery, plus stickers. For PC@9, in-store poster, A5 flyer and a series of stickers. For GreenLeo, two A5 flyers front and back for campus distribution. Earlier, at Le PréO Scène, the print collateral for the 2023–2024 cultural season: posters, postcards, and the season programme booklet.">Pour ITGREEN, la signalétique grand format sur l'entrepôt : bâche, totem, flocage camion, plus des stickers. Pour PC@9, affiche boutique, flyer A5 et une série de stickers. Pour GreenLeo, deux flyers A5 recto-verso pour la distribution en campus. Plus tôt, au PréO Scène, les supports print de la saison culturelle 2023–2024 : affiches, cartes postales et livret programme.</p>
-      </div>
-    </div>
-    <div class="proofs proofs--gallery">
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-bache-totem-rendu.webp" alt="Rendu final bâche + totem ITGREEN sur l'entrepôt" data-alt-en="ITGREEN warehouse banner and totem, final result">
-        <figcaption data-en="<em>ITGREEN</em> · large-format signage"><em>ITGREEN</em> · signalétique entrepôt</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-bache.webp" alt="Bâche ITGREEN" data-alt-en="ITGREEN outdoor banner">
-        <figcaption data-en="<em>ITGREEN</em> · outdoor banner"><em>ITGREEN</em> · bâche</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-totem.webp" alt="Totem ITGREEN" data-alt-en="ITGREEN totem">
-        <figcaption data-en="<em>ITGREEN</em> · totem"><em>ITGREEN</em> · totem</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-camion.webp" alt="Flocage camion ITGREEN" data-alt-en="ITGREEN van livery">
-        <figcaption data-en="<em>ITGREEN</em> · van livery"><em>ITGREEN</em> · flocage camion</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-sticker.webp" alt="Sticker ITGREEN" data-alt-en="ITGREEN sticker">
-        <figcaption data-en="<em>ITGREEN</em> · sticker"><em>ITGREEN</em> · sticker</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-affiche-recycler.webp" alt="Affiche PC@9" data-alt-en="PC@9 poster">
-        <figcaption data-en="<em>PC@9</em> · in-store poster"><em>PC@9</em> · affiche boutique</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-flyer.webp" alt="Flyer PC@9" data-alt-en="PC@9 flyer">
-        <figcaption data-en="<em>PC@9</em> · flyer"><em>PC@9</em> · flyer</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-2.webp" alt="Sticker PC@9 nº 2" data-alt-en="PC@9 sticker no. 2">
-        <figcaption data-en="<em>PC@9</em> · sticker 2"><em>PC@9</em> · sticker 2</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-3.webp" alt="Sticker PC@9 nº 3" data-alt-en="PC@9 sticker no. 3">
-        <figcaption data-en="<em>PC@9</em> · sticker 3"><em>PC@9</em> · sticker 3</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-4.webp" alt="Sticker PC@9 nº 4" data-alt-en="PC@9 sticker no. 4">
-        <figcaption data-en="<em>PC@9</em> · sticker 4"><em>PC@9</em> · sticker 4</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-5.webp" alt="Sticker PC@9 nº 5" data-alt-en="PC@9 sticker no. 5">
-        <figcaption data-en="<em>PC@9</em> · sticker 5"><em>PC@9</em> · sticker 5</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-sticker-6.webp" alt="Sticker PC@9 nº 6" data-alt-en="PC@9 sticker no. 6">
-        <figcaption data-en="<em>PC@9</em> · sticker 6"><em>PC@9</em> · sticker 6</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-1-recto.webp" alt="Flyer GreenLeo nº 1 recto" data-alt-en="GreenLeo flyer no. 1, front">
-        <figcaption data-en="<em>GreenLeo flyer 1</em> · front"><em>Flyer GreenLeo 1</em> · recto</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-1-verso.webp" alt="Flyer GreenLeo nº 1 verso" data-alt-en="GreenLeo flyer no. 1, back">
-        <figcaption data-en="<em>GreenLeo flyer 1</em> · back"><em>Flyer GreenLeo 1</em> · verso</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-2-recto.webp" alt="Flyer GreenLeo nº 2 recto" data-alt-en="GreenLeo flyer no. 2, front">
-        <figcaption data-en="<em>GreenLeo flyer 2</em> · front"><em>Flyer GreenLeo 2</em> · recto</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-flyer-2-verso.webp" alt="Flyer GreenLeo nº 2 verso" data-alt-en="GreenLeo flyer no. 2, back">
-        <figcaption data-en="<em>GreenLeo flyer 2</em> · back"><em>Flyer GreenLeo 2</em> · verso</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/preo-scene-print-1.jpg" alt="Supports print Le PréO Scène saison 2023-2024 : affiches, cartes postales et programme" data-alt-en="Le PréO Scène 2023-2024 print collateral: posters, postcards and season programme">
-        <figcaption data-en="<em>Le PréO Scène</em> · 2023–2024 print collateral"><em>Le PréO Scène</em> · supports saison 2023–2024</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/preo-scene-print-2.jpg" alt="Supports print Le PréO Scène saison 2023-2024 : mise en scène 2" data-alt-en="Le PréO Scène 2023-2024 print collateral, view 2">
-        <figcaption data-en="<em>Le PréO Scène</em> · 2023–2024 print, view 2"><em>Le PréO Scène</em> · supports saison 2023–2024, vue 2</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- Sous-chapitre : campagnes -->
-  <div class="subchapter">
-    <div class="subchapter__head">
-      <span class="subchapter__num">2.3</span>
-      <div>
-        <h3 data-en="Social campaigns">Campagnes réseaux</h3>
-        <p data-en="For ITGREEN, the LinkedIn editorial line: 10 posts scheduled over two months, Tuesdays and Thursdays at 08:00, each with its own visual cover, plus a full 8-slide LinkedIn carousel. For GreenLeo, a full social kit for Instagram, Facebook and LinkedIn, plus story templates. For PC@9, in-store campaign posts and stories.">Pour ITGREEN, la ligne éditoriale LinkedIn : 10 posts programmés sur deux mois, mardi et jeudi à 08h00, chacun avec sa couverture visuelle, plus un carrousel LinkedIn complet en 8 slides. Pour GreenLeo, un kit social complet pour Instagram, Facebook et LinkedIn, avec des templates de stories. Pour PC@9, les posts et stories des campagnes boutique.</p>
-      </div>
-    </div>
-
-    <div class="proofs proofs--gallery">
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-01-codes.webp" alt="Post LinkedIn ITGREEN : Codes de traitement des déchets" data-alt-en="ITGREEN LinkedIn post : Waste treatment codes">
-        <figcaption data-en="<em>ITGREEN</em> · LinkedIn 01 · Waste codes"><em>ITGREEN</em> · LinkedIn 01 · Codes déchets</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-02-trackdechets.webp" alt="Post LinkedIn ITGREEN : Trackdéchets" data-alt-en="ITGREEN LinkedIn post : Trackdéchets requirement">
-        <figcaption data-en="<em>ITGREEN</em> · LinkedIn 02 · Trackdéchets"><em>ITGREEN</em> · LinkedIn 02 · Trackdéchets</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-03-renouvellement.webp" alt="Post LinkedIn ITGREEN : Renouvellement de parc" data-alt-en="ITGREEN LinkedIn post : Fleet renewal">
-        <figcaption data-en="<em>ITGREEN</em> · LinkedIn 03 · Fleet renewal"><em>ITGREEN</em> · LinkedIn 03 · Renouvellement</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-li-04-itad.webp" alt="Post LinkedIn ITGREEN : Association, éco-organisme ou ITAD" data-alt-en="ITGREEN LinkedIn post : Association, eco-organisation or ITAD">
-        <figcaption data-en="<em>ITGREEN</em> · LinkedIn 04 · ITAD choice"><em>ITGREEN</em> · LinkedIn 04 · Choix ITAD</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-1.webp" alt="Carrousel LinkedIn ITGREEN : slide 1" data-alt-en="ITGREEN LinkedIn carousel : slide 1">
-        <figcaption data-en="<em>Carousel</em> · slide 1"><em>Carrousel</em> · slide 1</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-2.webp" alt="Carrousel LinkedIn ITGREEN : slide 2" data-alt-en="ITGREEN LinkedIn carousel : slide 2">
-        <figcaption data-en="<em>Carousel</em> · slide 2"><em>Carrousel</em> · slide 2</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-3.webp" alt="Carrousel LinkedIn ITGREEN : slide 3" data-alt-en="ITGREEN LinkedIn carousel : slide 3">
-        <figcaption data-en="<em>Carousel</em> · slide 3"><em>Carrousel</em> · slide 3</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-4.webp" alt="Carrousel LinkedIn ITGREEN : slide 4" data-alt-en="ITGREEN LinkedIn carousel : slide 4">
-        <figcaption data-en="<em>Carousel</em> · slide 4"><em>Carrousel</em> · slide 4</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-5.webp" alt="Carrousel LinkedIn ITGREEN : slide 5" data-alt-en="ITGREEN LinkedIn carousel : slide 5">
-        <figcaption data-en="<em>Carousel</em> · slide 5"><em>Carrousel</em> · slide 5</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-6.webp" alt="Carrousel LinkedIn ITGREEN : slide 6" data-alt-en="ITGREEN LinkedIn carousel : slide 6">
-        <figcaption data-en="<em>Carousel</em> · slide 6"><em>Carrousel</em> · slide 6</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-7.webp" alt="Carrousel LinkedIn ITGREEN : slide 7" data-alt-en="ITGREEN LinkedIn carousel : slide 7">
-        <figcaption data-en="<em>Carousel</em> · slide 7"><em>Carrousel</em> · slide 7</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/itgreen-carousel-8.webp" alt="Carrousel LinkedIn ITGREEN : slide 8" data-alt-en="ITGREEN LinkedIn carousel : slide 8">
-        <figcaption data-en="<em>Carousel</em> · slide 8"><em>Carrousel</em> · slide 8</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-01-manifesto.webp" alt="Post Instagram GreenLeo : manifesto" data-alt-en="GreenLeo Instagram post : manifesto">
-        <figcaption data-en="<em>GreenLeo</em> · Instagram · manifesto"><em>GreenLeo</em> · Instagram · manifesto</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-02-fact.webp" alt="Post Instagram GreenLeo : fact" data-alt-en="GreenLeo Instagram post : fact">
-        <figcaption data-en="<em>GreenLeo</em> · Instagram · fact"><em>GreenLeo</em> · Instagram · chiffre</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-03-price.webp" alt="Post Instagram GreenLeo : prix" data-alt-en="GreenLeo Instagram post : price">
-        <figcaption data-en="<em>GreenLeo</em> · Instagram · price"><em>GreenLeo</em> · Instagram · prix</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-04-signature.webp" alt="Post Instagram GreenLeo : signature" data-alt-en="GreenLeo Instagram post : signature">
-        <figcaption data-en="<em>GreenLeo</em> · Instagram · signature"><em>GreenLeo</em> · Instagram · signature</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-05-testimonial.webp" alt="Post Instagram GreenLeo : témoignage" data-alt-en="GreenLeo Instagram post : testimonial">
-        <figcaption data-en="<em>GreenLeo</em> · Instagram · testimonial"><em>GreenLeo</em> · Instagram · témoignage</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-06-tips.webp" alt="Post Instagram GreenLeo : tips" data-alt-en="GreenLeo Instagram post : tips">
-        <figcaption data-en="<em>GreenLeo</em> · Instagram · tips"><em>GreenLeo</em> · Instagram · tips</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-fb-02-fact.webp" alt="Post Facebook GreenLeo : fact" data-alt-en="GreenLeo Facebook post : fact">
-        <figcaption data-en="<em>GreenLeo</em> · Facebook · fact"><em>GreenLeo</em> · Facebook · chiffre</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-fb-03-launch.webp" alt="Post Facebook GreenLeo : lancement" data-alt-en="GreenLeo Facebook post : launch">
-        <figcaption data-en="<em>GreenLeo</em> · Facebook · launch"><em>GreenLeo</em> · Facebook · lancement</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-fb-04-launch.webp" alt="Post Facebook GreenLeo : lancement 2" data-alt-en="GreenLeo Facebook post : launch 2">
-        <figcaption data-en="<em>GreenLeo</em> · Facebook · launch 2"><em>GreenLeo</em> · Facebook · lancement 2</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-01-b2b.webp" alt="Post LinkedIn GreenLeo : B2B" data-alt-en="GreenLeo LinkedIn post : B2B">
-        <figcaption data-en="<em>GreenLeo</em> · LinkedIn · B2B"><em>GreenLeo</em> · LinkedIn · B2B</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-02-b2b.webp" alt="Post LinkedIn GreenLeo : B2B 2" data-alt-en="GreenLeo LinkedIn post : B2B 2">
-        <figcaption data-en="<em>GreenLeo</em> · LinkedIn · B2B 2"><em>GreenLeo</em> · LinkedIn · B2B 2</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-02-carousel.webp" alt="Carrousel LinkedIn GreenLeo : 1" data-alt-en="GreenLeo LinkedIn carousel : 1">
-        <figcaption data-en="<em>GreenLeo</em> · LinkedIn · carousel"><em>GreenLeo</em> · LinkedIn · carrousel</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-li-03-carousel.webp" alt="Carrousel LinkedIn GreenLeo : 2" data-alt-en="GreenLeo LinkedIn carousel : 2">
-        <figcaption data-en="<em>GreenLeo</em> · LinkedIn · carousel 2"><em>GreenLeo</em> · LinkedIn · carrousel 2</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-01-teaser.webp" alt="Story Instagram GreenLeo : teaser" data-alt-en="GreenLeo Instagram story : teaser">
-        <figcaption data-en="<em>GreenLeo</em> · story · teaser"><em>GreenLeo</em> · story · teaser</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-howitworks.webp" alt="Story Instagram GreenLeo : comment ça marche" data-alt-en="GreenLeo Instagram story : how it works">
-        <figcaption data-en="<em>GreenLeo</em> · story · how it works"><em>GreenLeo</em> · story · comment ça marche</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-03-cta.webp" alt="Story Instagram GreenLeo : CTA" data-alt-en="GreenLeo Instagram story : CTA">
-        <figcaption data-en="<em>GreenLeo</em> · story · CTA"><em>GreenLeo</em> · story · CTA</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/greenleo-ig-story-04-question.webp" alt="Story Instagram GreenLeo : question" data-alt-en="GreenLeo Instagram story : question">
-        <figcaption data-en="<em>GreenLeo</em> · story · question"><em>GreenLeo</em> · story · question</figcaption>
-      </figure>
-
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-1.webp" alt="Post PC@9 : visuel 1" data-alt-en="PC@9 post : visual 1">
-        <figcaption data-en="<em>PC@9</em> · post 1"><em>PC@9</em> · post 1</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-2.webp" alt="Post PC@9 : visuel 2" data-alt-en="PC@9 post : visual 2">
-        <figcaption data-en="<em>PC@9</em> · post 2"><em>PC@9</em> · post 2</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-3.webp" alt="Post PC@9 : visuel 3" data-alt-en="PC@9 post : visual 3">
-        <figcaption data-en="<em>PC@9</em> · post 3"><em>PC@9</em> · post 3</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-post-4.webp" alt="Post PC@9 : visuel 4" data-alt-en="PC@9 post : visual 4">
-        <figcaption data-en="<em>PC@9</em> · post 4"><em>PC@9</em> · post 4</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-story-1.webp" alt="Story PC@9 : 1" data-alt-en="PC@9 story : 1">
-        <figcaption data-en="<em>PC@9</em> · story 1"><em>PC@9</em> · story 1</figcaption>
-      </figure>
-      <figure class="proof">
-        <img loading="lazy" src="assets/realisations/pca9-story-2.webp" alt="Story PC@9 : 2" data-alt-en="PC@9 story : 2">
-        <figcaption data-en="<em>PC@9</em> · story 2"><em>PC@9</em> · story 2</figcaption>
-      </figure>
-    </div>
-
-  </div>
-
-  <!-- Sous-chapitre : emailings ITGREEN -->
-  <div class="subchapter">
-    <div class="subchapter__head">
-      <span class="subchapter__num">2.4</span>
-      <div>
-        <h3 data-en="ITGREEN sector-specific emailings">Emailings sectoriels ITGREEN</h3>
-        <p data-en="Emailings designed and sent through Odoo, one per audience (local government, resellers, pro selection). Hard-coded HTML tables and hex colours in the ITGREEN palette, so the layout renders cleanly in Outlook and Gmail alike.">Emailings pensés et envoyés via Odoo, un par cible (collectivités, revendeurs, sélection pro). Tables HTML en dur et couleurs codées à la charte ITGREEN pour que le rendu reste propre aussi bien dans Outlook que dans Gmail.</p>
-      </div>
-    </div>
-    <div class="proofs proofs--emails" aria-label="Emailings ITGREEN" data-aria-en="ITGREEN emailings">
-      <figure class="proof proof--email">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-collectivites.webp" alt="Emailing ITGREEN : Lettre aux collectivités J-52 loi Climat" data-alt-en="ITGREEN emailing: Local government letter, J-52 Climate Law">
-        <figcaption data-en="<em>ITGREEN</em> · emailing local government · J-52 Climate Law"><em>ITGREEN</em> · emailing collectivités · J-52 loi Climat</figcaption>
-      </figure>
-      <figure class="proof proof--email">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-partenaires.webp" alt="Emailing ITGREEN : Programme Partenaire Revendeur" data-alt-en="ITGREEN emailing: Reseller Partner Programme">
-        <figcaption data-en="<em>ITGREEN</em> · emailing reseller partner programme"><em>ITGREEN</em> · emailing programme partenaire revendeur</figcaption>
-      </figure>
-      <figure class="proof proof--email">
-        <img loading="lazy" src="assets/realisations/itgreen-mailing-selection-pro.webp" alt="Emailing ITGREEN : sélection pro mensuelle avril 2026" data-alt-en="ITGREEN emailing: monthly pro selection April 2026">
-        <figcaption data-en="<em>ITGREEN</em> · emailing monthly pro selection"><em>ITGREEN</em> · emailing sélection pro mensuelle</figcaption>
-      </figure>
-    </div>
+  <div class="makers">
+      <button type="button" class="maker" data-brand="itgreen">
+        <span class="maker__logo"><img src="assets/logos/itgreen.png" alt="" loading="lazy"></span>
+        <span class="maker__name">ITGREEN</span>
+        <span class="maker__desc" data-en="B2B IT refurbishment">Reconditionnement informatique B2B</span>
+        <span class="maker__meta"><span data-en="20 pieces">20 créations</span> · <span data-en="print, social, emailings">print, réseaux, emailings</span></span>
+        <span class="maker__cta"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></span>
+      </button>
+      <button type="button" class="maker" data-brand="pca9">
+        <span class="maker__logo"><img src="assets/logos/pca9.png" alt="" loading="lazy"></span>
+        <span class="maker__name">PC@9</span>
+        <span class="maker__desc" data-en="Retail refurbishment, store in Alsace">Reconditionnement grand public, boutique en Alsace</span>
+        <span class="maker__meta"><span data-en="13 pieces">13 créations</span> · <span data-en="print, social">print, réseaux</span></span>
+        <span class="maker__cta"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></span>
+      </button>
+      <button type="button" class="maker" data-brand="greenleo">
+        <span class="maker__logo"><img src="assets/logos/greenleo.png" alt="" loading="lazy"></span>
+        <span class="maker__name">GreenLeo</span>
+        <span class="maker__desc" data-en="Refurbished PC rental for students">Location de PC reconditionnés pour étudiants</span>
+        <span class="maker__meta"><span data-en="21 pieces">21 créations</span> · <span data-en="print, social">print, réseaux</span></span>
+        <span class="maker__cta"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></span>
+      </button>
+      <button type="button" class="maker" data-brand="abk">
+        <span class="maker__logo"><img src="assets/logos/abk.png" alt="" loading="lazy"></span>
+        <span class="maker__name">ABK Rénov'</span>
+        <span class="maker__desc" data-en="Alsace-based renovation company">Entreprise de rénovation alsacienne</span>
+        <span class="maker__meta"><span data-en="7 pieces">7 créations</span> · <span data-en="identity">identité</span></span>
+        <span class="maker__cta"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></span>
+      </button>
+      <button type="button" class="maker" data-brand="preo">
+        <span class="maker__logo"><img src="assets/logos/lepreo.png" alt="" loading="lazy"></span>
+        <span class="maker__name">Le PréO Scène</span>
+        <span class="maker__desc" data-en="Cultural venue in Oberhausbergen">Scène conventionnée d'Oberhausbergen</span>
+        <span class="maker__meta"><span data-en="2 pieces">2 créations</span> · <span data-en="print">print</span></span>
+        <span class="maker__cta"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></span>
+      </button>
   </div>
 </section>
 
-<!-- ============ PAUSE PORTRAIT ============ -->
-<section class="pause reveal" aria-label="Pause">
-  <div class="pause__inner">
-    <div class="pause__portrait" oncontextmenu="return false;" ondragstart="return false;">
-      <div class="pause__frame" role="img" aria-label="Portrait d'Enderjeta Sahitaj" data-aria-en="Portrait of Enderjeta Sahitaj"></div>
-      <div class="pause__shield" aria-hidden="true"></div>
-      <span class="pause__caption">Enderjeta · Strasbourg 2026</span>
-    </div>
-    <div class="pause__body">
-      <span class="pause__mark" data-en="Intermission">Intermède</span>
-      <blockquote class="pause__quote" data-en="Community management, design, writing, shoots, com strategy: I've always worked across several of these at once. That mix is where I'm the most useful.">
-        Community management, design, rédaction, shooting, stratégie de com : j'ai toujours travaillé sur plusieurs de ces terrains en même temps. C'est dans ce mélange que je suis la plus utile.
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CH 03 · CURIEUSE ============ -->
-<section class="chapter chapter--curieuse reveal" id="curieuse">
-  <div class="chapter__marker">
-    <span data-en="Chapter 03">Chapitre 03</span>
-    <span data-en="Learn">Apprendre</span>
-  </div>
-
-  <h2 class="chapter__title" data-en='I am <span class="italic">curious</span>.'>
-    Je suis <span class="italic">curieuse</span>.
-  </h2>
-
-  <div class="chapter__lead">
-    <p data-en="SEO, data, web development, video, photography, design: I have covered all of these during my studies. I have solid foundations across many disciplines, rather than deep expertise in a single one.">
-      Le SEO, la data, le développement web, la vidéo, la photo, le design : je les ai tous vus pendant mes études. J'ai des bases sur beaucoup de disciplines, plutôt qu'une expertise pointue sur une seule.
-    </p>
-    <p class="chapter__lead-small" data-en="When a project needs a specific skill, I already have the foundation and can go further from there. On a Monday morning, I can open Search Console, GA4 or PostHog and pull the weekly report myself rather than wait for someone to send it.">
-      Quand un projet demande une compétence pointue, j'ai déjà le socle et je peux aller plus loin à partir de là. Un lundi matin, je peux ouvrir Search Console, GA4 ou PostHog et sortir mon rapport hebdo moi-même plutôt que d'attendre qu'on me l'envoie.
-    </p>
-  </div>
-
-  <div class="results">
-    <article class="result">
-      <div class="result__num">01</div>
-      <div class="result__body">
-        <h3 data-en="SEO overhaul of itgreen.eu">Refonte SEO d'itgreen.eu</h3>
-        <p class="result__pitch" data-en="Full optimisation of the itgreen.eu website. 13 Schema.org tags written and validated, two FAQPage schemas live, information architecture reviewed, titles and meta rewritten. I also went through the whole site and switched the em-dashes back to standard French punctuation. Since the overhaul, weekly page views have grown 4.5×.">Optimisation complète du site itgreen.eu. 13 balises Schema.org écrites et validées, deux FAQPage en ligne, arborescence revue, titres et méta réécrits. J'ai aussi repris tout le site pour remplacer les tirets cadratins par une ponctuation française classique. Depuis la refonte, les pages vues par semaine ont été multipliées par 4,5.</p>
-        <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, Schema.org.">Outils : Search Console, GA4, PostHog, Schema.org.</p>
-        <p class="result__learn" data-en="What I learned: on this project, the schemas only started to pay off once the copy on the pages was rewritten in parallel.">Ce que j'en ai retenu : sur ce projet, les schemas n'ont commencé à porter leurs fruits qu'une fois le texte des pages réécrit en parallèle.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">02</div>
-      <div class="result__body">
-        <h3 data-en="Client portal in Laravel v2">Portail client Laravel v2</h3>
-        <p class="result__pitch" data-en="Migration of the ITGREEN client portal to Laravel. 12 pages built in parallel with the existing portal: dashboard, inventory (718 tracked devices), aftersales, projects, estimates, certificates, communication, resources, team, integrations, account. The old portal stayed online while the client validated the preview. Final switch with no downtime: 3 client accounts validated on the preview, 0 database regression.">Migration du portail client ITGREEN sous Laravel. 12 pages construites en parallèle du portail existant : tableau de bord, inventaire (718 équipements suivis), SAV, projets, estimations, certificats, communication, ressources, équipe, intégrations, compte. L'ancien portail est resté en ligne le temps que le client valide l'aperçu. Bascule finale sans coupure : 3 comptes clients validés sur l'aperçu, 0 régression sur la base de données.</p>
-        <p class="result__tools" data-en="Tools: Figma, Laravel.">Outils : Figma, Laravel.</p>
-        <p class="result__learn" data-en="What I learned: a precise Figma file at the start saved us several rounds of back-and-forth with the dev.">Ce que j'en ai retenu : un Figma précis en amont nous a évité plusieurs allers-retours avec le dev.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">03</div>
-      <div class="result__body">
-        <h3 data-en="Internal MarCom Cockpit">Cockpit MarCom interne</h3>
-        <p class="result__pitch" data-en="An internal interface to run the marketing and communication of the ITGREEN group. Authenticated access, secrets kept out of the served folder, and a LinkedIn connection (OAuth) so posts can be prepared and validated in one place.">Une interface interne pour piloter le marketing et la communication du groupe ITGREEN. Accès authentifié, secrets tenus hors du dossier servi, et connexion LinkedIn (OAuth) pour préparer et valider les posts au même endroit.</p>
-        <p class="result__tools" data-en="Tools: Figma, LinkedIn (OAuth).">Outils : Figma, LinkedIn (OAuth).</p>
-        <p class="result__learn" data-en="What I learned: on an internal tool, it's the setup around the interface (access, secrets, deployment) that takes more time than the interface itself.">Ce que j'en ai retenu : sur un outil interne, c'est ce qui entoure l'interface (accès, secrets, déploiement) qui prend plus de temps que l'interface elle-même.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">04</div>
-      <div class="result__body">
-        <h3 data-en="Automated weekly data report">Rapport hebdo data automatisé</h3>
-        <p class="result__pitch" data-en="A report sent every Monday on itgreen.eu numbers: traffic, SEO queries, PostHog events, mobile vs desktop behaviour. It cross-references Search Console, GA4 and PostHog. The file is uploaded automatically to OneDrive via the Microsoft Graph API.">Un rapport envoyé chaque lundi sur les chiffres d'itgreen.eu : trafic, requêtes SEO, événements PostHog, comportement mobile vs desktop. Il croise les données Search Console, GA4 et PostHog. Le fichier est déposé automatiquement sur le OneDrive via l'API Microsoft Graph.</p>
-        <p class="result__tools" data-en="Tools: GA4, Search Console, PostHog, OneDrive.">Outils : GA4, Search Console, PostHog, OneDrive.</p>
-        <p class="result__learn" data-en="What I learned: once the report was automated, Monday morning became time to read the numbers instead of assembling them.">Ce que j'en ai retenu : une fois le rapport automatisé, le lundi matin est passé à lire les chiffres au lieu de les assembler.</p>
-      </div>
-    </article>
-  </div>
-
-</section>
-
-<!-- ============ CH 04 · COMPRENDRE ============ -->
-<section class="chapter chapter--comprendre reveal" id="comprendre">
-  <div class="chapter__marker">
-    <span data-en="Chapter 04">Chapitre 04</span>
-    <span data-en="Analyse">Analyser</span>
-  </div>
-
-  <h2 class="chapter__title" data-en='I like to <span class="italic">understand</span><br>before I act.'>
-    J'aime <span class="italic">comprendre</span><br>
-    avant d'agir.
-  </h2>
-
-  <div class="chapter__lead">
-    <p data-en="Before starting a project, I always take a moment to understand the context. I read what already exists, I look at what other brands on the same market are doing, I talk to the people who know (sales, technicians, workshop). Otherwise we deliver a nice visual that helps no one, or an SEO overhaul that misses the point.">
-      Avant de commencer un projet, je prends toujours un moment pour comprendre le contexte. Je lis ce qui existe, je regarde ce que font les autres marques sur le même marché, je discute avec les gens qui savent (commerciaux, techniciens, atelier). Sinon on livre un joli visuel qui ne sert à rien, ou une refonte SEO qui vise à côté.
-    </p>
-  </div>
-
-  <div class="results results--split">
-    <article class="result">
-      <div class="result__num">01</div>
-      <div class="result__body">
-        <h3 data-en="ITAD client portal benchmark">Benchmark ITAD espace client</h3>
-        <p class="result__pitch" data-en="Before proposing an ITGREEN client portal prototype, I went to look at what seven ITAD competitors were doing. I drew seven concrete recommendations, integrated into prototype v15 then into the Laravel migration now live in production.">Avant de proposer un prototype d'espace client pour ITGREEN, je suis allée voir ce que faisaient sept concurrents du secteur ITAD. J'en ai tiré sept recommandations concrètes, intégrées au prototype v15 puis à la migration Laravel qui est aujourd'hui en production.</p>
-        <p class="result__learn" data-en="What I learned: a day of benchmarking gave us more direction on the portal than a week of internal discussion would have.">Ce que j'en ai retenu : une journée de benchmark a donné plus de cap au portail qu'une semaine de discussion interne.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">02</div>
-      <div class="result__body">
-        <h3 data-en="itgreen.eu bounce rate investigation">Investigation rebond itgreen.eu</h3>
-        <p class="result__pitch" data-en="The site's bounce rate jumped to 82% one week, while it had been steady around 21% before the overhaul. Rather than redoing the home page in a panic, I dug into the data. A big chunk of the &quot;bounces&quot; came from bots scanning links in emails, not from real visitors. Once those sessions were filtered out, the real bounce rate settled around 67%. The pages that really needed work were elsewhere, mostly on the mobile experience.">Le taux de rebond du site est monté jusqu'à 82 % sur une semaine, alors qu'il tournait autour de 21 % avant la refonte. Plutôt que de refaire la page d'accueil en panique, j'ai regardé les données en détail. Une bonne partie des « rebonds » venait de robots qui scannent les liens dans les e-mails, pas de vrais visiteurs. Une fois ces sessions filtrées, le rebond réel se stabilise autour de 67 %. Les pages qui avaient réellement besoin d'un traitement étaient ailleurs, surtout côté mobile.</p>
-        <p class="result__learn" data-en="What I learned: an alarming number often just needs to be read more carefully before anyone starts redoing pages.">Ce que j'en ai retenu : un chiffre alarmant demande souvent juste d'être relu plus attentivement avant qu'on refasse des pages.</p>
-      </div>
-    </article>
-
-    <article class="result">
-      <div class="result__num">03</div>
-      <div class="result__body">
-        <h3 data-en="Laravel client portal prototype">Prototype espace client Laravel</h3>
-        <p class="result__pitch" data-en="Twelve pages built in parallel with the existing portal, on separate URLs, with a full backup of the old portal. The client could test the preview and validate before we switched. Zero downtime for the users.">Douze pages construites en parallèle du portail existant, sur des URL séparées, avec une sauvegarde complète de l'ancien portail. Le client a pu tester l'aperçu et valider avant qu'on bascule. Aucune coupure côté utilisateur.</p>
-        <p class="result__learn" data-en="What I learned: for a migration, having the old and the new coexist gives the client room to react before the switch.">Ce que j'en ai retenu : pour une migration, faire coexister l'ancien et le nouveau donne au client une marge pour réagir avant la bascule.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ CH 05 · ÉCRIRE ============ -->
+<!-- ============ CH 03 · ÉCRIRE ============ -->
 <section class="chapter chapter--ecrire reveal" id="ecrire">
-  <div class="chapter__marker">
-    <span data-en="Chapter 05">Chapitre 05</span>
-    <span data-en="Write">Écrire</span>
-  </div>
-
-  <h2 class="chapter__title" data-en='I write like<br>I <span class="italic">speak</span>.'>
+  <div class="chapter__head">
+    <span class="chapter__num" aria-hidden="true">03</span>
+    <div class="chapter__head-text">
+      <div class="chapter__marker"><span data-en="Write">Écrire</span></div>
+      <h2 class="chapter__title" data-en='I write like<br>I <span class="italic">speak</span>.'>
     J'écris comme<br>
     je <span class="italic">parle</span>.
   </h2>
+    </div>
+  </div>
 
   <div class="chapter__lead">
     <p data-en="I try to write the way I'd say it out loud. If a sentence doesn't sound natural when I read it back, I rework it or take it out. That means shorter texts, more concrete words, and fewer big terms that don't really say anything.">
@@ -714,6 +329,7 @@
     <article class="result">
       <div class="result__num">01</div>
       <div class="result__body">
+        <img class="result__thumb" src="assets/realisations/blog-windows-10-fin-support-2027-que-faire-pc.webp" alt="" loading="lazy">
         <h3 data-en="ITGREEN blog SEO articles">Articles blog SEO ITGREEN</h3>
         <p class="result__pitch" data-en="Nine long-form articles on itgreen.eu since March 2026: end of leasing, GDPR, data erasure, Windows 10, memory shortage… Each one was written both for SEO (keywords, H2/H3 structure) and for the reader (plain language, clear calls to action). The last two are scheduled for October.">Neuf articles longs sur itgreen.eu depuis mars 2026 : fin de leasing, RGPD, effacement des données, Windows 10, pénurie de mémoire… Chacun a été pensé pour le SEO (mots-clés, structure H2/H3) et pour le lecteur (langage simple, appels à l&#39;action clairs). Les deux derniers sont programmés pour octobre.</p>
         <p class="result__tools" data-en="Tools: web writing, Schema.org, PostHog.">Outils : rédaction web, Schema.org, PostHog.</p>
@@ -791,6 +407,7 @@
     <article class="result">
       <div class="result__num">02</div>
       <div class="result__body">
+        <img class="result__thumb" src="assets/realisations/itgreen-li-01-codes.webp" alt="" loading="lazy">
         <h3 data-en="ITGREEN LinkedIn editorial line">Ligne éditoriale LinkedIn ITGREEN</h3>
         <p class="result__pitch" data-en="10 posts scheduled over two months, order thought through from cover 01 to 10, one post on Tuesday and Thursday at 08:00, with a pause in August. Each post links to a blog article in its first comment. The LinkedIn API didn't allow me to automate that comment, so I post them by hand at publication time.">10 posts programmés sur deux mois, ordre pensé de la couverture 01 à 10, un post mardi et jeudi à 08h00, avec une pause en août. Chaque post renvoie vers un article du blog dans son premier commentaire. L'API LinkedIn ne me laissait pas automatiser ce commentaire, donc je les poste à la main au moment de la publication.</p>
         <p class="result__tools" data-en="Tools: Meta Business Suite, LinkedIn.">Outils : Meta Business Suite, LinkedIn.</p>
@@ -800,6 +417,7 @@
     <article class="result">
       <div class="result__num">03</div>
       <div class="result__body">
+        <img class="result__thumb result__thumb--top" src="assets/realisations/itgreen-mailing-collectivites.webp" alt="" loading="lazy">
         <h3 data-en="Sector-specific Odoo emailings">Emailings sectoriels Odoo</h3>
         <p class="result__pitch" data-en="Emailings sent through Odoo, one per audience (local government, resellers, monthly pro selection) on a shared base in the ITGREEN brand style. Latest local government campaign: 2,261 recipients, 100% delivered, 10.6% open rate. Technically: hard-coded HTML tables and colours so that it renders properly in Outlook, which is still very strict about email HTML.">Emailings envoyés via Odoo, un par cible (collectivités, revendeurs, sélection pro mensuelle) sur une base commune à la charte ITGREEN. Dernière campagne collectivités : 2 261 destinataires, 100 % délivrés, 10,6 % d'ouverture. Techniquement : tables HTML en dur et couleurs codées pour que ça s'affiche correctement dans Outlook, qui reste très strict sur le HTML des mails.</p>
         <p class="result__tools" data-en="Tools: Odoo 17, HTML email.">Outils : Odoo 17, HTML email.</p>
@@ -809,6 +427,7 @@
     <article class="result">
       <div class="result__num">04</div>
       <div class="result__body">
+        <img class="result__thumb" src="https://i.ytimg.com/vi/7EsXV9Iep60/hqdefault.jpg" alt="" loading="lazy">
         <h3 data-en="Journalism internship, Figures Publiques">Stage journalisme Figures Publiques</h3>
         <p class="result__pitch" data-en="2021, in an independent online political outlet. Political interviews, writing published articles, street interview videos.">Été 2021, dans un média politique indépendant en ligne. Interviews politiques, rédaction d'articles publiés, réalisation de micros-trottoirs vidéo.</p>
         <p class="result__learn" data-en="What I learned: the discipline of fact-checking before publishing is still with me every time I write for the brands today.">Ce que j'en ai retenu : la discipline de vérifier avant de publier est restée avec moi à chaque fois que j'écris pour les marques aujourd'hui.</p>
@@ -850,20 +469,96 @@
   </div>
 </section>
 
-<!-- ============ CH 06 · UNIVERS ============ -->
-<section class="chapter chapter--univers reveal" id="univers">
-  <div class="chapter__marker">
-    <span data-en="Chapter 06">Chapitre 06</span>
-    <span data-en="Path">Parcours</span>
+<!-- ============ CH 04 · PILOTER ============ -->
+<section class="chapter chapter--piloter reveal" id="piloter">
+  <div class="chapter__head">
+    <span class="chapter__num" aria-hidden="true">04</span>
+    <div class="chapter__head-text">
+      <div class="chapter__marker"><span data-en="Manage">Piloter</span></div>
+      <h2 class="chapter__title" data-en='I like to <span class="italic">understand</span><br>before I act.'>
+        J'aime <span class="italic">comprendre</span><br>
+        avant d'agir.
+      </h2>
+    </div>
   </div>
 
-  <h2 class="chapter__title" data-en='I have already worked across <span class="italic">several worlds</span>.'>
+  <div class="chapter__lead">
+    <p data-en="Before starting a project, I always take a moment to understand the context. I read what already exists, I look at what other brands on the same market are doing, I talk to the people who know (sales, technicians, workshop). Otherwise we deliver a nice visual that helps no one, or an SEO overhaul that misses the point.">
+      Avant de commencer un projet, je prends toujours un moment pour comprendre le contexte. Je lis ce qui existe, je regarde ce que font les autres marques sur le même marché, je discute avec les gens qui savent (commerciaux, techniciens, atelier). Sinon on livre un joli visuel qui ne sert à rien, ou une refonte SEO qui vise à côté.
+    </p>
+    <p class="chapter__lead-small" data-en="SEO, data, video, design: I have solid foundations across many disciplines, so I can go further as soon as a project needs it. On a Monday morning, I open Search Console, GA4 or PostHog and pull the weekly report myself rather than wait for someone to send it.">
+      Le SEO, la data, la vidéo, le design : j'ai des bases dans beaucoup de disciplines, ce qui me permet d'aller plus loin dès qu'un projet le demande. Un lundi matin, j'ouvre Search Console, GA4 ou PostHog et je sors le rapport hebdo moi-même plutôt que d'attendre qu'on me l'envoie.
+    </p>
+  </div>
+
+  <div class="results">
+    <article class="result">
+      <div class="result__num">01</div>
+      <div class="result__body">
+        <h3 data-en="SEO overhaul of itgreen.eu">Refonte SEO d'itgreen.eu</h3>
+        <p class="result__pitch" data-en="Full optimisation of the itgreen.eu website. 13 Schema.org tags written and validated, two FAQPage schemas live, information architecture reviewed, titles and meta rewritten. I also went through the whole site and switched the em-dashes back to standard French punctuation. Since the overhaul, weekly page views have grown 4.5×.">Optimisation complète du site itgreen.eu. 13 balises Schema.org écrites et validées, deux FAQPage en ligne, arborescence revue, titres et méta réécrits. J'ai aussi repris tout le site pour remplacer les tirets cadratins par une ponctuation française classique. Depuis la refonte, les pages vues par semaine ont été multipliées par 4,5.</p>
+        <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, Schema.org.">Outils : Search Console, GA4, PostHog, Schema.org.</p>
+        <p class="result__learn" data-en="What I learned: on this project, the schemas only started to pay off once the copy on the pages was rewritten in parallel.">Ce que j'en ai retenu : sur ce projet, les schemas n'ont commencé à porter leurs fruits qu'une fois le texte des pages réécrit en parallèle.</p>
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">02</div>
+      <div class="result__body">
+        <h3 data-en="itgreen.eu bounce rate investigation">Investigation rebond itgreen.eu</h3>
+        <p class="result__pitch" data-en="The site's bounce rate jumped to 82% one week, while it had been steady around 21% before the overhaul. Rather than redoing the home page in a panic, I dug into the data. A big chunk of the &quot;bounces&quot; came from bots scanning links in emails, not from real visitors. Once those sessions were filtered out, the real bounce rate settled around 67%. The pages that really needed work were elsewhere, mostly on the mobile experience.">Le taux de rebond du site est monté jusqu'à 82 % sur une semaine, alors qu'il tournait autour de 21 % avant la refonte. Plutôt que de refaire la page d'accueil en panique, j'ai regardé les données en détail. Une bonne partie des « rebonds » venait de robots qui scannent les liens dans les e-mails, pas de vrais visiteurs. Une fois ces sessions filtrées, le rebond réel se stabilise autour de 67 %. Les pages qui avaient réellement besoin d'un traitement étaient ailleurs, surtout côté mobile.</p>
+        <p class="result__tools" data-en="Tools: GA4, PostHog.">Outils : GA4, PostHog.</p>
+        <p class="result__learn" data-en="What I learned: an alarming number often just needs to be read more carefully before anyone starts redoing pages.">Ce que j'en ai retenu : un chiffre alarmant demande souvent juste d'être relu plus attentivement avant qu'on refasse des pages.</p>
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">03</div>
+      <div class="result__body">
+        <h3 data-en="ITGREEN client area: from benchmark to launch">Espace client ITGREEN : du benchmark à la mise en ligne</h3>
+        <p class="result__pitch" data-en="Before proposing anything, I studied the client areas of seven ITAD competitors and drew seven concrete recommendations from them. I then designed the user journey and the mockups of twelve pages (dashboard, inventory of 718 devices, aftersales, certificates, communication…) starting from what the client actually comes to find. The new area ran alongside the old one while three client accounts tested and validated it: switch with no downtime, no data lost.">Avant de proposer quoi que ce soit, j'ai étudié les espaces clients de sept concurrents du secteur ITAD et j'en ai tiré sept recommandations concrètes. J'ai ensuite conçu le parcours et les maquettes de douze pages (tableau de bord, inventaire de 718 équipements, SAV, certificats, communication…) en partant de ce que le client vient chercher. Le nouvel espace a tourné en parallèle de l'ancien le temps que trois comptes clients le testent et le valident : bascule sans coupure, aucune donnée perdue.</p>
+        <p class="result__tools" data-en="Tools: competitive benchmark, Figma, client testing.">Outils : benchmark concurrentiel, Figma, tests avec les clients.</p>
+        <p class="result__learn" data-en="What I learned: a day of benchmarking and precise mockups saved weeks of back-and-forth, with the team and with the developer.">Ce que j'en ai retenu : une journée de benchmark et des maquettes précises ont évité des semaines d'allers-retours, avec l'équipe comme avec le développeur.</p>
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">04</div>
+      <div class="result__body">
+        <h3 data-en="Automated weekly data report">Rapport hebdo data automatisé</h3>
+        <p class="result__pitch" data-en="A report sent every Monday on itgreen.eu numbers: traffic, SEO queries, PostHog events, mobile vs desktop behaviour. It cross-references Search Console, GA4 and PostHog and lands automatically in the team's OneDrive.">Un rapport envoyé chaque lundi sur les chiffres d'itgreen.eu : trafic, requêtes SEO, événements PostHog, comportement mobile vs desktop. Il croise les données Search Console, GA4 et PostHog et arrive tout seul sur le OneDrive de l'équipe.</p>
+        <p class="result__tools" data-en="Tools: GA4, Search Console, PostHog, OneDrive.">Outils : GA4, Search Console, PostHog, OneDrive.</p>
+        <p class="result__learn" data-en="What I learned: once the report was automated, Monday morning became time to read the numbers instead of assembling them.">Ce que j'en ai retenu : une fois le rapport automatisé, le lundi matin est passé à lire les chiffres au lieu de les assembler.</p>
+      </div>
+    </article>
+
+    <article class="result">
+      <div class="result__num">05</div>
+      <div class="result__body">
+        <h3 data-en="Internal marketing management tool">Outil interne de pilotage marketing</h3>
+        <p class="result__pitch" data-en="An internal interface to organise the ITGREEN group's communication: editorial planning, preparing and approving LinkedIn posts in one place, with access restricted to the team.">Une interface interne pour organiser la com du groupe ITGREEN : planning éditorial, préparation et validation des posts LinkedIn au même endroit, avec un accès réservé à l'équipe.</p>
+        <p class="result__tools" data-en="Tools: Figma, LinkedIn.">Outils : Figma, LinkedIn.</p>
+        <p class="result__learn" data-en="What I learned: on an internal tool, everything around the interface (access, going live) takes more time than the interface itself.">Ce que j'en ai retenu : sur un outil interne, tout ce qui entoure l'interface (accès, mise en ligne) prend plus de temps que l'interface elle-même.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CH 05 · PARCOURS ============ -->
+<section class="chapter chapter--univers reveal" id="univers">
+  <div class="chapter__head">
+    <span class="chapter__num" aria-hidden="true">05</span>
+    <div class="chapter__head-text">
+      <div class="chapter__marker"><span data-en="Path">Parcours</span></div>
+      <h2 class="chapter__title" data-en='I have already worked across <span class="italic">several worlds</span>.'>
     J'ai déjà touché à <span class="italic">plusieurs univers</span>.
   </h2>
+    </div>
+  </div>
 
   <div class="chapter__lead">
-    <p data-en="Culture, craftsmanship, HR, political journalism, IT refurbishment, e-commerce. Six worlds, each with its own codes and tone. That mix is what built me a broad base, rather than a single specialisation.">
-      Culture, artisanat, RH, journalisme politique, reconditionnement IT, e-commerce. Six univers, chacun avec ses codes et son ton. C'est ce mélange qui m'a construit une base large, plutôt qu'une seule spécialisation.
+    <p data-en="Culture, craftsmanship, HR, political journalism, IT refurbishment, e-commerce. Each world with its own codes and tone. That mix is what built me a broad base, rather than a single specialisation.">
+      Culture, artisanat, RH, journalisme politique, reconditionnement IT, e-commerce. Chaque univers avec ses codes et son ton. C'est ce mélange qui m'a construit une base large, plutôt qu'une seule spécialisation.
     </p>
   </div>
 
@@ -1043,7 +738,7 @@
 <section class="contact reveal" id="contact">
   <div class="contact__inner">
     <div class="contact__label">
-      <span>07</span>
+      <span>06</span>
       <span data-en="Get in touch">Prendre contact</span>
     </div>
 
@@ -1057,9 +752,9 @@
       <div class="formats__grid">
         <article class="format-card">
           <span class="format-card__num">01</span>
-          <h4 data-en="Full-time role (from mid-October 2026)">CDI (à partir de mi-octobre 2026)</h4>
-          <p data-en="I finish my apprenticeship at ITGREEN in early October 2026 and I'm open to a full-time position in communication and marketing. Preferably in Alsace, but I'll consider remote or a move for the right project.">Je termine mon alternance chez ITGREEN début octobre 2026 et je suis ouverte à un CDI en communication et marketing. Idéalement en Alsace, mais je regarde aussi le remote ou une mobilité pour un projet fort.</p>
-          <span class="format-card__meta" data-en="Available from mid-October 2026">Disponible dès mi-octobre 2026</span>
+          <h4 data-en="Permanent or fixed-term role (from January 2027)">CDI ou CDD (dès janvier 2027)</h4>
+          <p data-en="I&#39;m looking for a permanent or fixed-term position in communication and marketing, starting January 2027. Preferably in Alsace, but I&#39;ll consider remote or a move for the right project.">Je cherche un CDI ou un CDD en communication et marketing, à partir de janvier 2027. Idéalement en Alsace, mais je regarde aussi le remote ou une mobilité pour un projet fort.</p>
+          <span class="format-card__meta" data-en="Available from January 2027">Disponible dès janvier 2027</span>
         </article>
         <article class="format-card">
           <span class="format-card__num">02</span>
@@ -1236,6 +931,353 @@
 })();
 </script>
 
+<!-- ============ CRÉATIONS PAR MARQUE ============ -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-hidden="true" inert>
+  <div class="sheet__bar">
+    <span class="sheet__kicker" data-en="Creations">Créations</span>
+    <button class="sheet__close" type="button" aria-label="Fermer (Échap)" data-aria-en="Close (Esc)">✕</button>
+  </div>
+  <div class="sheet__inner">
+    <div class="sheet__panel" data-panel="itgreen" hidden>
+      <header class="sheet__head">
+        <h3 class="sheet__title" id="sheet-title-itgreen">ITGREEN</h3>
+        <p class="sheet__desc" data-en="B2B IT refurbishment">Reconditionnement informatique B2B</p>
+        <p class="sheet__intro" data-en="Warehouse signage, the LinkedIn editorial line (10 posts and an 8-slide carousel) and sector-specific emailings sent through Odoo.">Signalétique de l'entrepôt, ligne éditoriale LinkedIn (10 posts et un carrousel de 8 slides) et emailings sectoriels envoyés via Odoo.</p>
+        <a class="sheet__site" href="https://itgreen.eu" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> itgreen.eu <span aria-hidden="true">↗</span></a>
+      </header>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Print">Print</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-bache-totem-rendu.webp" alt="Rendu final bâche + totem ITGREEN sur l'entrepôt" data-alt-en="ITGREEN warehouse banner and totem, final result">
+            <figcaption data-en="Large-format signage">Signalétique entrepôt</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-bache.webp" alt="Bâche ITGREEN" data-alt-en="ITGREEN outdoor banner">
+            <figcaption data-en="Outdoor banner">Bâche</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-totem.webp" alt="Totem ITGREEN" data-alt-en="ITGREEN totem">
+            <figcaption data-en="Totem">Totem</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-camion.webp" alt="Flocage camion ITGREEN" data-alt-en="ITGREEN van livery">
+            <figcaption data-en="Van livery">Flocage camion</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-sticker.webp" alt="Sticker ITGREEN" data-alt-en="ITGREEN sticker">
+            <figcaption data-en="Sticker">Sticker</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Social media">Réseaux sociaux</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-li-01-codes.webp" alt="Post LinkedIn ITGREEN : Codes de traitement des déchets" data-alt-en="ITGREEN LinkedIn post : Waste treatment codes">
+            <figcaption data-en="LinkedIn 01 · Waste codes">LinkedIn 01 · Codes déchets</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-li-02-trackdechets.webp" alt="Post LinkedIn ITGREEN : Trackdéchets" data-alt-en="ITGREEN LinkedIn post : Trackdéchets requirement">
+            <figcaption data-en="LinkedIn 02 · Trackdéchets">LinkedIn 02 · Trackdéchets</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-li-03-renouvellement.webp" alt="Post LinkedIn ITGREEN : Renouvellement de parc" data-alt-en="ITGREEN LinkedIn post : Fleet renewal">
+            <figcaption data-en="LinkedIn 03 · Fleet renewal">LinkedIn 03 · Renouvellement</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-li-04-itad.webp" alt="Post LinkedIn ITGREEN : Association, éco-organisme ou ITAD" data-alt-en="ITGREEN LinkedIn post : Association, eco-organisation or ITAD">
+            <figcaption data-en="LinkedIn 04 · ITAD choice">LinkedIn 04 · Choix ITAD</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-1.webp" alt="Carrousel LinkedIn ITGREEN : slide 1" data-alt-en="ITGREEN LinkedIn carousel : slide 1">
+            <figcaption data-en="Carousel · slide 1">Carrousel · slide 1</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-2.webp" alt="Carrousel LinkedIn ITGREEN : slide 2" data-alt-en="ITGREEN LinkedIn carousel : slide 2">
+            <figcaption data-en="Carousel · slide 2">Carrousel · slide 2</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-3.webp" alt="Carrousel LinkedIn ITGREEN : slide 3" data-alt-en="ITGREEN LinkedIn carousel : slide 3">
+            <figcaption data-en="Carousel · slide 3">Carrousel · slide 3</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-4.webp" alt="Carrousel LinkedIn ITGREEN : slide 4" data-alt-en="ITGREEN LinkedIn carousel : slide 4">
+            <figcaption data-en="Carousel · slide 4">Carrousel · slide 4</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-5.webp" alt="Carrousel LinkedIn ITGREEN : slide 5" data-alt-en="ITGREEN LinkedIn carousel : slide 5">
+            <figcaption data-en="Carousel · slide 5">Carrousel · slide 5</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-6.webp" alt="Carrousel LinkedIn ITGREEN : slide 6" data-alt-en="ITGREEN LinkedIn carousel : slide 6">
+            <figcaption data-en="Carousel · slide 6">Carrousel · slide 6</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-7.webp" alt="Carrousel LinkedIn ITGREEN : slide 7" data-alt-en="ITGREEN LinkedIn carousel : slide 7">
+            <figcaption data-en="Carousel · slide 7">Carrousel · slide 7</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-carousel-8.webp" alt="Carrousel LinkedIn ITGREEN : slide 8" data-alt-en="ITGREEN LinkedIn carousel : slide 8">
+            <figcaption data-en="Carousel · slide 8">Carrousel · slide 8</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Emailings">Emailings</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-mailing-collectivites.webp" alt="Emailing ITGREEN : Lettre aux collectivités J-52 loi Climat" data-alt-en="ITGREEN emailing: Local government letter, J-52 Climate Law">
+            <figcaption data-en="Emailing local government · J-52 Climate Law">Emailing collectivités · J-52 loi Climat</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-mailing-partenaires.webp" alt="Emailing ITGREEN : Programme Partenaire Revendeur" data-alt-en="ITGREEN emailing: Reseller Partner Programme">
+            <figcaption data-en="Emailing reseller partner programme">Emailing programme partenaire revendeur</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/itgreen-mailing-selection-pro.webp" alt="Emailing ITGREEN : sélection pro mensuelle avril 2026" data-alt-en="ITGREEN emailing: monthly pro selection April 2026">
+            <figcaption data-en="Emailing monthly pro selection">Emailing sélection pro mensuelle</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="sheet__panel" data-panel="pca9" hidden>
+      <header class="sheet__head">
+        <h3 class="sheet__title" id="sheet-title-pca9">PC@9</h3>
+        <p class="sheet__desc" data-en="Retail refurbishment, store in Alsace">Reconditionnement grand public, boutique en Alsace</p>
+        <p class="sheet__intro" data-en="In-store poster and flyer, a series of stickers, posts and stories for the store campaigns.">Affiche et flyer pour la boutique, série de stickers, posts et stories des campagnes en magasin.</p>
+        <a class="sheet__site" href="https://pcaneuf.fr" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> pcaneuf.fr <span aria-hidden="true">↗</span></a>
+      </header>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Print">Print</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-affiche-recycler.webp" alt="Affiche PC@9" data-alt-en="PC@9 poster">
+            <figcaption data-en="In-store poster">Affiche boutique</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-flyer.webp" alt="Flyer PC@9" data-alt-en="PC@9 flyer">
+            <figcaption data-en="Flyer">Flyer</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-sticker-2.webp" alt="Sticker PC@9 nº 2" data-alt-en="PC@9 sticker no. 2">
+            <figcaption data-en="Sticker 2">Sticker 2</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-sticker-3.webp" alt="Sticker PC@9 nº 3" data-alt-en="PC@9 sticker no. 3">
+            <figcaption data-en="Sticker 3">Sticker 3</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-sticker-4.webp" alt="Sticker PC@9 nº 4" data-alt-en="PC@9 sticker no. 4">
+            <figcaption data-en="Sticker 4">Sticker 4</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-sticker-5.webp" alt="Sticker PC@9 nº 5" data-alt-en="PC@9 sticker no. 5">
+            <figcaption data-en="Sticker 5">Sticker 5</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-sticker-6.webp" alt="Sticker PC@9 nº 6" data-alt-en="PC@9 sticker no. 6">
+            <figcaption data-en="Sticker 6">Sticker 6</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Social media">Réseaux sociaux</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-post-1.webp" alt="Post PC@9 : visuel 1" data-alt-en="PC@9 post : visual 1">
+            <figcaption data-en="Post 1">Post 1</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-post-2.webp" alt="Post PC@9 : visuel 2" data-alt-en="PC@9 post : visual 2">
+            <figcaption data-en="Post 2">Post 2</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-post-3.webp" alt="Post PC@9 : visuel 3" data-alt-en="PC@9 post : visual 3">
+            <figcaption data-en="Post 3">Post 3</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-post-4.webp" alt="Post PC@9 : visuel 4" data-alt-en="PC@9 post : visual 4">
+            <figcaption data-en="Post 4">Post 4</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-story-1.webp" alt="Story PC@9 : 1" data-alt-en="PC@9 story : 1">
+            <figcaption data-en="Story 1">Story 1</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/pca9-story-2.webp" alt="Story PC@9 : 2" data-alt-en="PC@9 story : 2">
+            <figcaption data-en="Story 2">Story 2</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="sheet__panel" data-panel="greenleo" hidden>
+      <header class="sheet__head">
+        <h3 class="sheet__title" id="sheet-title-greenleo">GreenLeo</h3>
+        <p class="sheet__desc" data-en="Refurbished PC rental for students">Location de PC reconditionnés pour étudiants</p>
+        <p class="sheet__intro" data-en="Brand launch in 2026: two double-sided A5 flyers for campuses and a full social kit for Instagram, Facebook, LinkedIn and stories.">Lancement de la marque en 2026 : deux flyers A5 recto-verso pour les campus et un kit social complet pour Instagram, Facebook, LinkedIn et les stories.</p>
+        <a class="sheet__site" href="https://greenleo.fr" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> greenleo.fr <span aria-hidden="true">↗</span></a>
+      </header>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Print">Print</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-flyer-1-recto.webp" alt="Flyer GreenLeo nº 1 recto" data-alt-en="GreenLeo flyer no. 1, front">
+            <figcaption data-en="GreenLeo flyer 1 · front">Flyer GreenLeo 1 · recto</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-flyer-1-verso.webp" alt="Flyer GreenLeo nº 1 verso" data-alt-en="GreenLeo flyer no. 1, back">
+            <figcaption data-en="GreenLeo flyer 1 · back">Flyer GreenLeo 1 · verso</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-flyer-2-recto.webp" alt="Flyer GreenLeo nº 2 recto" data-alt-en="GreenLeo flyer no. 2, front">
+            <figcaption data-en="GreenLeo flyer 2 · front">Flyer GreenLeo 2 · recto</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-flyer-2-verso.webp" alt="Flyer GreenLeo nº 2 verso" data-alt-en="GreenLeo flyer no. 2, back">
+            <figcaption data-en="GreenLeo flyer 2 · back">Flyer GreenLeo 2 · verso</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Social media">Réseaux sociaux</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-01-manifesto.webp" alt="Post Instagram GreenLeo : manifesto" data-alt-en="GreenLeo Instagram post : manifesto">
+            <figcaption data-en="Instagram · manifesto">Instagram · manifesto</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-02-fact.webp" alt="Post Instagram GreenLeo : fact" data-alt-en="GreenLeo Instagram post : fact">
+            <figcaption data-en="Instagram · fact">Instagram · chiffre</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-03-price.webp" alt="Post Instagram GreenLeo : prix" data-alt-en="GreenLeo Instagram post : price">
+            <figcaption data-en="Instagram · price">Instagram · prix</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-04-signature.webp" alt="Post Instagram GreenLeo : signature" data-alt-en="GreenLeo Instagram post : signature">
+            <figcaption data-en="Instagram · signature">Instagram · signature</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-05-testimonial.webp" alt="Post Instagram GreenLeo : témoignage" data-alt-en="GreenLeo Instagram post : testimonial">
+            <figcaption data-en="Instagram · testimonial">Instagram · témoignage</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-06-tips.webp" alt="Post Instagram GreenLeo : tips" data-alt-en="GreenLeo Instagram post : tips">
+            <figcaption data-en="Instagram · tips">Instagram · tips</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-fb-02-fact.webp" alt="Post Facebook GreenLeo : fact" data-alt-en="GreenLeo Facebook post : fact">
+            <figcaption data-en="Facebook · fact">Facebook · chiffre</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-fb-03-launch.webp" alt="Post Facebook GreenLeo : lancement" data-alt-en="GreenLeo Facebook post : launch">
+            <figcaption data-en="Facebook · launch">Facebook · lancement</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-fb-04-launch.webp" alt="Post Facebook GreenLeo : lancement 2" data-alt-en="GreenLeo Facebook post : launch 2">
+            <figcaption data-en="Facebook · launch 2">Facebook · lancement 2</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-li-01-b2b.webp" alt="Post LinkedIn GreenLeo : B2B" data-alt-en="GreenLeo LinkedIn post : B2B">
+            <figcaption data-en="LinkedIn · B2B">LinkedIn · B2B</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-li-02-b2b.webp" alt="Post LinkedIn GreenLeo : B2B 2" data-alt-en="GreenLeo LinkedIn post : B2B 2">
+            <figcaption data-en="LinkedIn · B2B 2">LinkedIn · B2B 2</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-li-02-carousel.webp" alt="Carrousel LinkedIn GreenLeo : 1" data-alt-en="GreenLeo LinkedIn carousel : 1">
+            <figcaption data-en="LinkedIn · carousel">LinkedIn · carrousel</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-li-03-carousel.webp" alt="Carrousel LinkedIn GreenLeo : 2" data-alt-en="GreenLeo LinkedIn carousel : 2">
+            <figcaption data-en="LinkedIn · carousel 2">LinkedIn · carrousel 2</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-story-01-teaser.webp" alt="Story Instagram GreenLeo : teaser" data-alt-en="GreenLeo Instagram story : teaser">
+            <figcaption data-en="Story · teaser">Story · teaser</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-story-howitworks.webp" alt="Story Instagram GreenLeo : comment ça marche" data-alt-en="GreenLeo Instagram story : how it works">
+            <figcaption data-en="Story · how it works">Story · comment ça marche</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-story-03-cta.webp" alt="Story Instagram GreenLeo : CTA" data-alt-en="GreenLeo Instagram story : CTA">
+            <figcaption data-en="Story · CTA">Story · CTA</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/greenleo-ig-story-04-question.webp" alt="Story Instagram GreenLeo : question" data-alt-en="GreenLeo Instagram story : question">
+            <figcaption data-en="Story · question">Story · question</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="sheet__panel" data-panel="abk" hidden>
+      <header class="sheet__head">
+        <h3 class="sheet__title" id="sheet-title-abk">ABK Rénov'</h3>
+        <p class="sheet__desc" data-en="Alsace-based renovation company">Entreprise de rénovation alsacienne</p>
+        <p class="sheet__intro" data-en="A full identity built from scratch: brand board, logo, business cards, contact page and the abkrenov.fr website.">Identité complète construite de zéro : brand board, logo, cartes de visite, page contact et site abkrenov.fr.</p>
+        <a class="sheet__site" href="https://abkrenov.fr" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> abkrenov.fr <span aria-hidden="true">↗</span></a>
+      </header>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Identity and website">Identité et site</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-brandboard.webp" alt="Brand board ABK Rénov'" data-alt-en="ABK Rénov' brand board">
+            <figcaption data-en="Brand board">Brand board</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-vue-ensemble.webp" alt="Vue d'ensemble identité ABK Rénov'" data-alt-en="ABK Rénov' identity overview">
+            <figcaption data-en="Overview">Vue d'ensemble</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-logo.webp" alt="Logo ABK Rénov'" data-alt-en="ABK Rénov' logo">
+            <figcaption data-en="Logo">Logo</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-site.webp" alt="Site web ABK Rénov'" data-alt-en="ABK Rénov' website">
+            <figcaption data-en="Website">Site web</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-contact.webp" alt="Page contact ABK Rénov'" data-alt-en="ABK Rénov' contact page">
+            <figcaption data-en="Contact page">Page contact</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-carte-recto.webp" alt="Carte de visite ABK Rénov' : recto" data-alt-en="ABK Rénov' business card : front">
+            <figcaption data-en="Business card · front">Carte de visite · recto</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/abk-carte-verso.webp" alt="Carte de visite ABK Rénov' : verso" data-alt-en="ABK Rénov' business card : back">
+            <figcaption data-en="Business card · back">Carte de visite · verso</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="sheet__panel" data-panel="preo" hidden>
+      <header class="sheet__head">
+        <h3 class="sheet__title" id="sheet-title-preo">Le PréO Scène</h3>
+        <p class="sheet__desc" data-en="Cultural venue in Oberhausbergen">Scène conventionnée d'Oberhausbergen</p>
+        <p class="sheet__intro" data-en="Print collateral for the 2023–2024 cultural season: posters, postcards and the season programme.">Supports print de la saison culturelle 2023–2024 : affiches, cartes postales et livret programme.</p>
+        
+      </header>
+      <section class="sheet__group">
+        <h4 class="sheet__group-title" data-en="Print">Print</h4>
+        <div class="works">
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/preo-scene-print-1.jpg" alt="Supports print Le PréO Scène saison 2023-2024 : affiches, cartes postales et programme" data-alt-en="Le PréO Scène 2023-2024 print collateral: posters, postcards and season programme">
+            <figcaption data-en="2023–2024 print collateral">Supports saison 2023–2024</figcaption>
+          </figure>
+          <figure class="work">
+            <img loading="lazy" src="assets/realisations/preo-scene-print-2.jpg" alt="Supports print Le PréO Scène saison 2023-2024 : mise en scène 2" data-alt-en="Le PréO Scène 2023-2024 print collateral, view 2">
+            <figcaption data-en="2023–2024 print, view 2">Supports saison 2023–2024, vue 2</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
 <!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" aria-hidden="true" inert role="dialog" aria-label="Aperçu image" data-aria-en="Image preview">
   <button class="lightbox__close" type="button" aria-label="Fermer (Échap)" data-aria-en="Close (Esc)">✕</button>
@@ -1251,15 +1293,6 @@
 
 <script>
 (function(){
-  const chapters = document.querySelectorAll('.chapter');
-  const marks = ['01','02','03','04','05','06','07','08'];
-  chapters.forEach((el, idx) => {
-    const w = document.createElement('span');
-    w.className = 'chapter__watermark';
-    w.setAttribute('aria-hidden', 'true');
-    w.textContent = marks[idx] || String(idx+1).padStart(2,'0');
-    el.insertBefore(w, el.firstChild);
-  });
 
   document.querySelectorAll('[data-en]').forEach(el => {
     if (!el.hasAttribute('data-fr')) {
@@ -1311,7 +1344,7 @@
   if (heroEl) requestAnimationFrame(() => heroEl.classList.add('animated'));
 
   const bar = document.querySelector('.scroll-progress > i');
-  const monogram = document.querySelector('.hero__monogram');
+  const monogram = null;
   const watermarks = document.querySelectorAll('.chapter__watermark');
 
   const navEl = document.querySelector('.nav');
@@ -1377,7 +1410,7 @@
       requestAnimationFrame(raf);
     }
     raf();
-    document.querySelectorAll('a, button, [data-magnetic], .chip, .brand, .proof, .timeline__item, .result').forEach(el => {
+    document.querySelectorAll('a, button, [data-magnetic], .chip, .brand, .proof, .work, .timeline__item, .result').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
     });
@@ -1547,7 +1580,7 @@
     const lbCap = lb.querySelector('.lightbox__caption');
     const lbLink = lb.querySelector('.lightbox__link');
     const lbCounter = lb.querySelector('.lightbox__counter');
-    const figs = Array.from(document.querySelectorAll('.proof'));
+    let figs = Array.from(document.querySelectorAll('.proof'));
     let lbIdx = 0, lastFocus = null;
 
     const BRANDS = {
@@ -1580,7 +1613,9 @@
       const cap = fig.querySelector('figcaption');
       lbImg.src = img.src;
       lbImg.alt = img.alt || '';
-      lbCap.innerHTML = cap ? cap.innerHTML : '';
+      const panel = fig.closest('.sheet__panel');
+      const brandName = panel ? panel.querySelector('.sheet__title').textContent : '';
+      lbCap.innerHTML = cap ? (brandName ? '<em>' + brandName + '</em> · ' : '') + cap.innerHTML : '';
       lbCap.style.display = cap ? '' : 'none';
       if (lbImg.complete && lbImg.naturalHeight) applyTall(lbImg);
       else lbImg.addEventListener('load', () => applyTall(lbImg), { once: true });
@@ -1603,7 +1638,7 @@
       lb.classList.remove('is-open');
       lb.setAttribute('aria-hidden', 'true');
       lb.setAttribute('inert', '');
-      document.documentElement.style.overflow = '';
+      document.documentElement.style.overflow = document.querySelector('.sheet.is-open') ? 'hidden' : '';
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     };
     const navLb = (delta) => openLb(lbIdx + delta);
@@ -1612,20 +1647,64 @@
       fig.style.cursor = 'zoom-in';
       fig.addEventListener('click', (e) => { e.preventDefault(); openLb(i); });
     });
+    document.querySelectorAll('.sheet__panel').forEach(panel => {
+      const list = Array.from(panel.querySelectorAll('.work'));
+      list.forEach((fig, i) => {
+        fig.addEventListener('click', (e) => { e.preventDefault(); figs = list; openLb(i); });
+      });
+    });
     lb.querySelector('.lightbox__close').addEventListener('click', closeLb);
     lb.querySelector('.lightbox__prev').addEventListener('click', (e) => { e.stopPropagation(); navLb(-1); });
     lb.querySelector('.lightbox__next').addEventListener('click', (e) => { e.stopPropagation(); navLb(1); });
     lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lightbox__figure')) closeLb(); });
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLb();
+      if (e.key === 'Escape') { e.preventDefault(); closeLb(); }
       else if (e.key === 'ArrowLeft') navLb(-1);
       else if (e.key === 'ArrowRight') navLb(1);
     });
   }
 
+  // ===== Créations par marque =====
+  const sheet = document.getElementById('sheet');
+  if (sheet) {
+    const panels = sheet.querySelectorAll('.sheet__panel');
+    let sheetFocus = null;
+    const openSheet = (key, trigger) => {
+      let found = false;
+      panels.forEach(p => { const on = p.dataset.panel === key; p.hidden = !on; if (on) found = true; });
+      if (!found) return false;
+      sheet.setAttribute('aria-labelledby', 'sheet-title-' + key);
+      sheetFocus = trigger;
+      sheet.classList.add('is-open');
+      sheet.setAttribute('aria-hidden', 'false');
+      sheet.removeAttribute('inert');
+      sheet.scrollTop = 0;
+      document.documentElement.style.overflow = 'hidden';
+      sheet.querySelector('.sheet__close').focus({ preventScroll: true });
+      return true;
+    };
+    const closeSheet = () => {
+      sheet.classList.remove('is-open');
+      sheet.setAttribute('aria-hidden', 'true');
+      sheet.setAttribute('inert', '');
+      document.documentElement.style.overflow = '';
+      if (sheetFocus && sheetFocus.focus) sheetFocus.focus({ preventScroll: true });
+    };
+    document.querySelectorAll('.maker[data-brand], .brand[data-brand]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+        if (openSheet(el.dataset.brand, el)) e.preventDefault();
+      });
+    });
+    sheet.querySelector('.sheet__close').addEventListener('click', closeSheet);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !e.defaultPrevented && sheet.classList.contains('is-open')) closeSheet();
+    });
+  }
+
   const navLinks = document.querySelectorAll('.nav__links a');
-  const sections = ['today','creer','curieuse','comprendre','ecrire','univers','contact'].map(id => document.getElementById(id)).filter(Boolean);
+  const sections = ['today','creer','ecrire','piloter','univers','contact'].map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1670,5 +1749,6 @@
 })();
 </script>
 
+<script>(function(){var m={'#curieuse':'#piloter','#comprendre':'#piloter'};var t=m[location.hash];if(t){history.replaceState(null,'',t);addEventListener('load',function(){var el=document.querySelector(t);el&&el.scrollIntoView();});}})();</script>
 </body>
 </html>
