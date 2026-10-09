@@ -4882,3 +4882,6 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 }
 .viz--seo .viz__bars { height: 128px; margin-top: 54px; }
 .viz--bounce .viz__bars { margin-bottom: 42px; }
+
+/* Intro d'un seul paragraphe (Parcours) : sur toute la largeur, pas seule dans la colonne de gauche */
+.chapter__lead > p:only-child { grid-column: 1 / -1; }
