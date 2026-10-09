@@ -2434,7 +2434,7 @@ body { padding-top: 87px; }
 .pause__frame {
   position: absolute;
   inset: 0;
-  background-image: url('assets/realisations/enderjeta-portrait.jpg');
+  background-image: url('assets/realisations/enderjeta-portrait-v2.jpg');
   background-size: cover;
   background-position: center 22%;
   background-repeat: no-repeat;
@@ -3524,7 +3524,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 }
 .hero__frame {
   position: absolute; inset: 0;
-  background: url('assets/realisations/enderjeta-portrait.jpg') center 22% / cover no-repeat;
+  background: url('assets/realisations/enderjeta-portrait-v2.jpg') center 22% / cover no-repeat;
   filter: contrast(0.96) saturate(0.94);
   pointer-events: none;
   -webkit-user-select: none; user-select: none;
