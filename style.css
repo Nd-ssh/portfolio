@@ -5229,3 +5229,44 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 @media (max-width: 900px) {
   .scratch__dots { top: 22px; bottom: auto; right: 22px; }
 }
+
+/* =====================================================
+   CHARTE UNIVERS ENDER v2 : rouge des gants, Ënder, pictos, grand ES
+   Le rouge reste sous 5 % de la surface : note manuscrite, points des pictos, tréma.
+   ===================================================== */
+:root { --rouge: #C41A1F; --rouge-clair: #E5483F; }
+
+/* « grattez-moi ! » au stylo rouge, comme les notes manuscrites de la charte */
+.scratch-note__txt, .scratch-note__arrow { color: var(--rouge); }
+
+/* Pictos des cartes contact */
+.contact__card { position: relative; }
+.contact__picto { width: 30px; height: 30px; color: var(--accent); }
+.contact__picto .picto__dot { fill: var(--rouge); }
+.contact__card:hover .contact__picto { color: var(--ink); }
+
+/* Grand ES en filigrane derrière le contact */
+.contact { overflow: hidden; }
+.contact::before {
+  content: "";
+  position: absolute;
+  right: -6%;
+  bottom: -8%;
+  width: min(62vw, 820px);
+  aspect-ratio: 1288.96 / 1000;
+  background: url("assets/charte/grand-ES-lichen.svg") center / contain no-repeat;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.contact > * { position: relative; z-index: 1; }
+
+/* Pied de page : Ënder + ëndërr = rêve */
+.foot__ender { display: grid; gap: 6px; justify-items: start; }
+.foot__ender-logo { width: 150px; height: auto; display: block; }
+.foot__ender-reve { width: 128px; height: auto; display: block; margin-left: 4px; }
+@media (max-width: 720px) {
+  .foot__ender-logo { width: 120px; }
+  .foot__ender-reve { width: 108px; }
+}
+.contact__card { align-content: start; }
