@@ -28,7 +28,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait.jpg">
-<link rel="stylesheet" href="style.css?v=54">
+<link rel="stylesheet" href="style.css?v=55">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle. Pas de bandeau nécessaire. -->
 <script>
@@ -516,6 +516,13 @@
         <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, Schema.org.">Outils : Search Console, GA4, PostHog, Schema.org.</p>
         <p class="result__learn" data-en="What I learned: on this project, the schemas only started to pay off once the copy on the pages was rewritten in parallel.">Ce que j'en ai retenu : sur ce projet, les schemas n'ont commencé à porter leurs fruits qu'une fois le texte des pages réécrit en parallèle.</p>
       </div>
+        <div class="viz viz--seo" aria-hidden="true">
+          <p class="viz__label" data-en="Page views per week">Pages vues par semaine</p>
+          <div class="viz__bars">
+            <div class="viz__bar" style="--v:22%"><span class="viz__cap" data-en="Before">Avant</span></div>
+            <div class="viz__bar viz__bar--hi" style="--v:100%"><b class="viz__big" data-en="×4.5">×4,5</b><span class="viz__cap" data-en="After the overhaul">Après la refonte</span></div>
+          </div>
+        </div>
     </article>
 
     <article class="result">
@@ -526,6 +533,13 @@
         <p class="result__tools" data-en="Tools: GA4, PostHog.">Outils : GA4, PostHog.</p>
         <p class="result__learn" data-en="What I learned: an alarming number often just needs to be read more carefully before anyone starts redoing pages.">Ce que j'en ai retenu : un chiffre alarmant demande souvent juste d'être relu plus attentivement avant qu'on refasse des pages.</p>
       </div>
+        <div class="viz viz--bounce" aria-hidden="true">
+          <p class="viz__label" data-en="Bounce rate">Taux de rebond</p>
+          <div class="viz__bars">
+            <div class="viz__bar viz__bar--calm" style="--v:21%"><b class="viz__val">21 %</b><span class="viz__cap" data-en="Before the overhaul">Avant la refonte</span></div>
+            <div class="viz__bar viz__bar--hi" style="--v:82%"><i class="viz__bots" style="height:18.3%"><em data-en="bots">robots</em></i><b class="viz__val"><s>82 %</s> 67 %</b><span class="viz__cap" data-en="Peak week, bots removed">Semaine du pic, sans les robots</span></div>
+          </div>
+        </div>
     </article>
 
     <article class="result">
@@ -536,6 +550,16 @@
         <p class="result__tools" data-en="Tools: competitive benchmark, Figma, client testing.">Outils : benchmark concurrentiel, Figma, tests avec les clients.</p>
         <p class="result__learn" data-en="What I learned: a day of benchmarking and precise mockups saved weeks of back-and-forth, with the team and with the developer.">Ce que j'en ai retenu : une journée de benchmark et des maquettes précises ont évité des semaines d'allers-retours, avec l'équipe comme avec le développeur.</p>
       </div>
+        <div class="viz viz--steps" aria-hidden="true">
+          <p class="viz__label" data-en="From benchmark to launch">Du benchmark à la mise en ligne</p>
+          <ol class="viz__steps">
+            <li style="--d:0"><b>7</b><span data-en="competitors studied">concurrents étudiés</span></li>
+            <li style="--d:1"><b>7</b><span data-en="recommendations">recommandations</span></li>
+            <li style="--d:2"><b>12</b><span data-en="pages designed">pages maquettées</span></li>
+            <li style="--d:3"><b>3</b><span data-en="test clients">clients testeurs</span></li>
+            <li style="--d:4"><b>0</b><span data-en="downtime at switch-over">coupure à la bascule</span></li>
+          </ol>
+        </div>
     </article>
 
     <article class="result">
@@ -546,6 +570,13 @@
         <p class="result__tools" data-en="Tools: GA4, Search Console, PostHog, OneDrive.">Outils : GA4, Search Console, PostHog, OneDrive.</p>
         <p class="result__learn" data-en="What I learned: once the report was automated, Monday morning became time to read the numbers instead of assembling them.">Ce que j'en ai retenu : une fois le rapport automatisé, le lundi matin est passé à lire les chiffres au lieu de les assembler.</p>
       </div>
+        <div class="viz viz--week" aria-hidden="true">
+          <p class="viz__label" data-en="Every Monday, on its own">Chaque lundi, tout seul</p>
+          <div class="viz__days"><i class="is-mon" data-en="M">L</i><i data-en="T">M</i><i data-en="W">M</i><i data-en="T">J</i><i data-en="F">V</i><i>S</i><i>D</i></div>
+          <div class="viz__src"><span style="--d:0">Search Console</span><span style="--d:1">GA4</span><span style="--d:2">PostHog</span></div>
+          <svg class="viz__merge" viewBox="0 0 240 34" preserveAspectRatio="none"><path d="M40 0 C 40 20, 120 14, 120 34 M120 0 L120 34 M200 0 C 200 20, 120 14, 120 34"/></svg>
+          <div class="viz__doc"><b data-en="Weekly report">Rapport hebdo</b><i></i><i></i><i></i><span>OneDrive</span></div>
+        </div>
     </article>
 
     <article class="result">
@@ -556,6 +587,15 @@
         <p class="result__tools" data-en="Tools: Figma, LinkedIn.">Outils : Figma, LinkedIn.</p>
         <p class="result__learn" data-en="What I learned: on an internal tool, everything around the interface (access, going live) takes more time than the interface itself.">Ce que j'en ai retenu : sur un outil interne, tout ce qui entoure l'interface (accès, mise en ligne) prend plus de temps que l'interface elle-même.</p>
       </div>
+        <div class="viz viz--board" aria-hidden="true">
+          <p class="viz__label" data-en="LinkedIn posts">Posts LinkedIn</p>
+          <div class="viz__cols">
+            <div><span data-en="Draft">À rédiger</span><i></i><i></i></div>
+            <div><span data-en="Review">À valider</span><i></i></div>
+            <div><span data-en="Live">Publié</span><i></i><i></i></div>
+          </div>
+          <div class="viz__card"><b>in</b><i></i></div>
+        </div>
     </article>
   </div>
 </section>
@@ -2139,6 +2179,17 @@
       t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+})();
+</script>
+<script>
+// Chapitre 04 : les visuels s'animent quand ils arrivent à l'écran.
+(function () {
+  var v = document.querySelectorAll('.viz');
+  if (!('IntersectionObserver' in window)) { v.forEach(function (e) { e.classList.add('is-on'); }); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-on'); io.unobserve(e.target); } });
+  }, { threshold: 0.35 });
+  v.forEach(function (e) { io.observe(e); });
 })();
 </script>
 </body>

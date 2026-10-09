@@ -4574,3 +4574,311 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 .chapter__title .word__punct { font-style: normal; font-weight: 900; color: var(--ink); }
 /* Titre qui tient toujours sur une ligne */
 .chapter__head .chapter__title--line { white-space: nowrap; font-size: min(clamp(40px, 6.4vw, 92px), 7.6vw); }
+
+/* =====================================================
+   CHAPITRE 04 · PILOTER : un visuel par projet
+   ===================================================== */
+@media (min-width: 721px) {
+  #piloter .result { grid-template-columns: 60px minmax(0, 1fr) 300px; column-gap: 40px; align-items: start; }
+}
+@media (min-width: 721px) and (max-width: 1080px) {
+  #piloter .result { grid-template-columns: 60px minmax(0, 1fr); }
+  #piloter .viz { grid-column: 2; max-width: 380px; }
+}
+.viz {
+  position: relative;
+  padding: 18px 20px 20px;
+  border: 1px solid var(--ink-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 14px 30px -22px rgba(31, 47, 43, 0.35);
+  font-family: var(--font-body);
+  color: var(--ink);
+  overflow: hidden;
+}
+.viz__label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+/* --- Barres (01 et 02) --- */
+.viz__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  height: 150px;
+  margin: 26px 0 34px;
+  border-bottom: 1px solid var(--ink-hairline);
+}
+.viz__bar {
+  position: relative;
+  flex: 1;
+  height: var(--v);
+  border-radius: 8px 8px 0 0;
+  background: var(--paper-3);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 1.1s var(--ease-smooth);
+}
+.viz__bar--hi { background: var(--accent); transition-delay: 0.25s; }
+.viz.is-on .viz__bar { transform: scaleY(1); }
+.viz__cap {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  font-size: 11px;
+  line-height: 1.25;
+  color: var(--ink-mute);
+  text-align: center;
+}
+.viz__big, .viz__val {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--ink);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease 1s;
+}
+.viz.is-on .viz__big, .viz.is-on .viz__val { opacity: 1; }
+.viz__big { font-size: 34px; letter-spacing: -0.03em; }
+.viz__val { font-size: 18px; }
+.viz__val s { font-weight: 400; font-size: 13px; color: var(--ink-mute); margin-right: 2px; }
+/* 02 : la part des robots, hachurée en haut de la barre */
+.viz__bots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 8px 8px 0 0;
+  background: repeating-linear-gradient(-45deg, var(--paper) 0 4px, var(--accent-2) 4px 8px);
+  opacity: 0;
+  transition: opacity 0.5s ease 1.3s;
+}
+.viz.is-on .viz__bots { opacity: 1; }
+.viz__bots em {
+  position: absolute;
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  font: italic 600 11px var(--font-body);
+  color: var(--accent);
+}
+.viz__bots em { white-space: nowrap; }
+.viz__bots em::after { content: " →"; font-style: normal; }
+.viz--bounce .viz__bar--calm .viz__val { font-size: 16px; }
+
+/* --- 03 : les étapes du projet --- */
+.viz__steps { list-style: none; margin: 0; padding: 0 0 0 4px; position: relative; }
+.viz__steps::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: var(--ink-hairline);
+}
+.viz__steps li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.5s ease, transform 0.5s var(--ease-smooth);
+  transition-delay: calc(var(--d) * 0.18s + 0.2s);
+}
+.viz.is-on .viz__steps li { opacity: 1; transform: none; }
+.viz__steps b {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--ink-hairline);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 17px;
+  color: var(--accent);
+}
+.viz__steps li:last-child b { background: var(--accent); border-color: var(--accent); color: #fff; }
+.viz__steps span { font-size: 13px; color: var(--ink-soft); }
+
+/* --- 04 : le rapport du lundi --- */
+.viz__days { display: flex; gap: 5px; margin-bottom: 14px; }
+.viz__days i {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 7px;
+  background: var(--paper);
+  font: normal 600 11px var(--font-body);
+  text-align: center;
+  color: var(--ink-mute);
+}
+.viz__days i.is-mon { position: relative; background: var(--accent); color: #fff; }
+.viz__days i.is-mon::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 0 var(--accent-2);
+}
+.viz.is-on .viz__days i.is-mon::after { animation: vizPing 2s ease-out 1.4s infinite; }
+@keyframes vizPing { 0% { box-shadow: 0 0 0 0 rgba(127, 191, 163, 0.7); } 70%, 100% { box-shadow: 0 0 0 9px rgba(127, 191, 163, 0); } }
+.viz__src { display: flex; justify-content: space-between; gap: 6px; }
+.viz__src span {
+  flex: 1;
+  padding: 5px 4px;
+  border: 1px solid var(--ink-hairline);
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-smooth);
+  transition-delay: calc(var(--d) * 0.15s + 0.2s);
+}
+.viz.is-on .viz__src span { opacity: 1; transform: none; }
+.viz__merge { display: block; width: 100%; height: 30px; }
+.viz__merge path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  stroke-dasharray: 3 4;
+  vector-effect: non-scaling-stroke;
+}
+.viz.is-on .viz__merge path { animation: vizFlow 1.2s linear infinite; }
+@keyframes vizFlow { to { stroke-dashoffset: -14; } }
+.viz__doc {
+  position: relative;
+  margin: 0 auto;
+  width: 62%;
+  padding: 10px 12px 12px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 18px -12px rgba(31, 47, 43, 0.45);
+}
+.viz__doc b { display: block; font: 700 12px var(--font-body); margin-bottom: 7px; }
+.viz__doc i {
+  display: block;
+  height: 5px;
+  margin-top: 5px;
+  border-radius: 3px;
+  background: var(--paper-2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-smooth);
+}
+.viz__doc i:nth-of-type(1) { width: 100%; transition-delay: 0.9s; }
+.viz__doc i:nth-of-type(2) { width: 78%; transition-delay: 1.05s; background: var(--accent-2); }
+.viz__doc i:nth-of-type(3) { width: 56%; transition-delay: 1.2s; }
+.viz.is-on .viz__doc i { transform: scaleX(1); }
+.viz__doc span {
+  position: absolute;
+  right: -8px;
+  bottom: -9px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* --- 05 : le tableau des posts, un post fait le chemin --- */
+.viz--board { --gap: 8px; }
+.viz__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.viz__cols > div {
+  min-height: 132px;
+  padding: 8px 6px;
+  border-radius: 10px;
+  background: var(--paper);
+}
+.viz__cols span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+.viz__cols i {
+  display: block;
+  height: 24px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--ink-line);
+}
+.viz__card {
+  position: absolute;
+  left: calc(20px + 6px);
+  bottom: 28px;
+  width: calc((100% - 40px - 2 * var(--gap)) / 3 - 12px);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 7px;
+  border-radius: 7px;
+  background: var(--accent);
+  box-shadow: 0 8px 16px -8px rgba(31, 47, 43, 0.6);
+  opacity: 0;
+}
+.viz__card b {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--accent);
+  font: 800 10px/1 var(--font-body);
+}
+.viz__card i { flex: 1; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.55); }
+.viz.is-on .viz__card { animation: vizMove 6.5s var(--ease-smooth) 0.6s infinite; }
+@keyframes vizMove {
+  0% { opacity: 0; transform: translate(0, 10px) rotate(0); }
+  6%, 26% { opacity: 1; transform: translate(0, 0) rotate(0); }
+  34% { transform: translate(calc(100% + 12px + var(--gap)), -6px) rotate(3deg); }
+  40%, 58% { transform: translate(calc(100% + 12px + var(--gap)), 0) rotate(0); }
+  66% { transform: translate(calc(200% + 24px + 2 * var(--gap)), -6px) rotate(3deg); }
+  72%, 92% { opacity: 1; transform: translate(calc(200% + 24px + 2 * var(--gap)), 0) rotate(0); background: var(--ink); }
+  100% { opacity: 0; transform: translate(calc(200% + 24px + 2 * var(--gap)), 0) rotate(0); background: var(--ink); }
+}
+
+@media (max-width: 720px) {
+  #piloter .viz { grid-column: 1 / -1; margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .viz *, .viz *::after { transition: none !important; animation: none !important; }
+  .viz .viz__bar { transform: none; }
+  .viz .viz__steps li, .viz .viz__src span { opacity: 1; transform: none; }
+  .viz .viz__big, .viz .viz__val, .viz .viz__bots { opacity: 1; }
+  .viz .viz__doc i { transform: none; }
+  .viz .viz__card { opacity: 1; transform: translate(calc(100% + 12px + var(--gap)), 0); }
+}
+.viz--seo .viz__bars { height: 128px; margin-top: 54px; }
+.viz--bounce .viz__bars { margin-bottom: 42px; }
