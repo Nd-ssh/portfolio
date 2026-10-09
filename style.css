@@ -4576,6 +4576,93 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 .chapter__head .chapter__title--line { white-space: nowrap; font-size: min(clamp(40px, 6.4vw, 92px), 7.6vw); }
 
 /* =====================================================
+   SUITE DE L'AUDIT (9 octobre 2026)
+   ===================================================== */
+/* Petits textes gris : contraste suffisant (environ 5:1 sur le fond sauge) */
+:root { --ink-mute: rgba(31, 47, 43, 0.72); }
+
+/* Projets de Piloter : contexte, ce que j'ai fait, résultat */
+.case {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 10px 20px;
+  margin: 4px 0 14px;
+}
+.case dt {
+  padding-top: 3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.case dd {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.case dt:nth-of-type(3) + dd { font-weight: 600; }
+@media (max-width: 720px) {
+  .case { grid-template-columns: 1fr; gap: 4px; }
+  .case dd + dt { margin-top: 10px; }
+}
+.result__tag {
+  display: inline-block;
+  margin: -4px 0 14px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Écrire : trois projets côte à côte */
+@media (min-width: 1081px) {
+  .results--writing { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Contact : la recherche de poste, en clair */
+.lookfor {
+  margin: 0 0 88px;
+  padding-top: 56px;
+  border-top: 1px solid var(--ink-line);
+  max-width: 860px;
+}
+.lookfor__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 3.2vw, 42px);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.lookfor__text {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 24px;
+}
+.lookfor__chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.lookfor__chips li {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-hairline);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.lookfor__chips li:first-child { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+/* PC@9 : les stickers parlent d'eux-mêmes, sans « Sticker 2, 3… » */
+.bk-stickers figcaption { display: none; }
+
+
+/* =====================================================
    CHAPITRE 04 · PILOTER : un visuel par projet
    ===================================================== */
 @media (min-width: 721px) {
@@ -4885,3 +4972,111 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 
 /* Intro d'un seul paragraphe (Parcours) : sur toute la largeur, pas seule dans la colonne de gauche */
 .chapter__lead > p:only-child { grid-column: 1 / -1; }
+
+/* =====================================================
+   PILOTER : visuels sur fond foncé, comme de petits écrans
+   ===================================================== */
+.viz {
+  background: linear-gradient(160deg, #24382F 0%, var(--ink) 100%);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 24px 40px -26px rgba(31, 47, 43, 0.75);
+  color: var(--paper);
+}
+.viz__label { color: var(--accent-2); }
+.viz__bars { border-bottom-color: rgba(232, 241, 237, 0.25); }
+.viz__bar { background: rgba(232, 241, 237, 0.18); }
+.viz__bar--hi { background: var(--accent-2); }
+.viz__cap { color: rgba(232, 241, 237, 0.7); }
+.viz__big, .viz__val { color: #fff; }
+.viz__val s { color: rgba(232, 241, 237, 0.55); }
+.viz__bots { background: repeating-linear-gradient(-45deg, var(--ink) 0 4px, rgba(232, 241, 237, 0.55) 4px 8px); }
+.viz__bots em { color: var(--accent-2); }
+.viz__steps::before { background: rgba(232, 241, 237, 0.2); }
+.viz__steps b { background: rgba(232, 241, 237, 0.08); border-color: rgba(232, 241, 237, 0.25); color: var(--accent-2); }
+.viz__steps li:last-child b { background: var(--accent-2); border-color: var(--accent-2); color: var(--ink); }
+.viz__steps span { color: rgba(232, 241, 237, 0.85); }
+.viz__days i { background: rgba(232, 241, 237, 0.08); color: rgba(232, 241, 237, 0.6); }
+.viz__days i.is-mon { background: var(--accent-2); color: var(--ink); }
+.viz__days i.is-mon::after { background: #fff; }
+.viz__src span { background: rgba(232, 241, 237, 0.06); border-color: rgba(232, 241, 237, 0.25); color: var(--paper); }
+.viz__merge path { stroke: var(--accent-2); }
+.viz__doc { background: var(--paper); color: var(--ink); }
+.viz__doc span { background: var(--accent-2); color: var(--ink); }
+
+/* 05 : la borne de pointage sur tablette */
+.viz__tab {
+  position: relative;
+  padding: 10px;
+  border-radius: 16px;
+  background: #0f1714;
+  box-shadow: 0 0 0 1px rgba(232, 241, 237, 0.12) inset;
+}
+.viz__screen {
+  border-radius: 9px;
+  padding: 12px 12px 14px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.viz__screen-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.viz__screen-top b { font-family: var(--font-display); font-weight: 900; font-size: 22px; letter-spacing: -0.02em; }
+.viz__screen-top span { font-size: 10.5px; font-weight: 600; color: var(--accent); }
+.viz__faces { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.viz__faces i {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: var(--paper-2);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition-delay: calc(var(--d) * 0.35s + 0.4s);
+}
+.viz__faces i::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: rgba(31, 47, 43, 0.22);
+  box-shadow: 0 1.05em 0 0.32em rgba(31, 47, 43, 0.22);
+  font-size: 10px;
+}
+.viz.is-on .viz__faces i { background: #CFE6DA; box-shadow: 0 0 0 2px var(--accent) inset; }
+.viz__toast {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translate(-50%, 10px);
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+}
+.viz__toast::before { content: "✓ "; color: var(--accent-2); }
+.viz.is-on .viz__toast { animation: vizToast 4.2s ease 1.6s infinite; }
+@keyframes vizToast {
+  0% { opacity: 0; transform: translate(-50%, 10px); }
+  10%, 70% { opacity: 1; transform: translate(-50%, 0); }
+  85%, 100% { opacity: 0; transform: translate(-50%, 0); }
+}
+.viz__flow {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+  margin-top: 14px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(232, 241, 237, 0.85);
+}
+.viz__flow span { padding: 3px 6px; font-size: 9.5px; border-radius: 999px; border: 1px solid rgba(232, 241, 237, 0.22); }
+.viz__flow i { font-style: normal; color: var(--accent-2); }
+@media (prefers-reduced-motion: reduce) {
+  .viz .viz__toast { opacity: 1; transform: translate(-50%, 0); }
+}
