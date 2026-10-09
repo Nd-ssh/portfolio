@@ -3547,7 +3547,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
     grid-template-areas: "meta" "portrait" "main" "foot";
   }
   .hero__grid--portrait .hero__meta { margin-bottom: 32px; }
-  .hero__portrait { width: min(240px, 62vw); margin-bottom: 36px; }
+  .hero__portrait { width: min(240px, calc(100vw - 170px)); margin-bottom: 36px; }
   .hero__grid--portrait .hero__foot { margin-top: 48px; }
   .hero__grid--portrait .hero__stats {
     display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; width: 100%;
@@ -4103,7 +4103,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
     right: auto;
     bottom: auto;
     top: 26%;
-    left: calc(min(240px, 62vw) + 4px);
+    left: calc(min(240px, calc(100vw - 170px)) + 4px);
     flex-direction: column-reverse;
     align-items: flex-start;
   }
@@ -5218,3 +5218,14 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   .topics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .topics li[hidden] { display: none; }
+
+/* Parcours : 6 étapes dans la frise (ABK Rénov' ajoutée) */
+.frise { grid-template-columns: repeat(6, 1fr); }
+.frise::before { left: 8.333%; right: 8.333%; }
+.frise::after { left: 8.333%; }
+.chapter.in-view .frise::after { width: 83.333%; }
+.frise__step:nth-child(6) .frise__dot { transition-delay: 2.1s; }
+/* Petit téléphone : photo un peu plus étroite pour que « grattez-moi ! » tienne, les points passent en haut */
+@media (max-width: 900px) {
+  .scratch__dots { top: 22px; bottom: auto; right: 22px; }
+}
