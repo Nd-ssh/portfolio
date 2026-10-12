@@ -5307,3 +5307,41 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   .foot__ender-reve { width: 108px; }
 }
 .contact__card { align-content: start; }
+
+/* =====================================================
+   Aujourd'hui en version courte : une bande de logos
+   (remplace les cartes de marques, qui répétaient Piloter et Créer)
+   ===================================================== */
+.logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink-line);
+  border-bottom: 1px solid var(--ink-line);
+  margin-top: 56px;
+}
+.logos__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 28px 24px;
+  background: none;
+  border: 0;
+  border-right: 1px solid var(--ink-line);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.logos__item:last-child { border-right: 0; }
+.logos__item:hover, .logos__item:focus-visible { background: rgba(255, 255, 255, 0.35); }
+.logos__img { height: 40px; display: flex; align-items: center; margin-bottom: 8px; }
+.logos__img img { max-height: 40px; max-width: 120px; object-fit: contain; }
+.logos__name { font-family: var(--font-display); font-weight: 900; font-size: 22px; }
+.logos__desc { font-size: 14px; color: var(--ink-soft); }
+@media (max-width: 900px) {
+  .logos { grid-template-columns: repeat(2, 1fr); }
+  .logos__item:nth-child(2) { border-right: 0; }
+  .logos__item:nth-child(-n+2) { border-bottom: 1px solid var(--ink-line); }
+}
