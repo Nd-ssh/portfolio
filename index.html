@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=63">
+<link rel="stylesheet" href="style.css?v=64">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle. Pas de bandeau nécessaire. -->
 <script>
@@ -832,6 +832,12 @@
       Envie qu'on <span class="italic">travaille</span><br>
       ensemble ?
     </h2>
+
+    <!-- Bejka, en polaroïd à côté du titre, avec une note manuscrite -->
+    <figure class="bejka">
+      <img src="assets/bejka.webp" width="880" height="1100" loading="lazy" alt="Bejka, le chat d'Enderjeta" data-alt-en="Bejka, Enderjeta's cat">
+      <figcaption data-en="Bejka, my cat.">Bejka, mon chat.</figcaption>
+    </figure>
 
     <div class="lookfor">
       <h3 class="lookfor__title" data-en="I&#39;m looking for my next role.">Je cherche mon prochain poste.</h3>
@@ -1989,7 +1995,7 @@
 
 <script>(function(){var m={'#curieuse':'#piloter','#comprendre':'#piloter'};var t=m[location.hash];if(t){history.replaceState(null,'',t);addEventListener('load',function(){var el=document.querySelector(t);el&&el.scrollIntoView();});}})();</script>
 <script>
-// Carte à gratter sur le portrait : on gratte (souris ou doigt) pour découvrir des créations, puis Bejka.
+// Carte à gratter sur le portrait : on gratte (souris ou doigt) pour découvrir des créations.
 (function () {
   const box = document.querySelector('.hero__portrait');
   if (!box || !window.HTMLCanvasElement) return;
@@ -2001,8 +2007,7 @@
     // fit 'contain' : la création est montrée entière, jamais recadrée, sur un fond uni
     { src: 'assets/realisations/abk-vue-ensemble.webp', fit: 'contain', fr: "Identité visuelle · ABK Rénov'", en: "Visual identity · ABK Rénov'" },
     { src: 'assets/realisations/greenleo-flyer-1-recto.webp', fit: 'contain', fr: 'Flyer étudiants · GreenLeo', en: 'Student flyer · GreenLeo' },
-    { src: 'assets/realisations/pca9-flyer.webp', fit: 'contain', fr: 'Flyer boutique · PC@9', en: 'Shop flyer · PC@9' },
-    { src: 'assets/gratter/bejka.webp', fr: 'Et voici Bejka, mon chat', en: 'And this is Bejka, my cat' }
+    { src: 'assets/realisations/pca9-flyer.webp', fit: 'contain', fr: 'Flyer boutique · PC@9', en: 'Shop flyer · PC@9' }
   ];
   // Marges autour d'une création entière (en part du cadre) ; plus de place en bas pour la légende
   const PAD = { x: 0.09, top: 0.08, bottom: 0.15 };

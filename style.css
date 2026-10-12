@@ -1141,6 +1141,36 @@ body { padding-top: 87px; }
 @media (max-width: 480px) {
   .contact__title { letter-spacing: -0.02em; margin-bottom: 56px; }
 }
+/* Bejka en polaroïd, penchée, dans le vide à droite du titre */
+.contact__inner { position: relative; }
+.bejka {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  width: 210px;
+  padding: 10px 10px 0;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(31, 47, 43, 0.18), 0 2px 6px rgba(31, 47, 43, 0.12);
+  transform: rotate(4deg);
+}
+.bejka img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.bejka figcaption {
+  font-family: 'Caveat', 'Segoe Print', cursive;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--rouge, #C41A1F);
+  text-align: center;
+  padding: 10px 4px 12px;
+}
+@media (max-width: 1100px) {
+  .bejka { width: 170px; }
+}
+/* Tablette et téléphone : plus de place à côté du titre, elle passe dessous, à droite */
+@media (max-width: 900px) {
+  .bejka { position: static; width: 150px; margin: -40px 6px 48px auto; }
+  .bejka figcaption { font-size: 19px; }
+}
 .contact__title .italic {
   font-style: italic;
   color: var(--accent);
