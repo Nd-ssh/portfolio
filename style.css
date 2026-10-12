@@ -5375,7 +5375,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 }
 
 /* Aujourd'hui : au survol d'un logo, ses missions s'affichent dans un panneau */
-.logos { position: relative; }
+.logos { position: relative; z-index: 5; }
 .logos__item { position: relative; }
 .logos__missions {
   position: absolute;
@@ -5386,7 +5386,8 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   margin: 0;
   padding: 18px 22px 20px 38px;
   list-style: disc;
-  background: var(--paper);
+  min-width: 300px;
+  background: #F4F8F6;
   border: 1px solid var(--ink-line);
   border-top: 2px solid var(--accent);
   box-shadow: 0 18px 36px rgba(31, 47, 43, 0.14);
@@ -5412,3 +5413,5 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 .logos__item:hover, .logos__item:focus-visible { z-index: 6; }
 /* Écran tactile : pas de survol, un appui ouvre directement les créations */
 @media (hover: none) { .logos__missions { display: none; } }
+/* Le dernier logo ouvre son panneau vers la gauche pour ne pas sortir de l'écran */
+.logos__item:last-child .logos__missions { left: auto; right: -1px; }
