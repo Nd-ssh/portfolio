@@ -5415,3 +5415,24 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 @media (hover: none) { .logos__missions { display: none; } }
 /* Le dernier logo ouvre son panneau vers la gauche pour ne pas sortir de l'écran */
 .logos__item:last-child .logos__missions { left: auto; right: -1px; }
+
+/* Missions : zone réservée sous les logos, sur toute la largeur, pour que rien
+   ne déborde sous la section suivante. Au repos, la phrase d'aide s'y affiche. */
+@media (hover: hover) {
+  .logos { margin-bottom: 200px; }
+  .logos__item { position: static; }
+  .logos__missions,
+  .logos__item:last-child .logos__missions {
+    top: 100%;
+    left: 0;
+    right: 0;
+    min-width: 0;
+    min-height: 180px;
+    padding: 22px 28px 22px 46px;
+    columns: 2;
+    column-gap: 48px;
+    font-size: 15px;
+  }
+  .logos__missions li { break-inside: avoid; }
+  .brands__hint { position: relative; margin-top: -176px; }
+}
