@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=65">
+<link rel="stylesheet" href="style.css?v=66">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle. Pas de bandeau nécessaire. -->
 <script>
@@ -257,13 +257,7 @@
         <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, Schema.org.">Outils : Search Console, GA4, PostHog, Schema.org.</p>
         <p class="result__learn" data-en="What I learned: the structured data only started to pay off once the page copy was rewritten alongside it.">Ce que j'en ai retenu : les données structurées n'ont commencé à porter leurs fruits qu'une fois le texte des pages réécrit en parallèle.</p>
       </div>
-        <div class="viz viz--seo" aria-hidden="true">
-          <p class="viz__label" data-en="Page views per week">Pages vues par semaine</p>
-          <div class="viz__bars">
-            <div class="viz__bar" style="--v:22%"><span class="viz__cap" data-en="Before">Avant</span></div>
-            <div class="viz__bar viz__bar--hi" style="--v:100%"><b class="viz__big" data-en="×4.5">×4,5</b><span class="viz__cap" data-en="After the overhaul">Après la refonte</span></div>
-          </div>
-        </div>
+        <p class="keyfig"><b data-en="×4.5">×4,5</b><span data-en="weekly page views since the overhaul">pages vues par semaine depuis la refonte</span></p>
     </article>
 
     <article class="result result--case">
@@ -281,13 +275,7 @@
         <p class="result__tools" data-en="Tools: GA4, PostHog.">Outils : GA4, PostHog.</p>
         <p class="result__learn" data-en="What I learned: an alarming number often just needs a closer reading before anyone starts redoing pages.">Ce que j'en ai retenu : un chiffre alarmant demande souvent juste d'être relu plus attentivement avant qu'on refasse des pages.</p>
       </div>
-        <div class="viz viz--bounce" aria-hidden="true">
-          <p class="viz__label" data-en="Bounce rate">Taux de rebond</p>
-          <div class="viz__bars">
-            <div class="viz__bar viz__bar--calm" style="--v:21%"><b class="viz__val">21 %</b><span class="viz__cap" data-en="Before the overhaul">Avant la refonte</span></div>
-            <div class="viz__bar viz__bar--hi" style="--v:82%"><i class="viz__bots" style="height:18.3%"><em data-en="bots">robots</em></i><b class="viz__val"><s>82 %</s> 67 %</b><span class="viz__cap" data-en="Peak week, bots removed">Semaine du pic, sans les robots</span></div>
-          </div>
-        </div>
+        <p class="keyfig"><b data-en="67%">67 %</b><span data-en="the real bounce rate once bots are filtered out (82% displayed)">le vrai taux de rebond, une fois les robots filtrés (82 % affichés)</span></p>
     </article>
 
     <article class="result result--case">
@@ -305,16 +293,7 @@
         <p class="result__tools" data-en="Method: benchmark, Figma mockups, testing with three clients.">Méthode : benchmark, maquettes Figma, tests avec trois clients.</p>
         <p class="result__learn" data-en="What I learned: benchmarking and precise mockups saved weeks of back-and-forth, with the team and with the developer.">Ce que j'en ai retenu : du benchmark et des maquettes précises ont évité des semaines d'allers-retours, avec l'équipe comme avec le développeur.</p>
       </div>
-        <div class="viz viz--steps" aria-hidden="true">
-          <p class="viz__label" data-en="From benchmark to launch">Du benchmark à la mise en ligne</p>
-          <ol class="viz__steps">
-            <li style="--d:0"><b>4</b><span data-en="competitors studied">concurrents étudiés</span></li>
-            <li style="--d:1"><b>7</b><span data-en="recommendations">recommandations</span></li>
-            <li style="--d:2"><b>12</b><span data-en="pages designed">pages maquettées</span></li>
-            <li style="--d:3"><b>3</b><span data-en="test clients">clients testeurs</span></li>
-            <li style="--d:4"><b>0</b><span data-en="downtime at switch-over">coupure à la bascule</span></li>
-          </ol>
-        </div>
+        <p class="keyfig"><b data-en="0">0</b><span data-en="downtime at switchover, after 4 competitors studied, 12 pages designed and 3 test clients">coupure à la bascule, après 4 concurrents étudiés, 12 pages maquettées et 3 clients testeurs</span></p>
     </article>
 
     <article class="result result--case">
@@ -332,13 +311,7 @@
         <p class="result__tools" data-en="Tools: Search Console, GA4, PostHog, OneDrive.">Outils : Search Console, GA4, PostHog, OneDrive.</p>
         <p class="result__learn" data-en="What I learned: once the report was automated, Monday morning became time to read the numbers instead of assembling them.">Ce que j'en ai retenu : une fois le rapport automatisé, le lundi matin est passé à lire les chiffres au lieu de les assembler.</p>
       </div>
-        <div class="viz viz--week" aria-hidden="true">
-          <p class="viz__label" data-en="Every Monday, on its own">Chaque lundi, tout seul</p>
-          <div class="viz__days"><i class="is-mon" data-en="M">L</i><i data-en="T">M</i><i data-en="W">M</i><i data-en="T">J</i><i data-en="F">V</i><i>S</i><i>D</i></div>
-          <div class="viz__src"><span style="--d:0">Search Console</span><span style="--d:1">GA4</span><span style="--d:2">PostHog</span></div>
-          <svg class="viz__merge" viewBox="0 0 240 34" preserveAspectRatio="none"><path d="M40 0 C 40 20, 120 14, 120 34 M120 0 L120 34 M200 0 C 200 20, 120 14, 120 34"/></svg>
-          <div class="viz__doc"><b data-en="Weekly report">Rapport hebdo</b><i></i><i></i><i></i><span>OneDrive</span></div>
-        </div>
+        <p class="keyfig"><b data-en="Monday 8 am">Lundi 8 h</b><span data-en="the report goes out on its own, by email and to OneDrive">le rapport part tout seul, par e-mail et sur le OneDrive</span></p>
     </article>
 
     <article class="result result--case">
@@ -357,17 +330,7 @@
         <p class="result__tools" data-en="Tools: Android tablet in kiosk mode, internal web tool.">Outils : tablette Android en mode borne, outil web interne.</p>
         <p class="result__learn" data-en="What I learned: for every feature, I ask whether it really makes the work simpler. If not, it stays out. An internal tool must never turn into a monster.">Ce que j'en ai retenu : pour chaque fonction, je me demande si elle simplifie vraiment le travail. Sinon, elle n'entre pas. Un outil interne ne doit jamais devenir une usine à gaz.</p>
       </div>
-        <div class="viz viz--borne" aria-hidden="true">
-          <p class="viz__label" data-en="Check-in kiosk · entrance">Borne de pointage · entrée</p>
-          <div class="viz__tab">
-            <div class="viz__screen">
-              <div class="viz__screen-top"><b>08:57</b><span data-en="Good morning!">Bonjour !</span></div>
-              <div class="viz__faces"><i style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i><i style="--d:6"></i><i style="--d:7"></i></div>
-            </div>
-            <span class="viz__toast" data-en="Arrival recorded">Arrivée enregistrée</span>
-          </div>
-          <div class="viz__flow"><span data-en="Check-in">Pointage</span><i>→</i><span data-en="Approval">Validation</span><i>→</i><span data-en="Closing">Clôture</span><i>→</i><span data-en="Accountant">Comptable</span></div>
-        </div>
+        <p class="keyfig"><b data-en="Every day">Chaque jour</b><span data-en="the team checks in on the entrance tablet">l'équipe pointe sur la tablette de l'entrée</span></p>
     </article>
   </div>
 </section>
@@ -699,6 +662,11 @@
     </ol>
   </div>
 
+  <!-- Petit aparté expériences en parallèle des études -->
+  <div class="side-note">
+    <span class="side-note__tag" data-en="Side note">Note en marge</span>
+    <p data-en="Alongside my studies and internships, I worked as a sales assistant at Mango Rivétoile, at Domino&#39;s Pizza, as a waitress at the Parc des Expo restaurant in Nancy and as a dishwasher at Chez L&#39;Jeannot. These jobs gave me a real sense of customer service and the ability to keep up a steady pace under pressure.">En parallèle des études et des stages, j&#39;ai travaillé comme vendeuse chez Mango à Rivétoile, chez Domino&#39;s Pizza, comme serveuse au restaurant du Parc des Expo à Nancy et comme plongeuse Chez L&#39;Jeannot. Ces expériences m&#39;ont donné un vrai sens du service client et l&#39;habitude de garder un rythme soutenu sous pression.</p>
+  </div>
   <!-- Langues -->
   <div class="langues">
     <h3 class="langues__title" data-en='I speak <span class="italic">four languages</span>.'>Je parle <span class="italic">quatre langues</span>.</h3>

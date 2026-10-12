@@ -5345,3 +5345,31 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   .logos__item:nth-child(2) { border-right: 0; }
   .logos__item:nth-child(-n+2) { border-bottom: 1px solid var(--ink-line); }
 }
+
+/* Piloter : un chiffre clé léger par projet, à la place des visuels sombres.
+   Grand écran : colonne de droite ; sinon, une bande sous le texte. */
+.keyfig {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 4px 0 4px 20px;
+  border-left: 2px solid var(--accent);
+}
+.keyfig b {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+.keyfig span { font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+@media (min-width: 721px) and (max-width: 1080px) {
+  #piloter .keyfig { grid-column: 2; flex-direction: row; align-items: center; gap: 20px; margin-top: 20px; }
+  #piloter .keyfig b { font-size: 40px; flex: none; }
+}
+@media (max-width: 720px) {
+  .keyfig { margin-top: 20px; }
+  .keyfig b { font-size: 40px; }
+}
