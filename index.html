@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=62">
+<link rel="stylesheet" href="style.css?v=63">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle. Pas de bandeau nécessaire. -->
 <script>
@@ -1989,7 +1989,7 @@
 
 <script>(function(){var m={'#curieuse':'#piloter','#comprendre':'#piloter'};var t=m[location.hash];if(t){history.replaceState(null,'',t);addEventListener('load',function(){var el=document.querySelector(t);el&&el.scrollIntoView();});}})();</script>
 <script>
-// Carte à gratter sur le portrait : on gratte (souris ou doigt) pour découvrir Bejka, puis les passions.
+// Carte à gratter sur le portrait : on gratte (souris ou doigt) pour découvrir des créations, puis Bejka.
 (function () {
   const box = document.querySelector('.hero__portrait');
   if (!box || !window.HTMLCanvasElement) return;
@@ -1997,12 +1997,16 @@
   const note = document.querySelector('.scratch-note');
   const SLIDES = [
     { src: 'assets/realisations/enderjeta-portrait-v2.jpg', y: 0.22, fr: 'Enderjeta · Strasbourg 2026', en: 'Enderjeta · Strasbourg 2026' },
-    { src: 'assets/gratter/bejka.webp', fr: 'Voici Bejka, mon chat', en: 'Meet Bejka, my cat' },
-    { src: 'assets/gratter/cuisine.webp', fr: 'La cuisine', en: 'Cooking' },
-    { src: 'assets/gratter/muscu.webp', fr: 'La muscu', en: 'Weight training' },
-    { src: 'assets/gratter/boxe.webp', fr: 'La boxe', en: 'Boxing' },
-    { src: 'assets/gratter/voyage.webp', fr: 'Les voyages', en: 'Travelling' }
+    { src: 'assets/realisations/itgreen-bache-totem-rendu.webp', y: 0.62, fr: 'Bâche et totem · ITGREEN', en: 'Banner and totem · ITGREEN' },
+    // fit 'contain' : la création est montrée entière, jamais recadrée, sur un fond uni
+    { src: 'assets/realisations/abk-vue-ensemble.webp', fit: 'contain', fr: "Identité visuelle · ABK Rénov'", en: "Visual identity · ABK Rénov'" },
+    { src: 'assets/realisations/greenleo-flyer-1-recto.webp', fit: 'contain', fr: 'Flyer étudiants · GreenLeo', en: 'Student flyer · GreenLeo' },
+    { src: 'assets/realisations/pca9-flyer.webp', fit: 'contain', fr: 'Flyer boutique · PC@9', en: 'Shop flyer · PC@9' },
+    { src: 'assets/gratter/bejka.webp', fr: 'Et voici Bejka, mon chat', en: 'And this is Bejka, my cat' }
   ];
+  // Marges autour d'une création entière (en part du cadre) ; plus de place en bas pour la légende
+  const PAD = { x: 0.09, top: 0.08, bottom: 0.15 };
+  const FIT_BG = '#1F2F2B';
   const isEn = () => document.body.dataset.lang === 'en';
   const imgs = SLIDES.map(s => { const i = new Image(); i.decoding = 'async'; i.src = s.src; return i; });
   const ready = i => i.complete && i.naturalWidth ? Promise.resolve() : new Promise(r => { i.onload = i.onerror = r; });
@@ -2037,10 +2041,22 @@
     dots.querySelectorAll('i').forEach((d, i) => d.classList.toggle('is-on', i === cur));
   };
 
-  const drawCover = (img, focusY) => {
+  const drawCover = (img, focusY, fit) => {
     ctx.globalCompositeOperation = 'source-over';
     ctx.clearRect(0, 0, cv.width, cv.height);
     const iw = img.naturalWidth || 1, ih = img.naturalHeight || 1;
+    if (fit === 'contain') {
+      ctx.fillStyle = FIT_BG;
+      ctx.fillRect(0, 0, cv.width, cv.height);
+      const bx = cv.width * PAD.x, by = cv.height * PAD.top;
+      const bw = cv.width - 2 * bx, bh = cv.height - by - cv.height * PAD.bottom;
+      const s = Math.min(bw / iw, bh / ih);
+      const dw = iw * s, dh = ih * s;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, bx + (bw - dw) / 2, by + (bh - dh) / 2, dw, dh);
+      return;
+    }
     const s = Math.max(cv.width / iw, cv.height / ih);
     const dw = iw * s, dh = ih * s;
     const dx = (cv.width - dw) / 2;
@@ -2058,14 +2074,16 @@
     w = r.width; h = r.height;
     cv.width = Math.round(w * dpr);
     cv.height = Math.round(h * dpr);
-    drawCover(imgs[cur], SLIDES[cur].y);
+    drawCover(imgs[cur], SLIDES[cur].y, SLIDES[cur].fit);
     grid.fill(0); cleared = 0; started = 0;
   };
 
   const setUnder = () => {
     const n = (cur + 1) % SLIDES.length;
     under.src = SLIDES[n].src;
-    under.style.objectPosition = 'center ' + Math.round((SLIDES[n].y == null ? 0.5 : SLIDES[n].y) * 100) + '%';
+    const fit = SLIDES[n].fit === 'contain';
+    under.classList.toggle('is-fit', fit);
+    under.style.objectPosition = fit ? 'center' : 'center ' + Math.round((SLIDES[n].y == null ? 0.5 : SLIDES[n].y) * 100) + '%';
   };
 
   const finish = () => {

@@ -3995,6 +3995,13 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   transition: opacity 0.45s var(--ease-smooth);
 }
 .scratch__canvas.is-done { opacity: 0; }
+/* Création montrée entière sous la photo grattée (mêmes marges que dans le canvas) */
+.scratch__under.is-fit {
+  object-fit: contain;
+  /* en % de la largeur : le cadre fait 4/5, donc 8 % et 15 % de la hauteur = 10 % et 18,75 % */
+  padding: 10% 9% 18.75%;
+  background: #1F2F2B;
+}
 .hero__portrait.is-scratch .hero__frame { visibility: hidden; }
 .hero__portrait.is-scratch .pause__shield { display: none; }
 .hero__portrait.is-scratch::after { z-index: 3; }
