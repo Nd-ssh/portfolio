@@ -1937,7 +1937,7 @@
   box.append(under, cv, dots, skip);
   const ctx = cv.getContext('2d');
 
-  let cur = 0, done = false, busy = false, w = 0, h = 0, dpr = 1, started = 0, revealed = 0;
+  let cur = 0, done = false, busy = false, w = 0, h = 0, dpr = 1, started = 0, revealed = 0, lastPw = 0, lastPh = 0;
   const COLS = 16, ROWS = 20;
   let grid = new Uint8Array(COLS * ROWS), cleared = 0;
 
@@ -1974,12 +1974,17 @@
     ctx.filter = 'none';
   };
 
-  const paint = () => {
-    const r = box.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 3); // 3 : les téléphones récents affichent en 3x, sinon la photo est floue
-    w = r.width; h = r.height;
-    cv.width = Math.round(w * dpr);
-    cv.height = Math.round(h * dpr);
+  // Le canvas doit faire exactement la taille affichée, au pixel près : sinon le navigateur
+  // l'étire d'un ou deux pixels et la photo devient floue. On lit la taille de mise en page
+  // (offsetWidth, insensible aux animations d'apparition) et, quand le navigateur la donne,
+  // la taille réelle en pixels de l'écran (pw, ph).
+  const paint = (pw, ph) => {
+    w = cv.offsetWidth || box.offsetWidth; h = cv.offsetHeight || box.offsetHeight;
+    const ratio = window.devicePixelRatio || 1;
+    if (pw) { lastPw = pw; lastPh = ph; }
+    cv.width = pw || lastPw || Math.round(w * ratio);
+    cv.height = ph || lastPh || Math.round(h * ratio);
+    dpr = cv.width / w;
     drawCover(imgs[cur], SLIDES[cur].y, SLIDES[cur].fit);
     grid.fill(0); cleared = 0; started = 0;
   };
@@ -2082,10 +2087,24 @@
 
   new MutationObserver(label).observe(document.body, { attributes: true, attributeFilter: ['data-lang'] });
   let rz;
-  window.addEventListener('resize', () => {
+  // Redessine dès que la taille réelle du cadre change (fin d'animation, rotation, zoom…)
+  const onSize = entries => {
+    const e = entries[0];
+    let pw, ph;
+    if (e.devicePixelContentBoxSize) { pw = e.devicePixelContentBoxSize[0].inlineSize; ph = e.devicePixelContentBoxSize[0].blockSize; }
+    else { const r = window.devicePixelRatio || 1; pw = Math.round(cv.offsetWidth * r); ph = Math.round(cv.offsetHeight * r); }
+    if (!pw || !ph) return;
+    lastPw = pw; lastPh = ph;
+    if (pw === cv.width && ph === cv.height) return;
     clearTimeout(rz);
-    rz = setTimeout(() => { if (Math.abs(box.getBoundingClientRect().width - w) > 1) paint(); }, 150);
-  });
+    rz = setTimeout(() => { if (!busy && !done) paint(pw, ph); }, 120);
+  };
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(onSize);
+    try { ro.observe(cv, { box: 'device-pixel-content-box' }); } catch (err) { ro.observe(cv); }
+  } else {
+    window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => paint(), 150); });
+  }
 
   ready(imgs[0]).then(() => {
     paint();
