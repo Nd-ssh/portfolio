@@ -5436,3 +5436,8 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   .logos__missions li { break-inside: avoid; }
   .brands__hint { position: relative; margin-top: -176px; }
 }
+
+/* Fenêtres des marques : une mise en situation en tête de section, les créations une par une dessous */
+.bk-scene { margin: 6px 0 28px; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16); }
+.bk-scene img { display: block; width: 100%; height: auto; }
+@media (max-width: 720px) { .bk-scene { border-radius: 10px; margin-bottom: 20px; } }
