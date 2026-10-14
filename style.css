@@ -316,7 +316,9 @@ body { padding-top: 87px; }
   margin-right: 24px;
   vertical-align: middle;
 }
+.hero__open { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
 .hero__meta .dot {
+  display: inline-block; flex: none;
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--accent);
   position: relative;
