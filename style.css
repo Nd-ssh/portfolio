@@ -73,7 +73,7 @@ body {
 
 /* ============ CURSEUR PERSONNALISÉ ============ */
 @media (pointer: fine) {
-  * { cursor: none !important; }
+  .has-cursor * { cursor: none !important; }
 }
 .cursor,
 .cursor-dot {
@@ -5302,13 +5302,13 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 
 /* Pied de page : Ënder, dont les points du Ë regardent le visiteur */
 .foot__ender { display: grid; gap: 8px; justify-items: start; }
-.foot__ender-logo { width: 150px; height: auto; display: block; overflow: visible; }
-.foot__eye { transition: transform .25s ease-out; }
-.foot__eye path { transform-box: fill-box; transform-origin: center; transition: transform .08s ease; }
-.foot__ender-logo.is-blink .foot__eye path { transform: scaleY(0.12); }
+.foot__ender-logo { width: 190px; height: auto; display: block; overflow: visible; margin-top: 8px; }
+.foot__pupil { transition: transform .25s ease-out; }
+.foot__lid { transition: transform .08s ease; }
+.foot__ender-logo.is-blink .foot__lid { transform: scaleY(0.1); }
 .foot__ender-wink { font-family: var(--font-body); font-size: 12px; font-style: italic; color: var(--ink-mute); margin-left: 4px; }
 @media (max-width: 720px) {
-  .foot__ender-logo { width: 120px; }
+  .foot__ender-logo { width: 150px; }
 }
 .contact__card { align-content: start; }
 
