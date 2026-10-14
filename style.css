@@ -5300,13 +5300,15 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 }
 .contact > * { position: relative; z-index: 1; }
 
-/* Pied de page : Ënder + ëndërr = rêve */
-.foot__ender { display: grid; gap: 6px; justify-items: start; }
-.foot__ender-logo { width: 150px; height: auto; display: block; }
-.foot__ender-reve { width: 128px; height: auto; display: block; margin-left: 4px; }
+/* Pied de page : Ënder, dont les points du Ë regardent le visiteur */
+.foot__ender { display: grid; gap: 8px; justify-items: start; }
+.foot__ender-logo { width: 150px; height: auto; display: block; overflow: visible; }
+.foot__eye { transition: transform .25s ease-out; }
+.foot__eye path { transform-box: fill-box; transform-origin: center; transition: transform .08s ease; }
+.foot__ender-logo.is-blink .foot__eye path { transform: scaleY(0.12); }
+.foot__ender-wink { font-family: var(--font-body); font-size: 12px; font-style: italic; color: var(--ink-mute); margin-left: 4px; }
 @media (max-width: 720px) {
   .foot__ender-logo { width: 120px; }
-  .foot__ender-reve { width: 108px; }
 }
 .contact__card { align-content: start; }
 
