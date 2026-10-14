@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=74">
+<link rel="stylesheet" href="style.css?v=75">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle, avec enregistrement anonyme des visites (tout ce qui est tapé dans les champs est masqué). Pas de bandeau nécessaire. -->
 <script>
@@ -1070,7 +1070,7 @@
           <span class="bk-hero__logo"><img src="assets/logos/pca9.png" alt="" loading="lazy"></span>
           <p class="sheet__desc" data-en="Retail refurbishment, store in Alsace">Reconditionnement grand public, boutique en Alsace</p>
           <h3 class="sheet__title" id="sheet-title-pca9">PC@9</h3>
-          <p class="sheet__intro" data-en="The store flyer, a series of stickers, posts and stories for the in-store campaigns.">Le flyer de la boutique, une série de stickers, les posts et les stories des campagnes en magasin.</p>
+          <p class="sheet__intro" data-en="The store flyer, a series of stickers, posts and stories for the in-store campaigns, and a TikTok mini-vlog.">Le flyer de la boutique, une série de stickers, les posts et les stories des campagnes en magasin, et un mini-vlog TikTok.</p>
           <a class="sheet__site" href="https://www.pcaneuf.fr" target="_blank" rel="noopener"><span data-en="Visit">Voir</span> pcaneuf.fr <span aria-hidden="true">↗</span></a>
         </div>
         <ul class="bk-hero__facts">
@@ -1078,6 +1078,7 @@
           <li><a href="#bk-pca9-print" data-bk-jump><strong>2</strong><span data-en="stories">stories</span></a></li>
           <li><a href="#bk-pca9-stickers" data-bk-jump><strong>5</strong><span data-en="stickers">stickers</span></a></li>
           <li><a href="#bk-pca9-posts" data-bk-jump><strong>4</strong><span data-en="posts">posts</span></a></li>
+          <li><a href="#bk-pca9-video" data-bk-jump><strong>1</strong><span data-en="TikTok video">vidéo TikTok</span></a></li>
         </ul>
       </header>
       <section class="bk-sec" id="bk-pca9-print">
@@ -1157,6 +1158,19 @@
           <figure class="work bk-tile" style="--r:1.000">
             <div class="bk-mat"><img loading="lazy" src="assets/realisations/pca9-post-4.webp" alt="Post PC@9 : visuel 4" data-alt-en="PC@9 post : visual 4"></div>
             <figcaption data-en="Post 4">Post 4</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="bk-sec" id="bk-pca9-video">
+        <header class="bk-sec__head">
+          <span class="bk-sec__num">04</span>
+          <h4 class="bk-sec__title" data-en="TikTok video">Vidéo TikTok</h4>
+          <p class="bk-sec__sub" data-en="A mini-vlog «&nbsp;as a community manager, with tiny interns&nbsp;»: kittens playing among refurbished mini PCs. Filmed and edited by me, to make refurbished hardware likeable.">Un mini-vlog « en tant que community manager, avec des mini stagiaires » : des chatons qui jouent au milieu des mini-PC reconditionnés. Tourné et monté par moi, pour rendre le matériel reconditionné attachant.</p>
+        </header>
+        <div class="bk-phones bk-phones--video">
+          <figure class="bk-phone bk-phone--video">
+            <div class="bk-phone__body"><span class="bk-phone__notch" aria-hidden="true"></span><video class="bk-video" muted loop playsinline preload="none" poster="assets/videos/pca9-minivlog-poster.webp" aria-label="Mini-vlog TikTok PC@9 : des chatons au milieu des mini-PC reconditionnés" data-aria-en="PC@9 TikTok mini-vlog: kittens among refurbished mini PCs"><source src="assets/videos/pca9-minivlog.mp4" type="video/mp4"></video></div>
+            <figcaption data-en="Mini-vlog, 26 s">Mini-vlog, 26 s</figcaption>
           </figure>
         </div>
       </section>
@@ -2307,6 +2321,15 @@
   if (!matchMedia('(hover: hover)').matches) setInterval(function(){ var r=logo.getBoundingClientRect(); look(r.left+r.width*(Math.random()*1.4-0.2), r.top+r.height*(Math.random()*2-0.5)); },2600);
   function blink(){ logo.classList.add('is-blink'); setTimeout(function(){ logo.classList.remove('is-blink'); },160); setTimeout(blink,2500+Math.random()*4000); }
   setTimeout(blink,3000);
+})();
+</script>
+<script>
+// Vidéos des fiches : lecture en boucle seulement quand elles sont à l'écran, jamais si le visiteur limite les animations.
+(function(){
+  var vids=document.querySelectorAll('.bk-video'); if(!vids.length) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { vids.forEach(function(v){ v.controls=true; v.preload='metadata'; }); return; }
+  var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ var v=e.target; if(e.isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); } else v.pause(); }); },{threshold:0.4});
+  vids.forEach(function(v){ io.observe(v); });
 })();
 </script>
 </body>
