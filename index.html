@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=81">
+<link rel="stylesheet" href="style.css?v=82">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle, avec enregistrement anonyme des visites (tout ce qui est tapé dans les champs est masqué). Pas de bandeau nécessaire. -->
 <script>
@@ -115,7 +115,7 @@
       <span aria-hidden="true">/</span>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
     </div>
-    <button type="button" class="cv-eye nav__cv-eye" data-cv-preview aria-label="Voir mon CV sans le télécharger" data-aria-en="View my CV without downloading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+    <button type="button" class="nav__cv-view" data-cv-preview><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span data-en="View CV">Voir le CV</span></button>
     <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="nav__cv" download aria-label="Télécharger mon CV en français" data-aria-en="Download my CV in English">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span>CV</span>
     </a>
@@ -155,7 +155,7 @@
         <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="btn btn--ghost" download>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span data-en="Download my CV">Télécharger mon CV</span>
         </a>
-        <button type="button" class="cv-eye hero__cv-eye" data-cv-preview aria-label="Voir mon CV sans le télécharger" data-aria-en="View my CV without downloading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        <button type="button" class="btn btn--ghost" data-cv-preview><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span data-en="View my CV">Voir mon CV</span></button>
       </div>
     </div>
 
