@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=80">
+<link rel="stylesheet" href="style.css?v=81">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle, avec enregistrement anonyme des visites (tout ce qui est tapé dans les champs est masqué). Pas de bandeau nécessaire. -->
 <script>
@@ -106,6 +106,7 @@
     <a href="#ecrire" data-section="ecrire" data-en="Write">Écrire</a>
     <a href="#univers" data-section="univers" data-en="Path">Parcours</a>
     <a href="#contact" data-section="contact" data-en="Contact">Contact</a>
+    <button type="button" class="nav__links-eye" data-cv-preview><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span data-en="View my CV">Voir mon CV</span></button>
     <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="nav__links-cv" download><span data-en="Download my CV">Télécharger mon CV</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg></a>
   </nav>
   <div class="nav__right">
@@ -114,6 +115,7 @@
       <span aria-hidden="true">/</span>
       <button type="button" class="lang-btn" data-lang="en">EN</button>
     </div>
+    <button type="button" class="cv-eye nav__cv-eye" data-cv-preview aria-label="Voir mon CV sans le télécharger" data-aria-en="View my CV without downloading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
     <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="nav__cv" download aria-label="Télécharger mon CV en français" data-aria-en="Download my CV in English">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span>CV</span>
     </a>
@@ -153,6 +155,7 @@
         <a href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" class="btn btn--ghost" download>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span data-en="Download my CV">Télécharger mon CV</span>
         </a>
+        <button type="button" class="cv-eye hero__cv-eye" data-cv-preview aria-label="Voir mon CV sans le télécharger" data-aria-en="View my CV without downloading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
       </div>
     </div>
 
@@ -1782,6 +1785,14 @@
     </div>
   </div>
 </div>
+<!-- ============ APERÇU DU CV ============ -->
+<div class="cv-preview" id="cv-preview" aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Aperçu de mon CV" data-aria-en="My CV preview">
+  <div class="cv-preview__bar">
+    <a class="cv-preview__dl" href="cv-enderjeta-fr.pdf" data-href-en="cv-enderjeta-en.pdf" download><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg><span data-en="Download">Télécharger</span></a>
+    <button type="button" class="cv-preview__close" aria-label="Fermer (Échap)" data-aria-en="Close (Esc)">✕</button>
+  </div>
+  <div class="cv-preview__scroll"><img class="cv-preview__img" alt="CV d'Enderjeta Sahitaj" data-alt-en="Enderjeta Sahitaj's CV" width="1600" height="2263"></div>
+</div>
 <!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" aria-hidden="true" inert role="dialog" aria-label="Aperçu image" data-aria-en="Image preview">
   <button class="lightbox__close" type="button" aria-label="Fermer (Échap)" data-aria-en="Close (Esc)">✕</button>
@@ -2562,6 +2573,30 @@
   if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { vids.forEach(function(v){ v.controls=true; v.preload='metadata'; }); return; }
   var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ var v=e.target; if(e.isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); } else v.pause(); }); },{threshold:0.4});
   vids.forEach(function(v){ io.observe(v); });
+})();
+</script>
+<script>
+// Aperçu du CV sans téléchargement : l'image de la page, dans la langue du site.
+(function(){
+  var box=document.getElementById('cv-preview'); if(!box) return;
+  var img=box.querySelector('.cv-preview__img'), last=null;
+  function open(e){
+    last=e.currentTarget;
+    var burger=document.querySelector('.burger'); if (burger && burger.classList.contains('is-open')) burger.click();
+    img.src = document.body.dataset.lang==='en' ? 'assets/cv-apercu-en.webp' : 'assets/cv-apercu-fr.webp';
+    box.classList.add('is-open'); box.setAttribute('aria-hidden','false'); box.removeAttribute('inert');
+    document.documentElement.style.overflow='hidden';
+    box.querySelector('.cv-preview__close').focus({preventScroll:true});
+  }
+  function close(){
+    box.classList.remove('is-open'); box.setAttribute('aria-hidden','true'); box.setAttribute('inert','');
+    document.documentElement.style.overflow='';
+    if (last && last.focus) last.focus({preventScroll:true});
+  }
+  document.querySelectorAll('[data-cv-preview]').forEach(function(b){ b.addEventListener('click', open); });
+  box.querySelector('.cv-preview__close').addEventListener('click', close);
+  box.addEventListener('click', function(e){ if (e.target===box || e.target.classList.contains('cv-preview__scroll')) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape' && box.classList.contains('is-open')) close(); });
 })();
 </script>
 </body>
