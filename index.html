@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-en="Enderjeta Sahitaj, communication and marketing">Enderjeta Sahitaj, communication et marketing</title>
-<meta name="description" data-en="Enderjeta Sahitaj, Marketing and Digital Projects Manager at ITGREEN. Previous experience at ABK Rénov', ERHART & FILS, Le PréO Scène, Adestan & Kaetera, Figures Publiques." content="Enderjeta Sahitaj, responsable marketing et projets digitaux chez ITGREEN. Expériences chez ABK Rénov', ERHART & FILS, Le PréO Scène, Adestan & Kaetera, Figures Publiques.">
+<meta name="description" data-en="Six brands, one person at the helm. See how Enderjeta makes brands speak, from print to SEO… and why there are kittens among the computers." content="Six marques, une seule personne aux commandes. Découvrez comment Enderjeta fait parler les marques, du print au SEO… et pourquoi il y a des chatons au milieu des PC.">
 <link rel="canonical" href="https://enderjeta-portfolio.vercel.app/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://enderjeta-portfolio.vercel.app/">
 <meta property="og:title" content="Enderjeta Sahitaj, communication et marketing">
-<meta property="og:description" content="Portfolio d'Enderjeta Sahitaj, responsable marketing et projets digitaux chez ITGREEN. 3 marques pilotées en parallèle : ITGREEN, PC@9, GreenLeo.">
+<meta property="og:description" content="Six marques, une seule personne aux commandes. Découvrez comment Enderjeta fait parler les marques, du print au SEO… et pourquoi il y a des chatons au milieu des PC.">
 <meta property="og:image" content="https://enderjeta-portfolio.vercel.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Enderjeta Sahitaj, communication et marketing">
-<meta name="twitter:description" content="Portfolio d'Enderjeta Sahitaj, responsable marketing et projets digitaux chez ITGREEN. 3 marques pilotées en parallèle : ITGREEN, PC@9, GreenLeo.">
+<meta name="twitter:description" content="Six marques, une seule personne aux commandes. Découvrez comment Enderjeta fait parler les marques, du print au SEO… et pourquoi il y a des chatons au milieu des PC.">
 <meta name="twitter:image" content="https://enderjeta-portfolio.vercel.app/assets/og-image.png">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=79">
+<link rel="stylesheet" href="style.css?v=80">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle, avec enregistrement anonyme des visites (tout ce qui est tapé dans les champs est masqué). Pas de bandeau nécessaire. -->
 <script>
@@ -43,7 +43,17 @@
     var POSTHOG_HOST = 'https://eu.i.posthog.com';
     var GA_ID = 'G-84595LE73Q';
     var loaded = false;
+    // Lien « moi » : ouvrir le site une fois avec ?moi sur un appareil, et ses visites ne sont plus mesurées sur ce navigateur (?pas-moi pour annuler).
+    var estMoi = false;
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.has('moi')) localStorage.setItem('portfolio-moi', '1');
+      if (q.has('pas-moi')) localStorage.removeItem('portfolio-moi');
+      if (q.has('moi') || q.has('pas-moi')) { q.delete('moi'); q.delete('pas-moi'); history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); }
+      estMoi = localStorage.getItem('portfolio-moi') === '1';
+    } catch (err) {}
     function loadPostHog(){
+      if (estMoi) return;
       if (!POSTHOG_KEY || POSTHOG_KEY.indexOf('YOUR_') === 0) return;
       !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
       // LinkedIn remplace les liens marqués par l'adresse canonique : on reconnaît donc ses visiteurs à l'appli (LinkedInApp) ou à la page de provenance.
@@ -591,6 +601,7 @@
         <div class="timeline__tags">
           <span data-en="Multi-brand">Multi-marques</span><span>SEO</span><span>Data</span><span>Print</span><span>Web</span>
         </div>
+        <button type="button" class="timeline__works" data-brand="itgreen"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></button>
       </div>
     </li>
 
@@ -605,6 +616,7 @@
         <div class="timeline__tags">
           <span data-en="Branding">Identité</span><span>Web</span><span>Print</span>
         </div>
+        <button type="button" class="timeline__works" data-brand="abk"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></button>
       </div>
     </li>
 
@@ -619,6 +631,7 @@
         <div class="timeline__tags">
           <span data-en="Craft">Artisanat</span><span>Photo</span><span data-en="Social">Réseaux</span><span>Local</span><span data-en="Press">Presse</span>
         </div>
+        <button type="button" class="timeline__works" data-brand="erhart"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></button>
       </div>
     </li>
 
@@ -633,6 +646,7 @@
         <div class="timeline__tags">
           <span>Culture</span><span>SEO</span><span data-en="Video">Vidéo</span><span data-en="Social">Réseaux</span>
         </div>
+        <button type="button" class="timeline__works" data-brand="preo"><span data-en="See the work">Voir les créations</span> <span aria-hidden="true">→</span></button>
       </div>
     </li>
 
@@ -2196,7 +2210,7 @@
       document.documentElement.style.overflow = '';
       if (sheetFocus && sheetFocus.focus) sheetFocus.focus({ preventScroll: true });
     };
-    document.querySelectorAll('.maker[data-brand], .brand[data-brand], .logos__item[data-brand]').forEach(el => {
+    document.querySelectorAll('.maker[data-brand], .brand[data-brand], .logos__item[data-brand], .timeline__works[data-brand]').forEach(el => {
       el.addEventListener('click', (e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey) return;
         if (openSheet(el.dataset.brand, el)) e.preventDefault();
