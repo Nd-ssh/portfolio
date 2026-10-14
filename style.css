@@ -4401,7 +4401,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   border-radius: 10px;
 }
 .bk-phone figcaption { text-align: center; }
-.bk-phone--video { width: clamp(200px, 22vw, 280px); }
+.bk-phone--video { width: clamp(240px, 26vw, 340px); }
 .bk-phones--video { justify-content: center; }
 .sheet .bk .bk-phone__body video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 21px; background: #000; }
 
