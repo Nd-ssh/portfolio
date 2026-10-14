@@ -3826,7 +3826,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
   border: 1px solid var(--ink-line);
 }
 .result__thumb--top { object-position: top; }
-@media (min-width: 1100px) { .makers { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .makers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 640px) {
   .makers { grid-template-columns: 1fr 1fr; gap: 12px; }
   .maker { padding: 20px 16px 18px; }
@@ -5448,3 +5448,20 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 .bk-scene { margin: 6px 0 28px; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16); }
 .bk-scene img { display: block; width: 100%; height: auto; }
 @media (max-width: 720px) { .bk-scene { border-radius: 10px; margin-bottom: 20px; } }
+
+/* ---------- Un chantier : une grande vue et quatre détails du même projet ---------- */
+.bk-projs { display: grid; gap: 48px; }
+.bk-proj__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--ink-line); }
+.bk-proj__head h5 { margin: 0; font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 26px); font-weight: 600; color: var(--ink); }
+.bk-proj__head span { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.bk-proj__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; aspect-ratio: 2 / 1.05; }
+.bk-proj__grid > .work:first-child { grid-row: span 2; }
+.bk-proj__grid > .work { min-height: 0; }
+.bk-proj__grid .bk-mat { height: 100%; }
+.sheet .bk .bk-proj__grid .bk-mat img { object-fit: cover; }
+.sheet .bk .bk-proj__grid .work figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 720px) {
+  .bk-proj__grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; aspect-ratio: auto; }
+  .bk-proj__grid > .work:first-child { grid-row: auto; grid-column: span 2; aspect-ratio: 4 / 3; }
+  .bk-proj__grid > .work { aspect-ratio: 1; }
+}
