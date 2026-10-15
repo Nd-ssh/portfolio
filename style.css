@@ -5503,17 +5503,11 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 @media (max-width: 900px) { .nav__cv-view { display: none; } }
 .hero__actions button.btn { cursor: pointer; font: inherit; }
 
-/* ---------- Bejka passe la tête au-dessus du formulaire, comme si elle relisait le message ---------- */
-.contact-form { position: relative; margin-top: 190px; }
-.bejka-peek { position: absolute; right: 7%; bottom: 100%; width: 280px; pointer-events: none; }
-.bejka-peek__clip { overflow: hidden; line-height: 0; }
-.bejka-peek__clip img { display: block; width: 100%; height: auto; transform: translateY(70%); transition: transform 1s cubic-bezier(.2,.9,.25,1.15) .15s; }
-.bejka-peek.is-in .bejka-peek__clip img { transform: none; }
-.bejka-peek__note { position: absolute; right: 100%; top: 18%; margin-right: 14px; white-space: nowrap; font-family: 'Caveat', 'Segoe Print', cursive; font-weight: 600; font-size: 24px; line-height: 1; color: var(--rouge, #C41A1F); transform: rotate(-6deg); opacity: 0; transition: opacity .5s ease .9s; }
-.bejka-peek__note::after { content: " →"; }
-.bejka-peek.is-in .bejka-peek__note { opacity: 1; }
-@media (max-width: 720px) {
-  .contact-form { margin-top: 120px; }
-  .bejka-peek { width: 160px; right: 4%; }
-  .bejka-peek__note { font-size: 20px; top: 8%; }
-}
+/* ---------- Bejka, ronde, à côté du bouton Envoyer ---------- */
+.contact-form__send { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; margin-top: 8px; }
+.contact-form__send .contact-form__submit { margin-top: 0; }
+.bejka-send { display: inline-flex; align-items: center; gap: 12px; }
+.bejka-send img { width: 66px; height: 66px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; border: 2px solid var(--paper, #fff); box-shadow: 0 6px 16px -6px rgba(31,47,43,.45); flex: none; }
+.bejka-send__bubble { position: relative; padding: 9px 14px; border-radius: 16px; background: var(--paper, #fff); border: 1px solid var(--ink-line); font-family: 'Caveat', 'Segoe Print', cursive; font-weight: 600; font-size: 21px; line-height: 1; color: var(--ink); white-space: nowrap; }
+.bejka-send__bubble::before { content: ""; position: absolute; left: -7px; top: 50%; width: 12px; height: 12px; background: inherit; border-left: 1px solid var(--ink-line); border-bottom: 1px solid var(--ink-line); transform: translateY(-50%) rotate(45deg); }
+.bejka-send.is-sent .bejka-send__bubble { color: var(--accent); }

@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=83">
+<link rel="stylesheet" href="style.css?v=84">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle, avec enregistrement anonyme des visites (tout ce qui est tapé dans les champs est masqué). Pas de bandeau nécessaire. -->
 <script>
@@ -766,10 +766,6 @@
     </div>
 
     <form class="contact-form" action="https://formspree.io/f/mwvgnzvg" method="POST">
-      <div class="bejka-peek">
-        <span class="bejka-peek__note" data-en="Bejka is proofreading your message">Bejka relit votre message</span>
-        <div class="bejka-peek__clip"><img src="assets/bejka-peek.webp?v=3" width="512" height="458" loading="lazy" alt="Bejka, mon chat, qui passe la tête au-dessus du formulaire" data-alt-en="Bejka, my cat, peeking over the form"></div>
-      </div>
       <div class="contact-form__head">
         <span class="contact-form__eyebrow" data-en="Write to me">Écrivez-moi</span>
         <h3 class="contact-form__title" data-en='We can also <em class="italic">start here</em>.'>On peut aussi <em class="italic">commencer ici</em>.</h3>
@@ -801,10 +797,16 @@
           <textarea name="message" rows="5" required placeholder="Dites-moi le contexte, le calendrier et ce que vous cherchez." data-placeholder-en="Tell me about the context, timeline and what you're looking for."></textarea>
         </label>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="contact-form__honeypot">
-        <button type="submit" class="contact-form__submit">
-          <span data-en="Send message">Envoyer le message</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
+        <div class="contact-form__send">
+          <button type="submit" class="contact-form__submit">
+            <span data-en="Send message">Envoyer le message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <div class="bejka-send">
+            <img src="assets/bejka.webp" width="880" height="1100" loading="lazy" alt="Bejka, mon chat" data-alt-en="Bejka, my cat">
+            <span class="bejka-send__bubble" data-en="I&#39;ll pass it on to Enderjeta 🐾" data-sent-fr="C&#39;est transmis, merci ! 🐾" data-sent-en="Passed on, thank you! 🐾">Je transmets à Enderjeta 🐾</span>
+          </div>
+        </div>
         <p class="contact-form__status" role="status" aria-live="polite"></p>
       </div>
     </form>
@@ -2599,12 +2601,10 @@
 })();
 </script>
 <script>
-// Bejka sort la tête quand le formulaire arrive à l'écran
+// Quand le message est bien parti, Bejka confirme dans sa bulle
 (function(){
-  var p=document.querySelector('.bejka-peek'); if(!p) return;
-  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { p.classList.add('is-in'); return; }
-  var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ p.classList.add('is-in'); io.disconnect(); } }); },{threshold:0.6});
-  io.observe(p);
+  var st=document.querySelector('.contact-form__status'), b=document.querySelector('.bejka-send__bubble'); if(!st||!b) return;
+  new MutationObserver(function(){ if(st.getAttribute('data-kind')==='success'){ var en=document.body.dataset.lang==='en'; b.innerHTML=b.getAttribute(en?'data-sent-en':'data-sent-fr'); b.parentNode.classList.add('is-sent'); } }).observe(st,{attributes:true,attributeFilter:['data-kind']});
 })();
 </script>
 </body>
