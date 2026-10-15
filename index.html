@@ -34,7 +34,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/realisations/enderjeta-portrait-v2.jpg">
-<link rel="stylesheet" href="style.css?v=82">
+<link rel="stylesheet" href="style.css?v=83">
 
 <!-- Mesure d'audience : PostHog sans cookie (persistance en mémoire), chargé après idle, avec enregistrement anonyme des visites (tout ce qui est tapé dans les champs est masqué). Pas de bandeau nécessaire. -->
 <script>
@@ -759,11 +759,6 @@
       ensemble ?
     </h2>
 
-    <!-- Bejka, en polaroïd à côté du titre, avec une note manuscrite -->
-    <figure class="bejka">
-      <img src="assets/bejka.webp" width="880" height="1100" loading="lazy" alt="Bejka, le chat d'Enderjeta" data-alt-en="Bejka, Enderjeta's cat">
-      <figcaption data-en="Bejka, my cat.">Bejka, mon chat.</figcaption>
-    </figure>
 
     <div class="lookfor">
       <h3 class="lookfor__title" data-en="A coffee, a call, a message?">Un café, un appel, un message ?</h3>
@@ -771,6 +766,10 @@
     </div>
 
     <form class="contact-form" action="https://formspree.io/f/mwvgnzvg" method="POST">
+      <div class="bejka-peek">
+        <span class="bejka-peek__note" data-en="Bejka is proofreading your message">Bejka relit votre message</span>
+        <div class="bejka-peek__clip"><img src="assets/bejka-peek.webp" width="640" height="407" loading="lazy" alt="Bejka, mon chat, qui passe la tête au-dessus du formulaire" data-alt-en="Bejka, my cat, peeking over the form"></div>
+      </div>
       <div class="contact-form__head">
         <span class="contact-form__eyebrow" data-en="Write to me">Écrivez-moi</span>
         <h3 class="contact-form__title" data-en='We can also <em class="italic">start here</em>.'>On peut aussi <em class="italic">commencer ici</em>.</h3>
@@ -2597,6 +2596,15 @@
   box.querySelector('.cv-preview__close').addEventListener('click', close);
   box.addEventListener('click', function(e){ if (e.target===box || e.target.classList.contains('cv-preview__scroll')) close(); });
   document.addEventListener('keydown', function(e){ if (e.key==='Escape' && box.classList.contains('is-open')) close(); });
+})();
+</script>
+<script>
+// Bejka sort la tête quand le formulaire arrive à l'écran
+(function(){
+  var p=document.querySelector('.bejka-peek'); if(!p) return;
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { p.classList.add('is-in'); return; }
+  var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ p.classList.add('is-in'); io.disconnect(); } }); },{threshold:0.6});
+  io.observe(p);
 })();
 </script>
 </body>

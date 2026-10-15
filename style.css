@@ -5502,3 +5502,18 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 .nav__cv-view:hover, .nav__cv-view:focus-visible { background: var(--accent); border-color: var(--accent); color: var(--paper); transform: translateY(-1px); }
 @media (max-width: 900px) { .nav__cv-view { display: none; } }
 .hero__actions button.btn { cursor: pointer; font: inherit; }
+
+/* ---------- Bejka passe la tête au-dessus du formulaire, comme si elle relisait le message ---------- */
+.contact-form { position: relative; margin-top: 190px; }
+.bejka-peek { position: absolute; right: 7%; bottom: 100%; width: 280px; pointer-events: none; }
+.bejka-peek__clip { overflow: hidden; line-height: 0; }
+.bejka-peek__clip img { display: block; width: 100%; height: auto; transform: translateY(70%); transition: transform 1s cubic-bezier(.2,.9,.25,1.15) .15s; }
+.bejka-peek.is-in .bejka-peek__clip img { transform: none; }
+.bejka-peek__note { position: absolute; right: 100%; top: 18%; margin-right: 14px; white-space: nowrap; font-family: 'Caveat', 'Segoe Print', cursive; font-weight: 600; font-size: 24px; line-height: 1; color: var(--rouge, #C41A1F); transform: rotate(-6deg); opacity: 0; transition: opacity .5s ease .9s; }
+.bejka-peek__note::after { content: " →"; }
+.bejka-peek.is-in .bejka-peek__note { opacity: 1; }
+@media (max-width: 720px) {
+  .contact-form { margin-top: 120px; }
+  .bejka-peek { width: 160px; right: 4%; }
+  .bejka-peek__note { font-size: 20px; top: 8%; }
+}
