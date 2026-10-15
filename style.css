@@ -5507,7 +5507,7 @@ button.video-credits__soon:hover { color: var(--ink); padding-left: 8px; }
 .contact-form__send { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 18px 36px; margin-top: 8px; }
 .contact-form__send .contact-form__submit { margin-top: 0; }
 .bejka-send { display: inline-flex; align-items: center; gap: 18px; }
-.bejka-send img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; border: 4px solid var(--paper, #fff); box-shadow: 0 14px 30px -10px rgba(31,47,43,.5); flex: none; transform: rotate(-4deg); transition: transform .4s var(--ease-smooth); }
+.bejka-send img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; object-position: 50% 50%; border: 4px solid var(--paper, #fff); box-shadow: 0 14px 30px -10px rgba(31,47,43,.5); flex: none; transform: rotate(-4deg); transition: transform .4s var(--ease-smooth); }
 .bejka-send:hover img { transform: rotate(3deg) scale(1.05); }
 .bejka-send__bubble { position: relative; padding: 14px 20px; border-radius: 22px; background: var(--paper, #fff); border: 1px solid var(--ink-line); box-shadow: 0 8px 20px -12px rgba(31,47,43,.35); font-family: 'Caveat', 'Segoe Print', cursive; font-weight: 600; font-size: 28px; line-height: 1; color: var(--ink); white-space: nowrap; }
 .bejka-send__bubble::before { content: ""; position: absolute; left: -9px; top: 50%; width: 16px; height: 16px; background: inherit; border-left: 1px solid var(--ink-line); border-bottom: 1px solid var(--ink-line); transform: translateY(-50%) rotate(45deg); }
